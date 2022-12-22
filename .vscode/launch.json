@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch WebExtension",
+            "type": "firefox",
+            "request": "attach",
+            "addonPath": "${workspaceFolder}",
+            "tabFilter": "https://archiveofourown.org/*"
+        }
+    ],
+    "log": {
+        "fileName": "${workspaceFolder}/log.txt",
+        "consoleLevel": {
+            "PathConversion": "Debug",
+            "default": "Error"
+        }
+    }
+}

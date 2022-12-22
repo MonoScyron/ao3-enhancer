@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "AO3 Enhancer",
+    "version": "0.0.1-alpha",
+    "description": "Enhancment extension for AO3.",
+    "icons": {
+        "48": "icons/ao3_logo-48.png",
+        "96": "icons/ao3_logo-96.png"
+    },
+    "browser_action": {
+        "default_icon": "icons/ao3_logo-32.png",
+        "default_title": "AO3 Enhancer"
+    },
+    "background": {
+        "scripts": [
+            "/scripts/icon_listener.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://archiveofourown.org/*"
+            ],
+            "js": [
+                "/scripts/temp.js"
+            ]
+        }
+    ]
+}

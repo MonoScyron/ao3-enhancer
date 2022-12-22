@@ -1,0 +1,7 @@
+{
+    "typeAcquisition": {
+        "include": [
+            "firefox-webext-browser"
+        ]
+    }
+}

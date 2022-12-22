@@ -4,10 +4,10 @@
 // @version         0.4.5
 // @description     Enhancment script for AO3
 // @author          MonoScyron
-// @updateURL       https:// raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
-// @downloadURL     https:// raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
-// @match           https:// archiveofourown.org/*
-// @icon            https:// archiveofourown.org/images/ao3_logos/logo_42.png
+// @updateURL       https://raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
+// @downloadURL     https://raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
+// @match           https://archiveofourown.org/*
+// @icon            https://archiveofourown.org/images/ao3_logos/logo_42.png
 // ==/UserScript==
 
 // TODO: Convert into extension

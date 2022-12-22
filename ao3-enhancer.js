@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name            AO3 Enhancer
-// @namespace       https:// github.com/MonoScyron/ao3-enhancer
+// @namespace       https://github.com/MonoScyron/ao3-enhancer
 // @version         0.4.5
 // @description     Enhancment script for AO3
 // @author          MonoScyron

@@ -8,3 +8,6 @@ Enhancment script for AO3
 ## TODO Low Priority
 - Auto-exclude Tags/Fandoms
 - Auto-exclude Archive Warnings
+
+## TODO Lowest Priority
+- Reading list: Add specific chapters of fics to list (Bookmarking chapters)

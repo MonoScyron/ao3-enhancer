@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../icons/gear-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/gear-32.png">
+    <title>AO3 Enhancer Options</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <main>
+        <div>
+            <h1>AO3 Enhancer Options</h1>
+            <div class="option-section">
+                <label for="kudos-hit-ratio">Show Kudos to Hit ratio</label>
+                <label class="switch">
+                    <input name="kudos-hit-ratio" type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        <div>
+            <h3>Exclude Tags/Fandoms (WIP)</h3>
+            <div class="option-section">
+                <div class="option-section-input">
+                    <div>
+                        <input name="exclude-tag" type="text" placeholder="Enter a tag/fandom">
+                        <input name="exclude-tag-submit" type="submit" value="Exclude">
+                    </div>
+                    <div>
+                        <select name="reinclude-tag">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <input name="reinclude-tag-submit" type="submit" value="Remove tag from exclude list">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Exclude Archive Warnings (WIP)</h3>
+            <div class="option-section">
+                <div class="option-section-input">
+                    <ul class="input-list">
+                        <li>
+                            <input name="exclude-warning-chose-not-to-use" type="checkbox">
+                            <label for="exclude-warning-chose-not-to-use">Creator Chose Not To Use Archive
+                                Warnings</label>
+                        </li>
+                        <li>
+                            <input name="exclude-warning-violence" type="checkbox">
+                            <label for="exclude-warning-violence">Graphic Depictions Of Violence</label>
+                        </li>
+                        <li>
+                            <input name="exclude-warning-mcd" type="checkbox">
+                            <label for="exclude-warning-mcd">Major Character Death</label>
+                        </li>
+                        <li>
+                            <input name="exclude-warning-rape" type="checkbox">
+                            <label for="exclude-warning-rape">Rape/Non-Con</label>
+                        </li>
+                        <li>
+                            <input name="exclude-warning-underage" type="checkbox">
+                            <label for="exclude-warning-underage">Underage</label>
+                        </li>
+                        <li>
+                            <input name="exclude-warning-no-warnings" type="checkbox">
+                            <label for="exclude-warning-no-warnings">No Archive Warnings Apply</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Show Works Only from One Language</h3>
+            <div class="option-section">
+                <div class="option-section-input">
+                    <select name="language-select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="options.js"></script>
+</body>
+
+</html>

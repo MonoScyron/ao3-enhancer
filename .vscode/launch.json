@@ -1,19 +1,20 @@
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach",
+            "type": "firefox",
+            "request": "attach"
+        },
+        {
             "name": "Launch WebExtension",
             "type": "firefox",
-            "request": "attach",
-            "addonPath": "${workspaceFolder}",
-            "tabFilter": "https://archiveofourown.org/*"
+            "request": "launch",
+            "reAttach": true,
+            "addonPath": "${workspaceFolder}"
         }
-    ],
-    "log": {
-        "fileName": "${workspaceFolder}/log.txt",
-        "consoleLevel": {
-            "PathConversion": "Debug",
-            "default": "Error"
-        }
-    }
+    ]
 }

@@ -1,65 +1,9 @@
-// ==UserScript==
-// @name            AO3 Enhancer
-// @namespace       https://github.com/MonoScyron/ao3-enhancer
-// @version         0.4.51
-// @description     Enhancment script for AO3
-// @author          MonoScyron
-// @updateURL       https://raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
-// @downloadURL     https://raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
-// @match           https://archiveofourown.org/*
-// @icon            https://archiveofourown.org/images/ao3_logos/logo_42.png
-// ==/UserScript==
-
 // TODO: Convert into extension
-
-const enhancerStyles = `
-.toggle-button {
-    width: .1608em;
-    float: right;
-    margin: .3215em;
-    background-image: none;
-}
-
-.toggle-button:focus {
-    outline: none;
-}
-
-.toggle-off {
-    background-color: rgb(245, 171, 182);
-}
-.toggle-on {
-    background-color: rgb(166, 240, 166);
-}
-
-#settings-icon {
-    width: 1.286em;
-    vertical-align: middle;
-    padding-right: 5px;
-    outline: none;
-}
-
-li a.li-enhancer-a {
-    display: inline-block !important;
-}
-
-li a.li-enhancer-a:focus,
-li a.li-enhancer-a:hover,
-li a.li-enhancer-a:active {
-    outline: none !important;
-    background: none !important;
-}
-
-`;
 
 (function() {
     "use strict";
 
-    // Add enhancer styles to doc
-    var enhancerStyleSheet = document.createElement("style");
-    enhancerStyleSheet.innerText = enhancerStyles;
-    enhancerStyleSheet.id = "enhancer-style";
-    document.head.appendChild(enhancerStyleSheet);
-
+    // ? Separate auto TOS out as toggable option
     // Add TOS tokens
     if(window.localStorage.getItem("accepted_tos") == null) {
         window.localStorage.setItem("accepted_tos", "20180523");
@@ -70,30 +14,6 @@ li a.li-enhancer-a:active {
     if(localStorage.length <= 1) {
         localStorage.setItem("kudosRatio", 1);
     }
-
-    // * Settings dropdown button HTML
-    // Settings dropdown button
-    var settingsBtn = document.createElement("li");
-    settingsBtn.className = "dropdown";
-    settingsBtn.setAttribute("aria-haspopup", "true");
-
-    // Settings dropdown text
-    var settingsLink = document.createElement("a");
-    settingsLink.href = "/menu/fandoms";
-    settingsLink.className = "dropdown-toggle";
-    settingsLink.setAttribute("data-toggle", "dropdown");
-    settingsLink.setAttribute("data-target", "#");
-
-    var settingsLinkText = document.createElement("div");
-    settingsLinkText.innerHTML = "Enhancer";
-
-    settingsLink.appendChild(settingsLinkText);
-    settingsBtn.appendChild(settingsLink);
-
-    // Settings dropdown menu element
-    var dropdown = document.createElement("ul");
-    dropdown.className = "menu dropdown-menu";
-    dropdown.setAttribute("role", "menu");
 
     // * Dropdown kudos/hit ratio
     var liKudosRatio = document.createElement("li");
@@ -128,6 +48,7 @@ li a.li-enhancer-a:active {
     }
 
     // Create list of ratio elements
+    // TODO: Add classes for visibility
     for(var i = 0; i < workList.length; i++) {
         var work = workList[i];
 
@@ -174,6 +95,7 @@ li a.li-enhancer-a:active {
     }
 
     // Set button onclick to add/remove ratio
+    // TODO: Change to rely on CSS visibility instead of adding/removing elements directly
     liKudosRatioBtn.onclick = function() {
         if(localStorage.getItem("kudosRatio") != 0) {
             for(var i = 0; i < statsList.length; i++) {
@@ -197,41 +119,4 @@ li a.li-enhancer-a:active {
     };
 
     liKudosRatio.append(liKudosRatio_a, liKudosRatioBtn);
-
-    // TODO: Convert this into an auto exclude thing
-    // Dropdown show visited works
-    var liShowVisited = document.createElement("li");
-    var liShowVisited_a = document.createElement("a");
-    liShowVisited_a.innerHTML = "Show Visited";
-    liShowVisited_a.className = "li-enhancer-a";
-    var liShowVisitedBtn = document.createElement("button");
-    setDropdownButtonClasses(liShowVisitedBtn, "showVisited");
-
-    liShowVisited.append(liShowVisited_a, liShowVisitedBtn);
-
-
-    // * Append settings dropdown to doc after everything is done
-    // Append all settings to dropdown
-    dropdown.append(
-        liKudosRatio
-    );
-    settingsBtn.appendChild(dropdown);
-
-    var parent = document
-        .getElementsByClassName("primary navigation actions")
-        .item(0);
-    parent.insertBefore(settingsBtn, parent.lastChild);
-
-    /**
-     * Given a button, gets the value of the key in local storage and sets the button's inital classes.
-     * @param {HTMLButtonElement} button Button to set classes of
-     * @param {string} key Key of the button
-     */
-    function setDropdownButtonClasses(button, key) {
-        if(localStorage.getItem(key) != 0) {
-            button.className = "toggle-button toggle-on";
-        } else {
-            button.className = "toggle-button toggle-off";
-        }
-    }
 })();

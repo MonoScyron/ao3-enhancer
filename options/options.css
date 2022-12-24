@@ -53,7 +53,7 @@ input:checked+.slider:before {
     transform: translateX(23px);
 }
 
-.option-section {
+.option-div {
     position: relative;
     left: 25px;
 }
@@ -63,4 +63,29 @@ ul.input-list {
 
     position: relative;
     left: -25px;
+}
+
+table.align-center-right {
+    position: relative;
+    border-spacing: 10px;
+}
+
+table.align-center-right tr {
+    text-align: center;
+}
+
+table.align-center-right tr:nth-child(1) {
+    text-align: left;
+}
+
+.input-standard-width {
+    width: 225px;
+}
+
+.hide,
+.hide * {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    visibility: collapse;
 }

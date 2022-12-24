@@ -12,78 +12,104 @@
 
 <body>
     <main>
-        <div>
-            <h1>AO3 Enhancer Options</h1>
-            <div class="option-section">
-                <label for="kudos-hit-ratio">Show Kudos to Hit ratio</label>
-                <label class="switch">
-                    <input name="kudos-hit-ratio" type="checkbox">
-                    <span class="slider"></span>
-                </label>
+        <h1>AO3 Enhancer Options</h1>
+        <div class="section-div">
+            <h2>Show Some Stuff</h2>
+            <div class="option-div">
+                <table class="align-center-right">
+                    <tr>
+                        <td><label for="kudos-hit-ratio">Show Kudos to Hit ratio</label></td>
+                        <td>
+                            <label class="switch">
+                                <input name="kudos-hit-ratio" type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-        <div>
-            <h3>Exclude Tags/Fandoms (WIP)</h3>
-            <div class="option-section">
-                <div class="option-section-input">
-                    <div>
-                        <input name="exclude-tag" type="text" placeholder="Enter a tag/fandom">
-                        <input name="exclude-tag-submit" type="submit" value="Exclude">
-                    </div>
-                    <div>
-                        <select name="reinclude-tag">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
-                        <input name="reinclude-tag-submit" type="submit" value="Remove tag from exclude list">
+        <div class="section-div">
+            <h2>Exclude Some Stuff</h2>
+            <div>
+                <h3>Exclude Tags/Fandoms (WIP)</h3>
+                <div class="option-div">
+                    <table class="include-exclude align-center-right">
+                        <tr>
+                            <td>
+                                <input class="input-standard-width" name="exclude-tag" type="text"
+                                    placeholder="Enter a tag/fandom">
+                            </td>
+                            <td>
+                                <input name="exclude-tag-submit" type="submit" value="Exclude">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="input-standard-width" name="reinclude-tag">
+                                </select>
+                            </td>
+                            <td>
+                                <input name="reinclude-tag-submit" type="submit" value="Remove tag from exclude list">
+                            <td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>Exclude Archive Warnings (WIP)</h3>
+                <div class="option-div">
+                    <div class="option-div-input">
+                        <ul id="exclude-input-list" class="input-list">
+                            <li>
+                                <input name="exclude-warning-chose-not-to-use" type="checkbox">
+                                <label for="exclude-warning-chose-not-to-use">Creator Chose Not To Use Archive
+                                    Warnings</label>
+                            </li>
+                            <li>
+                                <input name="exclude-warning-violence" type="checkbox">
+                                <label for="exclude-warning-violence">Graphic Depictions Of Violence</label>
+                            </li>
+                            <li>
+                                <input name="exclude-warning-mcd" type="checkbox">
+                                <label for="exclude-warning-mcd">Major Character Death</label>
+                            </li>
+                            <li>
+                                <input name="exclude-warning-rape" type="checkbox">
+                                <label for="exclude-warning-rape">Rape/Non-Con</label>
+                            </li>
+                            <li>
+                                <input name="exclude-warning-underage" type="checkbox">
+                                <label for="exclude-warning-underage">Underage</label>
+                            </li>
+                            <li>
+                                <input name="exclude-warning-no-warnings" type="checkbox">
+                                <label for="exclude-warning-no-warnings">No Archive Warnings Apply</label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div>
-            <h3>Exclude Archive Warnings (WIP)</h3>
-            <div class="option-section">
-                <div class="option-section-input">
-                    <ul class="input-list">
-                        <li>
-                            <input name="exclude-warning-chose-not-to-use" type="checkbox">
-                            <label for="exclude-warning-chose-not-to-use">Creator Chose Not To Use Archive
-                                Warnings</label>
-                        </li>
-                        <li>
-                            <input name="exclude-warning-violence" type="checkbox">
-                            <label for="exclude-warning-violence">Graphic Depictions Of Violence</label>
-                        </li>
-                        <li>
-                            <input name="exclude-warning-mcd" type="checkbox">
-                            <label for="exclude-warning-mcd">Major Character Death</label>
-                        </li>
-                        <li>
-                            <input name="exclude-warning-rape" type="checkbox">
-                            <label for="exclude-warning-rape">Rape/Non-Con</label>
-                        </li>
-                        <li>
-                            <input name="exclude-warning-underage" type="checkbox">
-                            <label for="exclude-warning-underage">Underage</label>
-                        </li>
-                        <li>
-                            <input name="exclude-warning-no-warnings" type="checkbox">
-                            <label for="exclude-warning-no-warnings">No Archive Warnings Apply</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h3>Show Works Only from One Language</h3>
-            <div class="option-section">
-                <div class="option-section-input">
-                    <select name="language-select">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
+                <h3>Show Works Only from One Language</h3>
+                <div class="option-div">
+                    <table class="align-center-right">
+                        <tr>
+                            <td>
+                                <label for="language-enable">Language filtering</label>
+                            </td>
+                            <td>
+                                <label class="switch">
+                                    <input name="language-enable" type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="option-div-input">
+                                    <select class="input-standard-width" name="language">
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>

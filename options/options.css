@@ -53,9 +53,50 @@ input:checked+.slider:before {
     transform: translateX(23px);
 }
 
+.switch,
+select,
+input[type="submit"] {
+    border-width: 2.5px;
+    border: black;
+    border-style: outset;
+}
+
+input[type="submit"]:active {
+    border-style: inset;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+main {
+    display: grid;
+    row-gap: 15px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .option-div {
     position: relative;
-    left: 25px;
+    width: fit-content;
+}
+
+.section-div,
+h1 {
+    border-radius: 10px;
+    background-color: lightgray;
+    padding: 10px 15px;
+}
+
+@media screen and (min-width: 1000px) {
+    main {
+        margin-left: 10px;
+    }
 }
 
 ul.input-list {
@@ -79,7 +120,7 @@ table.align-center-right tr:nth-child(1) {
 }
 
 .input-standard-width {
-    width: 225px;
+    width: 200px;
 }
 
 .hide,

@@ -9,7 +9,7 @@
         "96": "icons/logo-96.png"
     },
     "permissions": [
-        "activeTab",
+        "tabs",
         "storage"
     ],
     "browser_action": {
@@ -22,7 +22,7 @@
     },
     "background": {
         "scripts": [
-            "/content_scripts/temp.js"
+            "/background/background.js"
         ]
     },
     "content_scripts": [
@@ -30,7 +30,9 @@
             "matches": [
                 "https://archiveofourown.org/*"
             ],
-            "js": []
+            "js": [
+                "/content_scripts/onload.js"
+            ]
         }
     ]
 }

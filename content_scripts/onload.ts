@@ -1,5 +1,5 @@
-import { RATING, redirectURLsRegex, WARNING } from "./constants";
-import { ORIGIN, redirect } from './redirect';
+import { ORIGIN, RATING, redirectURLsRegex, TYPE, WARNING, CATEGORY } from '../export/constants';
+import { parseURL, getRedirectURL } from "../export/redirect";
 
 console.log(`AO3Extension: Extension loaded!`);
 
@@ -12,20 +12,17 @@ redirectURLsRegex.forEach((url) => {
 
         // TODO: REMOVE THIS
         let rating = [RATING.MATURE];
+        let warning = [WARNING.MCD];
+        let category = [CATEGORY.FM];
+        let tag = ["Angst", "Smut"];
+        let crossover = true;
+        let complete = false;
+        let wordCount = [1000, 100000];
+        let date = ["2021-10-2", "2022-12-23"];
+        let query = "They all need hugs";
         let language = "en";
 
-        redirect(document, ORIGIN[parsed[0]], type, parsed[2], rating, null, null, null, null, null, null, null, null, language);
+        let temp = getRedirectURL(ORIGIN[parsed[0]], TYPE[type], parsed[2], rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
+        console.log(`AO3Extension: ${temp}`);
     }
 });
-
-/**
- * Parses an AO3 url and returns its origin, search type, and id.
- * @param {string} baseURL URL to be parsed
- * @returns origin='works', 'bookmarks', or 'collections'
- * @returns searchType='work' or 'bookmark'
- * @returns id=id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections')
- */
-function parseURL(baseURL: string): [origin: string, searchType: string, id: string] {
-    let split = baseURL.split('/');
-    return [split[3], split[5], split[4]];
-}

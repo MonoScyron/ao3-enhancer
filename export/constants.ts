@@ -23,6 +23,23 @@ export const hideURLsRegex = [
 ]
 
 /**
+ * Origin of page to redirect
+ */
+export enum ORIGIN {
+    COLLECTIONS = 'collections',
+    TAGS = 'tags',
+    USERS = 'users'
+}
+
+/**
+ * Type of post being searched for
+ */
+export enum TYPE {
+    WORKS = 'work',
+    BOOKMARKS = 'bookmarks'
+}
+
+/**
  * Ratings to rating ids
  */
 export enum RATING {

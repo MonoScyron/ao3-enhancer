@@ -8,7 +8,7 @@ export function addKudosToHitRatios(document: Document) {
     var ratio_ddList = [];
 
     // Get list of works
-    let workList = undefined;
+    let workList: HTMLCollectionOf<Element>;
     var type = document.querySelector('.group').classList[0];
     if(document.URL.split('/')[3] == "works") {
         workList = document.getElementsByClassName("work meta group"); // meta
@@ -21,7 +21,7 @@ export function addKudosToHitRatios(document: Document) {
     }
 
     // Get list of work stats
-    let statsList = undefined;
+    let statsList: NodeListOf<Element>;
     if(document.URL.split('/')[3] == "works") {
         statsList = document.querySelectorAll("dl.stats");
     }
@@ -39,9 +39,9 @@ export function addKudosToHitRatios(document: Document) {
             ratio_dt.className = "kudos-to-hit-ratio";
             ratio_dt.innerHTML = "Ratio:";
 
-            var kudos;
+            var kudos: number;
             if(work.querySelector("dd.kudos").firstChild.nodeName == "A") {
-                kudos = parseInt(work.querySelector("dd.kudos").firstChild.innerHTML);
+                kudos = parseInt(work.querySelector("dd.kudos").firstElementChild.innerHTML);
             }
             else {
                 kudos = parseInt(work.querySelector("dd.kudos").innerHTML);

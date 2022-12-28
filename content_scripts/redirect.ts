@@ -1,22 +1,23 @@
-import { RATING, WARNING, CATEGORY } from './constants';
-
-/**
- * Origin of page to redirect
- */
-export enum ORIGIN {
-    COLLECTIONS = 'collections',
-    BOOKMARKS = 'bookmarks',
-    WORKS = 'works'
-}
+import { RATING, WARNING, CATEGORY, ORIGIN } from '../background/constants';
 
 /**
  * Returns redirect URL to contain excluded tags, overriding the previous URL's history
- * @param {Document} doc Document of page to redirect
  * @param {ORIGIN} origin Origin of document
  * @param {string} type Type of works being shown ('work' or 'bookmark')
- * @param {string} id Id of the url to redirect
+ * @param {string} id ID of the url to redirect
+ * @param excludeRatings Ratings to exclude
+ * @param excludeWarnings Warnings to exclude
+ * @param excludeCategories Categories to exclude
+ * @param excludeTags Tags to exclude
+ * @param crossoverBool Include, exclude, or exclusively show crossover works
+ * @param completeBool Include, exclude, or exclusively show complete works
+ * @param wordCountNums Limit works to given word count interval
+ * @param dateArr Limit works to given date interval
+ * @param query Query within results
+ * @param languageId ID of language to limit works to
+ * @returns URL to redirect to
  */
-export function redirect(doc: Document, origin: ORIGIN, type: string, id: string, excludeRatings: RATING[] = null, excludeWarnings: WARNING[] = null, excludeCategories: CATEGORY[] = null, excludeTags: string[] = null, crossoverBool: boolean = null, completeBool: boolean = null, wordCountNums: number[] = null, dateArr: string[] = null, query: string = null, languageId: string = null): string {
+export function getRedirectURL(origin: ORIGIN, type: string, id: string, excludeRatings: RATING[] = null, excludeWarnings: WARNING[] = null, excludeCategories: CATEGORY[] = null, excludeTags: string[] = null, crossoverBool: boolean = null, completeBool: boolean = null, wordCountNums: number[] = null, dateArr: string[] = null, query: string = null, languageId: string = null): string {
     // * Exclude
     let ratings = "";
     excludeRatings?.forEach((r) =>
@@ -59,20 +60,19 @@ export function redirect(doc: Document, origin: ORIGIN, type: string, id: string
     let searchWithinResults = query == null ? "" : `${type}_search[query]=${query}&`;
     let language = languageId == null ? "" : `${type}_search[language_id]=${languageId}&`;
 
+    let redirect = `https://archiveofourown.org/${origin.valueOf()}?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&`;
+
     // Redirect to a collection
-    // TODO: Finish this
     if(origin == ORIGIN.COLLECTIONS) {
+        redirect += `collection_id=${id}`;
     }
-    // Redirect to a bookmark
-    // TODO: Finish this
-    else if(origin == ORIGIN.BOOKMARKS) {
+    // Redirect to a user
+    else if(origin == ORIGIN.USERS) {
+        redirect += `user_id=${id}`;
     }
     // Redirect to works
-    // TODO: Finish this
     else {
-
+        redirect += `tag_id=${id}`;
     }
-
-    // TODO: Construct final redirect url
-    return `https://archiveofourown.org/${origin.valueOf()}?`;
+    return redirect;
 }

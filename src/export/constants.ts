@@ -1,7 +1,7 @@
 /**
  * Redirect these URLs to exclude works with excluded stuff
  */
-export const redirectURLsRegex = [
+exports.redirectURLsRegex = [
     `https:\/\/archiveofourown\.org\/tags\/*`, // Works/bookmarks in a tag
 
     `/https:\/\/archiveofourown\.org\/users\/.*\/works/`, // User's works
@@ -14,7 +14,7 @@ export const redirectURLsRegex = [
 /**
  * Cannot redirect these URLs, need to hide works with excluded stuff
  */
-export const hideURLsRegex = [
+exports.hideURLsRegex = [
     `/https:\/\/archiveofourown\.org\/users\//`, // User's dashboard
     `/https:\/\/archiveofourown\.org\/users\/.*\/series/`, // User's series
     `/https:\/\/archiveofourown\.org\/users\/.*\/gifts/`, // User's gifts
@@ -25,52 +25,52 @@ export const hideURLsRegex = [
 /**
  * Origin of page to redirect
  */
-export enum ORIGIN {
-    COLLECTIONS = 'collections',
-    TAGS = 'tags',
-    USERS = 'users'
+exports.ORIGIN = {
+    COLLECTIONS: 'collections',
+    TAGS: 'tags',
+    USERS: 'users'
 }
 
 /**
  * Type of post being searched for
  */
-export enum TYPE {
-    WORKS = 'work',
-    BOOKMARKS = 'bookmarks'
+exports.TYPE = {
+    WORKS: 'work',
+    BOOKMARKS: 'bookmarks'
 }
 
 /**
  * Ratings to rating ids
  */
-export enum RATING {
-    NOT_RATED = 9,
-    GEN = 10,
-    TEEN = 11,
-    MATURE = 12,
-    EXPLICIT = 13
+exports.RATING = {
+    NOT_RATED: 9,
+    GEN: 10,
+    TEEN: 11,
+    MATURE: 12,
+    EXPLICIT: 13
 }
 
 /**
  * Warnings to warning ids
  */
-export enum WARNING {
-    CHOSE_NOT_TO_USE = 14,
-    NO_WARNINGS_APPLY = 16,
-    MCD = 18,
-    NON_CON = 19,
-    UNDERAGE = 20
+exports.WARNING = {
+    CHOSE_NOT_TO_USE: 14,
+    NO_WARNINGS_APPLY: 16,
+    MCD: 18,
+    NON_CON: 19,
+    UNDERAGE: 20
 }
 
 /**
  * Category to category ids
  */
-export enum CATEGORY {
-    GEN = 21,
-    FM = 22,
-    MM = 23,
-    OTHER = 24,
-    FF = 116,
-    MULTI = 2246
+exports.CATEGORY = {
+    GEN: 21,
+    FM: 22,
+    MM: 23,
+    OTHER: 24,
+    FF: 116,
+    MULTI: 2246
 }
 
 // TODO: REMOVE THESE CONSTANTS

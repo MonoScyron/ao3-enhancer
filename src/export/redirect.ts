@@ -1,4 +1,4 @@
-import { RATING, WARNING, CATEGORY, ORIGIN, TYPE } from './constants';
+const _constants = require("./constants");
 
 /**
  * Returns redirect URL to contain excluded tags, overriding the previous URL's history
@@ -17,7 +17,7 @@ import { RATING, WARNING, CATEGORY, ORIGIN, TYPE } from './constants';
  * @param languageId ID of language to limit works to
  * @returns URL to redirect to
  */
-export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRatings: RATING[] = null, excludeWarnings: WARNING[] = null, excludeCategories: CATEGORY[] = null, excludeTags: string[] = null, crossoverBool: boolean = null, completeBool: boolean = null, wordCountNums: number[] = null, dateArr: string[] = null, query: string = null, languageId: string = null): string {
+exports.getRedirectURL = function getRedirectURL(origin: typeof _constants.ORIGIN, type: typeof _constants.TYPE, id: string, excludeRatings: typeof _constants.RATING[] = null, excludeWarnings: typeof _constants.WARNING[] = null, excludeCategories: typeof _constants.CATEGORY[] = null, excludeTags: string[] = null, crossoverBool: boolean = null, completeBool: boolean = null, wordCountNums: number[] = null, dateArr: string[] = null, query: string = null, languageId: string = null): string {
     let typeVal = type.valueOf();
 
     // * Exclude
@@ -71,11 +71,11 @@ export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRa
     let redirect = `https://archiveofourown.org/${typeVal}s?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&`;
 
     // Redirect to a collection
-    if(origin == ORIGIN.COLLECTIONS) {
+    if(origin == _constants.ORIGIN.COLLECTIONS) {
         redirect += `collection_id=${id}`;
     }
     // Redirect to a user
-    else if(origin == ORIGIN.USERS) {
+    else if(origin == _constants.ORIGIN.USERS) {
         redirect += `user_id=${id}`;
     }
     // Redirect to works
@@ -92,7 +92,7 @@ export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRa
  * @returns searchType='work' or 'bookmark'
  * @returns id=id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections')
  */
-export function parseURL(baseURL: string): [origin: string, searchType: string, id: string] {
+exports.parseURL = function parseURL(baseURL: string): [origin: string, searchType: string, id: string] {
     let split = baseURL.split('/');
     return [split[3], split[5], split[4]];
 }

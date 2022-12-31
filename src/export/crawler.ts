@@ -4,12 +4,12 @@
  */
 export function addKudosToHitRatios(document: Document) {
     // Create ratio elements for all works on page
-    var ratio_dtList = [];
-    var ratio_ddList = [];
+    let ratio_dtList = [];
+    let ratio_ddList = [];
 
     // Get list of works
     let workList: HTMLCollectionOf<Element>;
-    var type = document.querySelector('.group').classList[0];
+    let type = document.querySelector('.group')?.classList[0];
     if(document.URL.split('/')[3] == "works") {
         workList = document.getElementsByClassName("work meta group"); // meta
     }
@@ -30,25 +30,29 @@ export function addKudosToHitRatios(document: Document) {
     }
 
     // Create list of ratio elements
-    for(var i = 0; i < workList.length; i++) {
-        var work = workList[i];
+    for(let i = 0; i < workList.length; i++) {
+        let work = workList[i];
 
         // Get kudos & hits from work
         if(work.querySelector("dd.kudos") != null && work.querySelector("dd.hits") != null) {
-            var ratio_dt = document.createElement("dt");
+            let ratio_dt = document.createElement("dt");
             ratio_dt.className = "kudos-to-hit-ratio";
             ratio_dt.innerHTML = "Ratio:";
 
-            var kudos: number;
+            let kudos: number;
+            // @ts-ignore
             if(work.querySelector("dd.kudos").firstChild.nodeName == "A") {
+                // @ts-ignore
                 kudos = parseInt(work.querySelector("dd.kudos").firstElementChild.innerHTML);
             }
             else {
+                // @ts-ignore
                 kudos = parseInt(work.querySelector("dd.kudos").innerHTML);
             }
-            var hits = parseInt(work.querySelector("dd.hits").innerHTML);
+            // @ts-ignore
+            let hits = parseInt(work.querySelector("dd.hits").innerHTML);
 
-            var ratio_dd = document.createElement("dd");
+            let ratio_dd = document.createElement("dd");
             ratio_dd.className = "ratio";
             if(hits > 0) {
                 ratio_dd.innerHTML = Math.round((kudos / hits) * 1000) / 10 + "%";
@@ -69,6 +73,7 @@ export function addKudosToHitRatios(document: Document) {
     // Add list of ratio elements to works
     for(var i = 0; i < statsList.length; i++) {
         if(ratio_dtList[i] != null && ratio_ddList[i] != null) {
+            // @ts-ignore
             statsList[i].append(ratio_dtList[i], ratio_ddList[i]);
         }
     }

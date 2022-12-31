@@ -18,11 +18,11 @@ Enhancment script for AO3
     - Completion status
     - Word count
     - Date updated
-
-### TODO Lowest Priority
 - Auto-exclude other stuff not included up there
     - Ratings
     - Categories
+
+### TODO Lowest Priority
 - Reading list: Add specific chapters of fics to list (Bookmarking chapters)
 - Auto-include stuff (Prob not happening)
     - Ratings

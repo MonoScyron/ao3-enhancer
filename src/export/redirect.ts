@@ -1,4 +1,5 @@
-const _constants = require("./constants");
+import { redirectURLsRegex, ORIGIN, TYPE, RATING, WARNING, CATEGORY } from "./constants";
+export { redirectURLsRegex, ORIGIN, TYPE, RATING, WARNING, CATEGORY };
 
 /**
  * Returns redirect URL to contain excluded tags, overriding the previous URL's history
@@ -17,10 +18,10 @@ const _constants = require("./constants");
  * @param languageId ID of language to limit works to
  * @returns URL to redirect to
  */
-exports.getRedirectURL = function getRedirectURL(origin: typeof _constants.ORIGIN, type: typeof _constants.TYPE, id: string, excludeRatings: typeof _constants.RATING[] = null, excludeWarnings: typeof _constants.WARNING[] = null, excludeCategories: typeof _constants.CATEGORY[] = null, excludeTags: string[] = null, crossoverBool: boolean = null, completeBool: boolean = null, wordCountNums: number[] = null, dateArr: string[] = null, query: string = null, languageId: string = null): string {
+export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRatings: RATING[] = [], excludeWarnings: WARNING[] = [], excludeCategories: CATEGORY[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string {
     let typeVal = type.valueOf();
 
-    // * Exclude
+    // Construct exclude url queries
     let ratings = "";
     excludeRatings?.forEach((r) =>
         ratings += `exclude_${typeVal}_search[rating_ids][]=${r.valueOf()}&`
@@ -44,22 +45,22 @@ exports.getRedirectURL = function getRedirectURL(origin: typeof _constants.ORIGI
         tags = "";
 
     let crossover = "";
-    if(crossoverBool != null) {
-        crossover = `${typeVal}_search[crossover]=${crossoverBool ? "T" : "F"}&`;
+    if(crossoverBool != "") {
+        crossover = `${typeVal}_search[crossover]=${crossoverBool}&`;
     }
     let complete = "";
-    if(completeBool != null) {
-        complete = `${typeVal}_search[complete]=${completeBool ? "T" : "F"}&`;
+    if(completeBool != "") {
+        complete = `${typeVal}_search[complete]=${completeBool}&`;
     }
     let wordCount = "";
-    if(wordCountNums != null) {
+    if(wordCountNums.length > 0) {
         if(wordCountNums[0] != null)
             wordCount += `${typeVal}_search[words_from]=${wordCountNums[0]}&`;
         if(wordCountNums[1] != null)
             wordCount += `${typeVal}_search[words_to]=${wordCountNums[1]}&`;
     }
     let date = "";
-    if(dateArr != null) {
+    if(dateArr.length > 0) {
         if(dateArr[0] != null)
             date += `${typeVal}_search[date_from]=${dateArr[0]}&`;
         if(dateArr[1] != null)
@@ -68,14 +69,15 @@ exports.getRedirectURL = function getRedirectURL(origin: typeof _constants.ORIGI
     let searchWithinResults = query == null ? "" : `${typeVal}_search[query]=${query}&`;
     let language = languageId == null ? "" : `${typeVal}_search[language_id]=${languageId}&`;
 
+    // Construct full url
     let redirect = `https://archiveofourown.org/${typeVal}s?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&`;
 
     // Redirect to a collection
-    if(origin == _constants.ORIGIN.COLLECTIONS) {
+    if(origin == ORIGIN.COLLECTIONS) {
         redirect += `collection_id=${id}`;
     }
     // Redirect to a user
-    else if(origin == _constants.ORIGIN.USERS) {
+    else if(origin == ORIGIN.USERS) {
         redirect += `user_id=${id}`;
     }
     // Redirect to works
@@ -88,11 +90,11 @@ exports.getRedirectURL = function getRedirectURL(origin: typeof _constants.ORIGI
 /**
  * Parses an AO3 url and returns its origin, search type, and id.
  * @param {string} baseURL URL to be parsed
- * @returns origin='works', 'bookmarks', or 'collections'
- * @returns searchType='work' or 'bookmark'
+ * @returns origin='tags', 'users', or 'collections'
+ * @returns searchType='works' or 'bookmarks'
  * @returns id=id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections')
  */
-exports.parseURL = function parseURL(baseURL: string): [origin: string, searchType: string, id: string] {
+export function parseURL(baseURL: string): [origin: string, searchType: string, id: string] {
     let split = baseURL.split('/');
     return [split[3], split[5], split[4]];
 }

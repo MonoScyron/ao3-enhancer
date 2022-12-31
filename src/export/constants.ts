@@ -1,3 +1,9 @@
+// * Storage keys
+// Kudos to hit ratio
+export const kudosHitRatioKey = "kudos-hit-ratio";
+// Language
+export const languageKey = "language";
+
 /**
  * Redirect these URLs to exclude works with excluded stuff
  */

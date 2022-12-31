@@ -35,8 +35,8 @@ export enum ORIGIN {
  * Type of post being searched for
  */
 export enum TYPE {
-    WORKS,
-    BOOKMARKS
+    WORKS = 'work',
+    BOOKMARKS = 'bookmark'
 }
 
 /**

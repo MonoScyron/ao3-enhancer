@@ -1,14 +1,14 @@
 {
     "extends": "@tsconfig/recommended/tsconfig.json",
     "compilerOptions": {
-        "module": "CommonJS",
-        "preserveConstEnums": true,
-        "outDir": "./build",
+        "target": "ES5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "sourceMap": true,
+        "outDir": "./dist",
         "typeRoots": [
             "node_modules/@types/"
-        ],
-        "lib": [
-            "dom"
         ]
     },
     "include": [

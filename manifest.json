@@ -22,7 +22,7 @@
     },
     "background": {
         "scripts": [
-            "/build/background/background.js"
+            "/src/background/background.ts"
         ]
     },
     "content_scripts": [
@@ -31,10 +31,7 @@
                 "https://archiveofourown.org/*"
             ],
             "js": [
-                "/build/export/constants.js",
-                "/build/export/redirect.js",
-                "/build/export/crawler.js",
-                "/build/content_scripts/onload.js"
+                "/dist/bundle.js"
             ]
         }
     ]

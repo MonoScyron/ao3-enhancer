@@ -18,7 +18,7 @@ export { redirectURLsRegex, ORIGIN, TYPE, RATING, WARNING, CATEGORY };
  * @param languageId ID of language to limit works to
  * @returns URL to redirect to
  */
-export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRatings: RATING[] = [], excludeWarnings: WARNING[] = [], excludeCategories: CATEGORY[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string {
+export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRatings: RATING[] = [], excludeWarnings: WARNING[] = [], excludeCategories: CATEGORY[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string | null {
     let typeVal = type.valueOf();
 
     // Construct exclude url queries
@@ -66,10 +66,12 @@ export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRa
         if(dateArr[1] != null)
             date += `${typeVal}_search[date_to]=${dateArr[1]}&`;
     }
-    let searchWithinResults = query == null ? "" : `${typeVal}_search[query]=${query}&`;
-    let language = languageId == null ? "" : `${typeVal}_search[language_id]=${languageId}&`;
+    let searchWithinResults = query == "" ? "" : `${typeVal}_search[query]=${query}&`;
+    let language = languageId == "" ? "" : `${typeVal}_search[language_id]=${languageId}&`;
 
     // Construct full url
+    if(ratings.length == 0 && archiveWarnings.length == 0 && categories.length == 0 && tags.length == 0 && crossover.length == 0 && wordCount.length == 0 && date.length == 0 && searchWithinResults.length == 0 && language.length == 0)
+        return null;
     let redirect = `https://archiveofourown.org/${typeVal}s?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&`;
 
     // Redirect to a collection
@@ -89,12 +91,14 @@ export function getRedirectURL(origin: ORIGIN, type: TYPE, id: string, excludeRa
 
 /**
  * Parses an AO3 url and returns its origin, search type, and id.
- * @param {string} baseURL URL to be parsed
- * @returns origin='tags', 'users', or 'collections'
- * @returns searchType='works' or 'bookmarks'
- * @returns id=id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections')
+ * @param {string} baseURL URL to be parsed.
+ * @returns origin:'tags', 'users', or 'collections.'
+ * @returns searchType: 'works' or 'bookmarks.'
+ * @returns id: id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections').
+ * @returns extraId: Extra ids in URLs, or empty string if no extra id. Returned as full id with definition (Ex: "fandom_id=1234123").
  */
-export function parseURL(baseURL: string): [origin: string, searchType: string, id: string] {
+export function parseURL(baseURL: string): [origin: string, searchType: string, id: string, extraId: string] {
     let split = baseURL.split('/');
-    return [split[3], split[5], split[4]];
+    let end = split[split.length - 1].split("?");
+    return [split[3], end[0], split[split.length - 2], end.length > 1 ? end[1] : ""];
 }

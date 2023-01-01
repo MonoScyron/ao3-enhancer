@@ -1,50 +1,58 @@
 import { CATEGORY, getRedirectURL, ORIGIN, parseURL, RATING, redirectURLsRegex, TYPE, WARNING } from "../export/redirect";
-import { languageKey } from '../export/constants';
+import { _language } from "../export/constants";
+import { addKudosToHitRatios } from '../export/crawler';
 
 console.log(`AO3Extension: Extension loaded!`);
 
 // Check to see if current url needs to be redirected
-redirectURLsRegex.forEach((url: string) => {
-    if(window.location.href.match(url)) {
-        let parsed = parseURL(window.location.href);
+checkAO3URLs();
+addKudosToHitRatios(document);
 
-        // ? parseURL function header sucks, use dictionary to make code legible?
-        let type: TYPE;
-        if(parsed[1] == 'works')
-            type = TYPE.WORKS;
-        else
-            type = TYPE.BOOKMARKS;
+function checkAO3URLs() {
+    redirectURLsRegex.forEach((url: string) => {
+        if(window.location.href.match(url)) {
+            // TODO: Handle urls w/ extra id tags at end
+            // https://archiveofourown.org/users/BurstEdge/pseuds/BurstEdge/works?fandom_id=3828398
+            // https://archiveofourown.org/works?commit=Sort+and+Filter&work_search[sort_column]=revised_at&include_work_search[rating_ids][]=13&work_search[other_tag_names]=&work_search[excluded_tag_names]=&work_search[crossover]=&work_search[complete]=&work_search[words_from]=&work_search[words_to]=&work_search[date_from]=&work_search[date_to]=&work_search[query]=&work_search[language_id]=&user_id=BurstEdge&fandom_id=3828398
+            let parsed = parseURL(window.location.href);
 
-        let origin: ORIGIN;
-        if(parsed[0] == 'tags')
-            origin = ORIGIN.TAGS;
-        else if(parsed[0] == 'users')
-            origin = ORIGIN.USERS;
-        else
-            origin = ORIGIN.COLLECTIONS;
+            let type: TYPE;
+            if(parsed[1] == 'works')
+                type = TYPE.WORKS;
+            else
+                type = TYPE.BOOKMARKS;
 
-        let id = parsed[2];
+            let origin: ORIGIN;
+            if(parsed[0] == 'tags')
+                origin = ORIGIN.TAGS;
+            else if(parsed[0] == 'users')
+                origin = ORIGIN.USERS;
+            else
+                origin = ORIGIN.COLLECTIONS;
 
-        // TODO: Get exclude data from local storage
-        let rating: RATING[] = []; //[RATING.MATURE];
-        let warning: WARNING[] = []; //[WARNING.MCD];
-        let category: CATEGORY[] = []; // [CATEGORY.FM];
-        let tag: string[] = []; //["Angst", "Smut"];
-        let crossover = ""; //"T";
-        let complete = ""; //"F";
-        let wordCount: number[] = []; //[1000, 100000];
-        let date: string[] = []; //["2021-10-2", "2022-12-23"];
-        let query = ""; // "They all need hugs";
+            let id = parsed[2];
 
-        browser.storage.local.get(languageKey).then((languageValue) => {
-            let language = null;
-            if(languageValue[0] == 'true')
-                language = languageValue[1];
-                
-            // TODO: Redirect instead of logging url
-            let temp = getRedirectURL(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
-            console.log(`AO3Extension: ${temp}`);
-        });
+            let rating: RATING[] = [];
+            let warning: WARNING[] = [];
+            let category: CATEGORY[] = [];
+            let tag: string[] = [];
+            let crossover = "";
+            let complete = "";
+            let wordCount: number[] = [];
+            let date: string[] = [];
+            let query = "";
+            let language = "";
 
-    }
-});
+            browser.storage.local.get([_language]).then((value) => {
+                // Get exclude data from local storage
+                if(value.language != undefined && value.language[0])
+                    language = value.language[1];
+
+                let url = getRedirectURL(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
+                if(url != null)
+                    console.log(`AO3Extension: ${url}`);
+                // window.location.replace(url);
+            });
+        }
+    });
+}

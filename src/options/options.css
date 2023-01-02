@@ -1,0 +1,132 @@
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: #ccc;
+    -webkit-transition: .15s;
+    transition: .15s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+
+    background-color: white;
+    -webkit-transition: .15s;
+    transition: .15s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(23px);
+    transform: translateX(23px);
+}
+
+.switch,
+select,
+input[type="submit"] {
+    border-width: 2.5px;
+    border: black;
+    border-style: outset;
+}
+
+input[type="submit"]:active {
+    border-style: inset;
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+main {
+    display: grid;
+    row-gap: 15px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.option-div {
+    position: relative;
+    width: fit-content;
+}
+
+.section-div,
+h1 {
+    border-radius: 10px;
+    background-color: lightgray;
+    padding: 10px 15px;
+}
+
+@media screen and (min-width: 1000px) {
+    main {
+        margin-left: 10px;
+    }
+}
+
+ul.input-list {
+    list-style-type: none;
+
+    position: relative;
+    left: -25px;
+}
+
+table.align-center-right {
+    position: relative;
+    border-spacing: 10px;
+}
+
+table.align-center-right tr {
+    text-align: center;
+}
+
+table.align-center-right tr:nth-child(1) {
+    text-align: left;
+}
+
+.input-standard-width {
+    width: 200px;
+}
+
+.hide,
+.hide * {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    visibility: collapse;
+}

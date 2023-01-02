@@ -1,0 +1,28 @@
+{
+    "extends": "@tsconfig/recommended/tsconfig.json",
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "sourceMap": true,
+        "outDir": "./dist",
+        "typeRoots": [
+            "node_modules/@types/"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib",
+        "build",
+        ".vscode"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "firefox-webext-browser"
+        ]
+    }
+}

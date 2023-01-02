@@ -5,6 +5,12 @@ const _kudosHitRatio = "kudosHitRatio";
 const _language = "language";
 // Query
 const _query = "query";
+// Default values
+const _default_values = {
+    kudosHitRatio: true,
+    language: [false, ""],
+    query: [false, ""]
+}
 
 // * Select input from document
 // Kudos to hit ratio
@@ -18,18 +24,18 @@ let queryInput = document.querySelector(`input[name='query']`);
 
 // * Sync inputs to values saved in storage
 browser.storage.local.get([_kudosHitRatio, _language, _query]).then((store) => {
+    //If no settings values are in storage, set default setting values in storage
     if(Object.keys(store).length == 0) {
-        browser.storage.local.set({
-            kudosHitRatio: kudosHitRatioBtn.checked,
-            language: [
-                languageBtn.checked,
-                languageSelect.store
-            ],
-            query: [
-                queryBtn.checked,
-                queryInput.store
-            ]
-        });
+        browser.storage.local.set(_default_values);
+
+        // Kudos to hit ratio
+        kudosHitRatioBtn.checked = _default_values.kudosHitRatio;
+        // Language
+        languageBtn.checked = _default_values.language[0];
+        languageSelect.value = _default_values.language[1];
+        // Query
+        queryBtn.checked = _default_values.query[0];
+        queryInput.value = _default_values.query[1];
     }
     else {
         // Kudos to hit ratio

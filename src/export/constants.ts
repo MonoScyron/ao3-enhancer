@@ -5,6 +5,12 @@ export const _kudosHitRatio = "kudosHitRatio";
 export const _language = "language";
 // Query
 export const _query = "query";
+// Default values
+export const _default_values = {
+    kudosHitRatio: true,
+    language: [false, ""],
+    query: [false, ""]
+}
 
 /**
  * Redirect these URLs to filter works with excluded stuff

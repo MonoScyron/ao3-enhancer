@@ -1,5 +1,4 @@
-import { redirectURLsRegex, ORIGIN, TYPE, RATING, WARNING, CATEGORY } from "./constants";
-export { redirectURLsRegex, ORIGIN, TYPE, RATING, WARNING, CATEGORY };
+import { ORIGIN, TYPE, RATING, WARNING, CATEGORY } from "./constants";
 
 /**
  * Returns redirect URL to contain excluded tags, overriding the previous URL's history

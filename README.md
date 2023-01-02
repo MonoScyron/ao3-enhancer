@@ -1,32 +1,14 @@
 # AO3 Enhancer
 Enhancment extension for AO3
 
-## TODO
+## Features
+Note: Keep in mind that this extension is currently heavily. work-in-progress.
 
-### TODO High Priority
-- Kudos to Hit Ratio [DONE]
-- Auto-select Default Language [DONE]
-- Search within results
+### Kudos to Hit Ratio
+Adds a kudos to hit percentage to the stats list of a work.
 
-### TODO Low Priority
-- Auto-exclude Tags/Fandoms
-- Auto-exclude Archive Warnings
+### Auto-select Default Language
+When clicking on a tag/fandom, automatically applies a selected language to the filter.
 
-### TODO Lower Priority
-- More options stuff
-    - Crossovers
-    - Completion status
-    - Word count
-    - Date updated
-- Auto-exclude other stuff not included up there
-    - Ratings
-    - Categories
-
-### TODO Lowest Priority
-- Reading list: Add specific chapters of fics to list (Bookmarking chapters)
-- Auto-include stuff (Prob not happening)
-    - Ratings
-    - Warnings
-    - Categories
-    - Tags/Fandoms
-- Auto sort by (Prob not happening)
+### Search within results
+When clicking on a tag/fandom, automatically searches within results for a supplied query.

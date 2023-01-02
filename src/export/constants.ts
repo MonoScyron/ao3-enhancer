@@ -3,6 +3,8 @@
 export const _kudosHitRatio = "kudosHitRatio";
 // Language
 export const _language = "language";
+// Query
+export const _query = "query";
 
 /**
  * Redirect these URLs to filter works with excluded stuff

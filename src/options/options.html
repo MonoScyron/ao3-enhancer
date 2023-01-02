@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" sizes="16x16" href="../icons/gear-16.png">
@@ -13,7 +13,7 @@
     <main>
         <h1>AO3 Enhancer Options</h1>
         <div class="section-div">
-            <h2>Show Some Stuff</h2>
+            <h2>Enhancer Settings</h2>
             <div class="option-div">
                 <table class="align-center-right">
                     <tr>
@@ -31,8 +31,8 @@
         <div class="section-div">
             <h2>Exclude Some Stuff</h2>
             <div>
-                <h3>Exclude Tags/Fandoms (WIP)</h3>
-                <div class="option-div">
+                <div class="option-div hidden">
+                    <h3>Exclude Tags/Fandoms (WIP)</h3>
                     <table class="include-exclude align-center-right">
                         <tr>
                             <td>
@@ -54,8 +54,8 @@
                         </tr>
                     </table>
                 </div>
-                <h3>Exclude Archive Warnings (WIP)</h3>
-                <div class="option-div">
+                <div class="option-div hidden">
+                    <h3>Exclude Archive Warnings (WIP)</h3>
                     <div class="option-div-input">
                         <ul id="exclude-input-list" class="input-list">
                             <li>
@@ -86,12 +86,12 @@
                         </ul>
                     </div>
                 </div>
-                <h3>Show Works Only from One Language</h3>
                 <div class="option-div">
+                    <h3>Show Works Only from One Language</h3>
                     <table class="align-center-right">
                         <tr>
                             <td>
-                                <label for="language-enable">Language filtering</label>
+                                <label for="language-enable">Enable language filtering</label>
                             </td>
                             <td>
                                 <label class="switch">
@@ -226,6 +226,34 @@
                                         <option value="yue">中文-广东话 粵語</option>
                                         <option value="zh">中文-普通话 國語</option>
                                     </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="section-div">
+            <h2>More Options</h2>
+            <div>
+                <div class="option-div">
+                    <h3>Search Within Results</h3>
+                    <table class="align-center-right">
+                        <tr>
+                            <td>
+                                <label for="query-enable">Enable search within results</label>
+                            </td>
+                            <td>
+                                <label class="switch">
+                                    <input name="query-enable" type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="option-div-input">
+                                    <input class="input-full-width" name="query" type="text" placeholder="Enter query">
                                 </div>
                             </td>
                         </tr>

@@ -1,5 +1,5 @@
 # AO3 Enhancer
-Enhancment script for AO3
+Enhancment extension for AO3
 
 ## TODO
 

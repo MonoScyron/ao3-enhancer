@@ -8,8 +8,18 @@ console.log(`AO3Extension: Extension loaded!`);
 browser.storage.local.get([_kudosHitRatio, _language, _query]).then((value) => {
     // If no settings values are in storage, set default setting values in storage
     if(Object.keys(value).length == 0) {
-        browser.storage.local.set(_default_values);
+        browser.storage.local.set(_default_values).then(() => onloadPromise(value));
     }
+    else
+        onloadPromise(value);
+});
+// * Executed code end
+
+/**
+ * Executed after all promises are fulfilled
+ * @param value Local storage values of all saved settings
+ */
+function onloadPromise(value: { [key: string]: any }) {
     // Check if filter should be applied
     redirectURLsRegex.forEach((url: string) => {
         if(window.location.href.match(url))
@@ -18,8 +28,7 @@ browser.storage.local.get([_kudosHitRatio, _language, _query]).then((value) => {
     // Add kudos to hit ratio if on
     if(value.kudosHitRatio)
         addKudosToHitRatios(document);
-});
-// * Executed code end
+}
 
 /**
  * Redirect current url to url that filters excluded works
@@ -60,6 +69,7 @@ function redirect() {
             language = value.language[1];
         if(value.query != undefined && value.query[0])
             query = value.query[1];
+        // TODO: Get exclude data for tags/fandoms
 
         let url = getRedirectURL(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
         if(url != null) {

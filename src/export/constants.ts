@@ -5,11 +5,14 @@ export const _kudosHitRatio = "kudosHitRatio";
 export const _language = "language";
 // Query
 export const _query = "query";
+// Tags/fandoms
+export const _tags = "tags";
 // Default values
 export const _default_values = {
     kudosHitRatio: true,
     language: [false, ""],
-    query: [false, ""]
+    query: [false, ""],
+    tags: []
 }
 
 /**

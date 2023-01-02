@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name            AO3 Enhancer
 // @namespace       https://github.com/MonoScyron/ao3-enhancer
-// @version         0.4.51
+// @version         0.4.52
 // @description     Enhancment script for AO3
 // @author          MonoScyron
-// @updateURL       https://raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
-// @downloadURL     https://raw.githubusercontent.com/MonoScyron/ao3-enhancer/main/ao3-enhancer.js
+// @updateURL       https://raw.githubusercontent.com/MonoScyron/ao3-kudos-ratio-script/main/ao3-kudos-ratio-script.js
+// @downloadURL     https://raw.githubusercontent.com/MonoScyron/ao3-kudos-ratio-script/main/ao3-kudos-ratio-script.js
 // @match           https://archiveofourown.org/*
 // @icon            https://archiveofourown.org/images/ao3_logos/logo_42.png
 // ==/UserScript==

@@ -1,11 +1,14 @@
+import { _kudosHitRatio } from "./constants";
+
 /**
- * Adds kudos to hit ratios to works on the page
+  * Adds kudos to hit ratios to works on the page
  * @param {Document} document Document of the page
+ * @returns [Array of ratio labels, array of ratio values]
  */
-export function addKudosToHitRatios(document: Document) {
+export function addKudosToHitRatios(document: Document): [ratio_dtList: (HTMLElement | null)[], ratio_ddList: (HTMLElement | null)[]] {
     // Create ratio elements for all works on page
-    let ratio_dtList = [];
-    let ratio_ddList = [];
+    let ratio_dtList: (HTMLElement | null)[] = [];
+    let ratio_ddList: (HTMLElement | null)[] = [];
 
     // Get list of works
     let workList: HTMLCollectionOf<Element>;
@@ -36,7 +39,7 @@ export function addKudosToHitRatios(document: Document) {
         // Get kudos & hits from work
         if(work.querySelector("dd.kudos") != null && work.querySelector("dd.hits") != null) {
             let ratio_dt = document.createElement("dt");
-            ratio_dt.className = "kudos-to-hit-ratio";
+            ratio_dt.className = "kudos-to-hit-ratio ao3-extension-hidden";
             ratio_dt.innerHTML = "Ratio:";
 
             let kudos: number;
@@ -53,7 +56,7 @@ export function addKudosToHitRatios(document: Document) {
             let hits = parseInt(work.querySelector("dd.hits").innerHTML);
 
             let ratio_dd = document.createElement("dd");
-            ratio_dd.className = "ratio";
+            ratio_dd.className = "ratio ao3-extension-hidden";
             if(hits > 0) {
                 ratio_dd.innerHTML = Math.round((kudos / hits) * 1000) / 10 + "%";
             }
@@ -77,4 +80,29 @@ export function addKudosToHitRatios(document: Document) {
             statsList[i].append(ratio_dtList[i], ratio_ddList[i]);
         }
     }
+
+    browser.storage.local.get(_kudosHitRatio).then((value) => {
+        if(value.kudosHitRatio)
+            showRatios(ratio_dtList, ratio_ddList);
+    });
+
+    return [ratio_dtList, ratio_ddList];
+}
+
+/**
+ * Removes the hidden class from all ratio elements, showing them in the stats list
+ * @param ratio_dtList Array of ratio labels
+ * @param ratio_ddList Array of ratio values
+ */
+function showRatios(ratio_dtList: (HTMLElement | null)[], ratio_ddList: (HTMLElement | null)[]) {
+    ratio_dtList.forEach((ratio_dt) => {
+        if(ratio_dt != null && ratio_dt.classList.contains("ao3-extension-hidden")) {
+            ratio_dt.classList.remove("ao3-extension-hidden");
+        }
+    });
+    ratio_ddList.forEach((ratio_dd) => {
+        if(ratio_dd != null && ratio_dd.classList.contains("ao3-extension-hidden")) {
+            ratio_dd.classList.remove("ao3-extension-hidden");
+        }
+    });
 }

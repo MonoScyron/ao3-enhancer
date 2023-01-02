@@ -32,6 +32,9 @@
             ],
             "js": [
                 "/dist/bundle.js"
+            ],
+            "css": [
+                "/src/css/extension.css"
             ]
         }
     ]

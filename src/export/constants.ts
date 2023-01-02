@@ -5,27 +5,27 @@ export const _kudosHitRatio = "kudosHitRatio";
 export const _language = "language";
 
 /**
- * Redirect these URLs to exclude works with excluded stuff
+ * Redirect these URLs to filter works with excluded stuff
  */
 export const redirectURLsRegex = [
-    `https:\/\/archiveofourown\.org\/tags\/*`, // Works/bookmarks in a tag
+    `https:\/\/archiveofourown\.org\/tags\/.*`, // Works/bookmarks in a tag
 
-    `/https:\/\/archiveofourown\.org\/users\/.*\/works/`, // User's works
-    `/https:\/\/archiveofourown\.org\/users\/.*\/bookmarks/`, // User's bookmarks
+    `https:\/\/archiveofourown\.org\/users\/.*\/works(\\?.*)?`, // User's works
+    `https:\/\/archiveofourown\.org\/users\/.*\/bookmarks(\\?.*)?`, // User's bookmarks
 
-    `/https:\/\/archiveofourown\.org\/collections\/.*\/works/`, // Collection's works
-    `/https:\/\/archiveofourown\.org\/collections\/.*\/bookmarks/`// Collection's bookmarks
+    `https:\/\/archiveofourown\.org\/collections\/.*\/works`, // Collection's works
+    `https:\/\/archiveofourown\.org\/collections\/.*\/bookmarks`// Collection's bookmarks
 ];
 
 /**
  * Cannot redirect these URLs, need to hide works with excluded stuff
  */
 export const hideURLsRegex = [
-    `/https:\/\/archiveofourown\.org\/users\//`, // User's dashboard
-    `/https:\/\/archiveofourown\.org\/users\/.*\/series/`, // User's series
-    `/https:\/\/archiveofourown\.org\/users\/.*\/gifts/`, // User's gifts
+    `https:\/\/archiveofourown\.org\/users\/`, // User's dashboard
+    `https:\/\/archiveofourown\.org\/users\/.*\/series`, // User's series
+    `https:\/\/archiveofourown\.org\/users\/.*\/gifts`, // User's gifts
 
-    `/https:\/\/archiveofourown\.org\/collections\/.*\/series/`, // Collection's series
+    `https:\/\/archiveofourown\.org\/collections\/.*\/series`, // Collection's series
 ]
 
 /**

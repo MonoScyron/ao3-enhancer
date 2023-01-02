@@ -5,15 +5,12 @@ import { addKudosToHitRatios } from '../export/crawler';
 console.log(`AO3Extension: Extension loaded!`);
 
 // Check to see if current url needs to be redirected
-checkAO3URLs();
+checkRedirect();
 addKudosToHitRatios(document);
 
-function checkAO3URLs() {
+function checkRedirect() {
     redirectURLsRegex.forEach((url: string) => {
         if(window.location.href.match(url)) {
-            // TODO: Handle urls w/ extra id tags at end
-            // https://archiveofourown.org/users/BurstEdge/pseuds/BurstEdge/works?fandom_id=3828398
-            // https://archiveofourown.org/works?commit=Sort+and+Filter&work_search[sort_column]=revised_at&include_work_search[rating_ids][]=13&work_search[other_tag_names]=&work_search[excluded_tag_names]=&work_search[crossover]=&work_search[complete]=&work_search[words_from]=&work_search[words_to]=&work_search[date_from]=&work_search[date_to]=&work_search[query]=&work_search[language_id]=&user_id=BurstEdge&fandom_id=3828398
             let parsed = parseURL(window.location.href);
 
             let type: TYPE;
@@ -49,9 +46,11 @@ function checkAO3URLs() {
                     language = value.language[1];
 
                 let url = getRedirectURL(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
-                if(url != null)
-                    console.log(`AO3Extension: ${url}`);
-                // window.location.replace(url);
+                if(url != null) {
+                    url += parsed[3].length == 0 ? "" : "&" + parsed[3];
+                    // console.log(`AO3Extension: ${url}`); // DEBUGGING
+                    window.location.replace(url);
+                }
             });
         }
     });

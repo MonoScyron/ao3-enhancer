@@ -4,8 +4,8 @@ Enhancment script for AO3
 ## TODO
 
 ### TODO High Priority
-- Kudos to Hit Ratio
-- Auto-select Default Language
+- Kudos to Hit Ratio [DONE]
+- Auto-select Default Language [DONE]
 - Search within results
 
 ### TODO Low Priority

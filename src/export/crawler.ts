@@ -32,58 +32,49 @@ export function addKudosToHitRatios(document: Document) {
         statsList = document.querySelectorAll(".group[role='article'] dl.stats");
     }
 
-    browser.storage.local.get(_kudosHitRatio).then((value) => {
-        var hidden = value.kudosHitRatio != undefined ? !value.kudosHitRatio : false;
+    // Create list of ratio elements
+    for(let i = 0; i < workList.length; i++) {
+        let work = workList[i];
+        let kudos_dd = work.querySelector("dd.kudos");
+        let hits_dd = work.querySelector("dd.hits");
+        // @ts-ignore
+        let hits = parseInt(hits_dd.innerHTML);
 
-        // Create list of ratio elements
-        for(let i = 0; i < workList.length; i++) {
-            let work = workList[i];
-            let kudos_dd = work.querySelector("dd.kudos");
-            let hits_dd = work.querySelector("dd.hits");
+        // Get kudos & hits from work
+        if(kudos_dd != null && hits_dd != null && hits > 0) {
+            let ratio_dt = document.createElement("dt");
+            ratio_dt.className = `kudos-to-hit-ratio`;
+            ratio_dt.innerHTML = "Ratio:";
+
+            let kudos: number;
             // @ts-ignore
-            let hits = parseInt(hits_dd.innerHTML);
-
-            // Get kudos & hits from work
-            if(kudos_dd != null && hits_dd != null && hits > 0) {
-                let ratio_dt = document.createElement("dt");
-                ratio_dt.className = `kudos-to-hit-ratio`;
-                if(hidden)
-                    ratio_dt.classList.add("ao3-extension-hidden");
-                ratio_dt.innerHTML = "Ratio:";
-
-                let kudos: number;
+            if(kudos_dd.firstChild.nodeName == "A") {
                 // @ts-ignore
-                if(kudos_dd.firstChild.nodeName == "A") {
-                    // @ts-ignore
-                    kudos = parseInt(kudos_dd.firstElementChild.innerHTML);
-                }
-                else {
-                    // @ts-ignore
-                    kudos = parseInt(kudos_dd.innerHTML);
-                }
-
-                let ratio_dd = document.createElement("dd");
-                ratio_dd.className = `ratio`;
-                if(hidden)
-                    ratio_dd.classList.add("ao3-extension-hidden");
-
-                ratio_dd.innerHTML = Math.round((kudos / hits) * 1000) / 10 + "%";
-
-                ratio_dtList[i] = ratio_dt;
-                ratio_ddList[i] = ratio_dd;
+                kudos = parseInt(kudos_dd.firstElementChild.innerHTML);
             }
             else {
-                ratio_dtList[i] = null;
-                ratio_ddList[i] = null;
-            }
-        }
-
-        // Add list of ratio elements to works
-        for(var i = 0; i < statsList.length; i++) {
-            if(ratio_dtList[i] != null && ratio_ddList[i] != null) {
                 // @ts-ignore
-                statsList[i].append(ratio_dtList[i], ratio_ddList[i]);
+                kudos = parseInt(kudos_dd.innerHTML);
             }
+
+            let ratio_dd = document.createElement("dd");
+            ratio_dd.className = `ratio`;
+            ratio_dd.innerHTML = Math.round((kudos / hits) * 1000) / 10 + "%";
+
+            ratio_dtList[i] = ratio_dt;
+            ratio_ddList[i] = ratio_dd;
         }
-    });
+        else {
+            ratio_dtList[i] = null;
+            ratio_ddList[i] = null;
+        }
+    }
+
+    // Add list of ratio elements to works
+    for(var i = 0; i < statsList.length; i++) {
+        if(ratio_dtList[i] != null && ratio_ddList[i] != null) {
+            // @ts-ignore
+            statsList[i].append(ratio_dtList[i], ratio_ddList[i]);
+        }
+    }
 }

@@ -1,29 +1,25 @@
 import { getRedirectURL, parseURL, } from "../export/redirect";
-import { _default_values, _kudosHitRatio, _language, _query, redirectURLsRegex, RATING, TYPE, WARNING, CATEGORY, ORIGIN } from "../export/constants";
+import { _default_values, _kudosHitRatio, _language, _query, redirectURLsRegex, RATING, TYPE, WARNING, CATEGORY, ORIGIN } from '../export/constants';
 import { addKudosToHitRatios } from '../export/crawler';
 
 // * Executed code start
 console.log(`AO3Extension: Extension loaded!`);
 
-checkDefaultStorage();
-
-redirectURLsRegex.forEach((url: string) => {
-    if(window.location.href.match(url))
-        redirect();
-});
-addKudosToHitRatios(document);
-// * Executed code end
-
-/**
- * If no settings values are in storage, set default setting values in storage
- */
-function checkDefaultStorage() {
-    browser.storage.local.get([_kudosHitRatio, _language, _query]).then((value) => {
-        if(Object.keys(value).length == 0) {
-            browser.storage.local.set(_default_values);
-        }
+browser.storage.local.get([_kudosHitRatio, _language, _query]).then((value) => {
+    // If no settings values are in storage, set default setting values in storage
+    if(Object.keys(value).length == 0) {
+        browser.storage.local.set(_default_values);
+    }
+    // Check if filter should be applied
+    redirectURLsRegex.forEach((url: string) => {
+        if(window.location.href.match(url))
+            redirect();
     });
-}
+    // Add kudos to hit ratio if on
+    if(value.kudosHitRatio)
+        addKudosToHitRatios(document);
+});
+// * Executed code end
 
 /**
  * Redirect current url to url that filters excluded works

@@ -11,7 +11,7 @@
 
     --input-background-dark: rgb(160, 160, 160);
     --input-background-light: rgb(214, 214, 214);
-    --blue-background: #2196F3;
+    --blue-background: #41738c;
     --red-background: rgb(236, 177, 177);
 }
 
@@ -57,10 +57,7 @@
 
 input:checked+.slider {
     background-color: var(--blue-background);
-}
-
-input:focus+.slider {
-    box-shadow: 0 0 1px var(--blue-background);
+    box-shadow: 0 0 2px var(--input-background-dark);
 }
 
 input:checked+.slider:before {
@@ -216,21 +213,24 @@ ul.input-list {
     left: -25px;
 }
 
-ul.input-list li {
-    /* display: flexbox;
-    align-items: center; */
-}
-
-table.align-center-right {
+table {
     position: relative;
     border-spacing: 10px;
 }
 
-table.align-center-right tr {
+table tr td:first-of-type {
+    /* background-color: red; */
+    padding-right: 7px;
+}
+
+table.align-center-left tr,
+table.left-second-row tr {
     text-align: center;
 }
 
-table.align-center-right tr:nth-child(1) {
+table.align-center-left tr:nth-child(1),
+table.left-second-row tr:nth-child(1),
+table.left-second-row tbody:nth-child(1) td {
     text-align: left;
 }
 

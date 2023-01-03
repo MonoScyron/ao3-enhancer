@@ -4,8 +4,8 @@
 - [x] Search within results
 
 ### TODO Low Priority
-- [ ] Auto-exclude Tags/Fandoms
-- [ ] Auto-exclude Archive Warnings
+- [x] Auto-exclude Tags/Fandoms
+- [x] Auto-exclude Archive Warnings
 - [ ] Add support for hiding works by collapsing work container
 
 ### TODO Lower Priority

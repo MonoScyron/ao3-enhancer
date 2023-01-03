@@ -1,5 +1,3 @@
-import { _kudosHitRatio } from './constants';
-
 /**
   * Adds kudos to hit ratios to works on the page
  * @param {Document} document Document of the page

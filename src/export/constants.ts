@@ -1,24 +1,20 @@
-// * Storage keys
-// Kudos to hit ratio
-export const _kudosHitRatio = "kudosHitRatio";
-// Language
-export const _language = "language";
-// Query
-export const _query = "query";
-// Tags/fandoms
-export const _tags = "tags";
+// Storage keys
+export const STORAGE_KEYS = [
+    "kudosHitRatio", "language", "query", "tags", "warnings"
+];
 // Default values
-export const _default_values = {
+export const DEFAULT_VALUES = {
     kudosHitRatio: true,
     language: [false, ""],
     query: [false, ""],
-    tags: []
+    tags: [],
+    warnings: []
 }
 
 /**
  * Redirect these URLs to filter works with excluded stuff
  */
-export const redirectURLsRegex = [
+export const REDIRECT_URLS = [
     `https:\/\/archiveofourown\.org\/tags\/.*`, // Works/bookmarks in a tag
 
     `https:\/\/archiveofourown\.org\/users\/.*\/works(\\?.*)?`, // User's works
@@ -31,7 +27,7 @@ export const redirectURLsRegex = [
 /**
  * Cannot redirect these URLs, need to hide works with excluded stuff
  */
-export const hideURLsRegex = [
+export const HIDE_URLS = [
     `https:\/\/archiveofourown\.org\/users\/`, // User's dashboard
     `https:\/\/archiveofourown\.org\/users\/.*\/series`, // User's series
     `https:\/\/archiveofourown\.org\/users\/.*\/gifts`, // User's gifts
@@ -43,49 +39,42 @@ export const hideURLsRegex = [
  * Origin of page to redirect
  */
 export enum ORIGIN {
-    COLLECTIONS,
-    TAGS,
-    USERS
-}
-
-/**
- * Type of post being searched for
- */
-export enum TYPE {
-    WORKS = 'work',
-    BOOKMARKS = 'bookmark'
+    COLLECTIONS = 'collection_id=',
+    TAGS = 'tag_id=',
+    USERS = 'user_id='
 }
 
 /**
  * Ratings to rating ids
  */
-export enum RATING {
-    NOT_RATED = 9,
-    GEN = 10,
-    TEEN = 11,
-    MATURE = 12,
-    EXPLICIT = 13
-}
+// export const RATING_ID = {
+//     notRated: 9,
+//     gen: 10,
+//     teen: 11,
+//     mature: 12,
+//     explicit: 13
+// }
 
 /**
  * Warnings to warning ids
  */
-export enum WARNING {
-    CHOSE_NOT_TO_USE = 14,
-    NO_WARNINGS_APPLY = 16,
-    MCD = 18,
-    NON_CON = 19,
-    UNDERAGE = 20
-}
+// export const WARNING_ID = {
+//     choseNotToUse: 14,
+//     noWarnings: 16,
+//     violence: 17,
+//     mcd: 18,
+//     nonCon: 19,
+//     underage: 20
+// };
 
 /**
  * Category to category ids
  */
-export enum CATEGORY {
-    GEN = 21,
-    FM = 22,
-    MM = 23,
-    OTHER = 24,
-    FF = 116,
-    MULTI = 2246
-}
+// export const CATEGORY_ID = {
+//     gen: 21,
+//     fm: 22,
+//     mm: 23,
+//     other: 24,
+//     ff: 116,
+//     multi: 2246
+// }

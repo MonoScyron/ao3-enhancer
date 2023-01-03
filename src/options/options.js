@@ -1,18 +1,14 @@
-// * Storage keys
-// Kudos to hit ratio
-const _kudosHitRatio = "kudosHitRatio";
-// Language
-const _language = "language";
-// Query
-const _query = "query";
-// Tags/fandoms
-const _tags = "tags";
+// Storage keys
+const STORAGE_KEYS = [
+    "kudosHitRatio", "language", "query", "tags", "warnings"
+];
 // Default values
-const _default_values = {
+const DEFAULT_VALUES = {
     kudosHitRatio: true,
     language: [false, ""],
     query: [false, ""],
-    tags: []
+    tags: [],
+    warnings: []
 }
 
 // * Select input from document
@@ -29,16 +25,35 @@ let excludeTagInput = document.querySelector(`input[name='exclude-tag']`);
 let excludeTagBtn = document.getElementById(`exclude-tag-submit`);
 let removeTagSelect = document.querySelector(`select[name='remove-tag']`);
 let removeTagBtn = document.getElementById(`remove-tag-submit`);
+// Warnings
+let excludeWarningCheckbox = {
+    choseNotToUse: document.querySelector(`input[name='exclude-warning-chose-not-to-use']`),
+    violence: document.querySelector(`input[name='exclude-warning-violence']`),
+    mcd: document.querySelector(`input[name='exclude-warning-mcd']`),
+    nonCon: document.querySelector(`input[name='exclude-warning-non-con']`),
+    underage: document.querySelector(`input[name='exclude-warning-underage']`),
+    noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)
+};
+// const checkboxContainers = document.getElementsByClassName("checkbox-container");
+// let excludeWarningContainer = {
+//     choseNotToUse: checkboxContainers[0],
+//     violence: checkboxContainers[1],
+//     mcd: checkboxContainers[2],
+//     nonCon: checkboxContainers[3],
+//     underage: checkboxContainers[4],
+//     noWarnings: checkboxContainers[5]
+// };
 
 // * Global vars
 let tagList = [];
+let warningList = [];
 
 // * Sync inputs to values saved in storage
-browser.storage.local.get([_kudosHitRatio, _tags, _language, _query]).then((store) => {
+browser.storage.local.get(STORAGE_KEYS).then((store) => {
     //If no settings values are in storage, set default setting values in storage
     if(Object.keys(store).length == 0) {
-        browser.storage.local.set(_default_values);
-        syncSettings(_default_values);
+        browser.storage.local.set(DEFAULT_VALUES);
+        syncSettings(DEFAULT_VALUES);
     }
     else {
         syncSettings(store);
@@ -94,8 +109,34 @@ queryBtn.addEventListener("click", setQueryStorage);
 queryInput.addEventListener("input", setQueryStorage);
 
 // Tags/fandoms
-excludeTagBtn.addEventListener("click", () => addTagElement(excludeTagInput.value));
+excludeTagBtn.addEventListener("click", () => {
+    if(excludeTagInput.value.length > 0) {
+        addTagElement(excludeTagInput.value);
+        excludeTagInput.value = "";
+    }
+});
 removeTagBtn.addEventListener("click", () => removeTagElement(removeTagSelect.value));
+
+// Warnings
+// TODO: FIX THIS, STORAGE DOESN'T WORK RN
+function addExcludeWarningListener(checkbox) {
+    checkbox.addEventListener("change", () => {
+        var checked = checkbox.checked;
+        var val = parseInt(checkbox.getAttribute("value"));
+        var index = warningList.indexOf(val);
+        if(checked && index == -1)
+            warningList.push(val);
+        else if(!checked)
+            warningList.splice(index, 1);
+        browser.storage.local.set({ warnings: warningList });
+    });
+}
+addExcludeWarningListener(excludeWarningCheckbox.choseNotToUse)
+addExcludeWarningListener(excludeWarningCheckbox.violence)
+addExcludeWarningListener(excludeWarningCheckbox.mcd)
+addExcludeWarningListener(excludeWarningCheckbox.nonCon)
+addExcludeWarningListener(excludeWarningCheckbox.underage)
+addExcludeWarningListener(excludeWarningCheckbox.noWarnings)
 
 // * Functions
 /**
@@ -119,6 +160,20 @@ function syncSettings(obj) {
         tagElement.innerHTML = tag;
         removeTagSelect.appendChild(tagElement);
     });
+    // Warnings
+    warningList = obj.warnings;
+    excludeWarningCheckbox.choseNotToUse.checked = obj.warnings.indexOf(
+        parseInt(excludeWarningCheckbox.choseNotToUse.getAttribute("value"))) != -1;
+    excludeWarningCheckbox.violence.checked = obj.warnings.indexOf(
+        parseInt(excludeWarningCheckbox.violence.getAttribute("value"))) != -1;
+    excludeWarningCheckbox.mcd.checked = obj.warnings.indexOf(
+        parseInt(excludeWarningCheckbox.mcd.getAttribute("value"))) != -1;
+    excludeWarningCheckbox.nonCon.checked = obj.warnings.indexOf(
+        parseInt(excludeWarningCheckbox.nonCon.getAttribute("value"))) != -1;
+    excludeWarningCheckbox.underage.checked = obj.warnings.indexOf(
+        parseInt(excludeWarningCheckbox.underage.getAttribute("value"))) != -1;
+    excludeWarningCheckbox.noWarnings.checked = obj.warnings.indexOf(
+        parseInt(excludeWarningCheckbox.noWarnings.getAttribute("value"))) != -1;
 }
 
 /**

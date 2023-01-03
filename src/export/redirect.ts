@@ -66,7 +66,7 @@ export function redirect() {
  * @param languageId ID of language to limit works to
  * @returns URL to redirect to
  */
-export function getRedirectURL(origin: ORIGIN, type: string, id: string, excludeRatings: number[] = [], excludeWarnings: number[] = [], excludeCategories: number[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string | null {
+function getRedirectURL(origin: ORIGIN, type: string, id: string, excludeRatings: number[] = [], excludeWarnings: number[] = [], excludeCategories: number[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string | null {
     // Construct exclude url queries
     let ratings = "";
     excludeRatings?.forEach((r) =>
@@ -112,7 +112,7 @@ export function getRedirectURL(origin: ORIGIN, type: string, id: string, exclude
         if(dateArr[1] != null)
             date += `${type}_search[date_to]=${dateArr[1]}&`;
     }
-    let searchWithinResults = query == "" ? "" : `${type}_search[query]=${query}&`;
+    let searchWithinResults = query == "" ? "" : `${type}_search[${type == 'bookmark' ? 'bookmarkable_' : ""}query]=${query}&`;
     let language = languageId == "" ? "" : `${type}_search[language_id]=${languageId}&`;
 
     // Construct full url
@@ -131,7 +131,7 @@ export function getRedirectURL(origin: ORIGIN, type: string, id: string, exclude
  * @returns id: id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections').
  * @returns extraId: Extra ids in URLs, or empty string if no extra id. Returned as full id with definition (Ex: "fandom_id=1234123").
  */
-export function parseURL(baseURL: string): [origin: string, searchType: string, id: string, extraId: string] {
+function parseURL(baseURL: string): [origin: string, searchType: string, id: string, extraId: string] {
     let split = baseURL.split('/');
     let end = split[split.length - 1].split("?");
     return [split[3], end[0].substring(0, end[0].length - 1), split[split.length - 2], end.length > 1 ? end[1] : ""];

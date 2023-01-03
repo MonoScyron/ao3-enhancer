@@ -15,7 +15,7 @@ export const DEFAULT_VALUES = {
  * Redirect these URLs to filter works with excluded stuff
  */
 export const REDIRECT_URLS = [
-    `https:\/\/archiveofourown\.org\/tags\/.*`, // Works/bookmarks in a tag
+    `https:\/\/archiveofourown\.org\/tags\/.*\/works`, // Works/bookmarks in a tag
 
     `https:\/\/archiveofourown\.org\/users\/.*\/works(\\?.*)?`, // User's works
     `https:\/\/archiveofourown\.org\/users\/.*\/bookmarks(\\?.*)?`, // User's bookmarks

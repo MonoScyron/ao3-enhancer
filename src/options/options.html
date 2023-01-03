@@ -17,7 +17,7 @@
             <div class="option-div">
                 <table class="align-center-right">
                     <tr>
-                        <td><label for="kudos-hit-ratio">Show Kudos to Hit ratio</label></td>
+                        <td><label>Show Kudos to Hit ratio</label></td>
                         <td>
                             <label class="switch">
                                 <input name="kudos-hit-ratio" type="checkbox">
@@ -40,7 +40,11 @@
                                     placeholder="Enter a tag/fandom">
                             </td>
                             <td>
-                                <input name="exclude-tag-submit" type="submit" value="Exclude">
+                                <button class="submit-button" id="exclude-tag-submit">
+                                    <span class="button-text" id="exclude-tag-submit-text">
+                                        Exclude
+                                    </span>
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -49,39 +53,60 @@
                                 </select>
                             </td>
                             <td>
-                                <input name="remove-tag-submit" type="submit" value="Remove tag from exclude">
+                                <button class="submit-button" id="remove-tag-submit">
+                                    <span class="button-text" id="remove-tag-submit-text">
+                                        Remove tag from exclude
+                                    </span>
+                                </button>
                             <td>
                         </tr>
                     </table>
                 </div>
-                <div class="option-div hidden">
+                <div class="option-div">
                     <h3>Exclude Archive Warnings (WIP)</h3>
                     <div class="option-div-input">
                         <ul id="exclude-input-list" class="input-list">
                             <li>
-                                <input name="exclude-warning-chose-not-to-use" type="checkbox">
-                                <label for="exclude-warning-chose-not-to-use">Creator Chose Not To Use Archive
-                                    Warnings</label>
+                                <label class="checkbox-container">
+                                    Creator Chose Not To Use Archive Warnings
+                                    <input name="exclude-warning-chose-not-to-use" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
                             </li>
                             <li>
-                                <input name="exclude-warning-violence" type="checkbox">
-                                <label for="exclude-warning-violence">Graphic Depictions Of Violence</label>
+                                <label class="checkbox-container">
+                                    Graphic Depictions Of Violence
+                                    <input name="exclude-warning-violence" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
                             </li>
                             <li>
-                                <input name="exclude-warning-mcd" type="checkbox">
-                                <label for="exclude-warning-mcd">Major Character Death</label>
+                                <label class="checkbox-container">
+                                    Major Character Death
+                                    <input name="exclude-warning-mcd" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
                             </li>
                             <li>
-                                <input name="exclude-warning-rape" type="checkbox">
-                                <label for="exclude-warning-rape">Rape/Non-Con</label>
+                                <label class="checkbox-container">
+                                    Rape/Non-Con
+                                    <input name="exclude-warning-rape" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
                             </li>
                             <li>
-                                <input name="exclude-warning-underage" type="checkbox">
-                                <label for="exclude-warning-underage">Underage</label>
+                                <label class="checkbox-container">
+                                    Underage
+                                    <input name="exclude-warning-underage" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
                             </li>
                             <li>
-                                <input name="exclude-warning-no-warnings" type="checkbox">
-                                <label for="exclude-warning-no-warnings">No Archive Warnings Apply</label>
+                                <label class="checkbox-container">
+                                    No Archive Warnings Apply
+                                    <input name="exclude-warning-no-warnings" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
                             </li>
                         </ul>
                     </div>
@@ -91,7 +116,7 @@
                     <table class="align-center-right">
                         <tr>
                             <td>
-                                <label for="language-enable">Enable language filtering</label>
+                                <label>Enable language filtering</label>
                             </td>
                             <td>
                                 <label class="switch">
@@ -241,7 +266,7 @@
                     <table class="align-center-right">
                         <tr>
                             <td>
-                                <label for="query-enable">Enable search within results</label>
+                                <label>Enable search within results</label>
                             </td>
                             <td>
                                 <label class="switch">

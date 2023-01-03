@@ -26,9 +26,9 @@ let queryBtn = document.querySelector(`input[name='query-enable']`);
 let queryInput = document.querySelector(`input[name='query']`);
 // Tags/fandoms
 let excludeTagInput = document.querySelector(`input[name='exclude-tag']`);
-let excludeTagBtn = document.querySelector(`input[name='exclude-tag-submit']`);
+let excludeTagBtn = document.getElementById(`exclude-tag-submit`);
 let removeTagSelect = document.querySelector(`select[name='remove-tag']`);
-let removeTagBtn = document.querySelector(`input[name='remove-tag-submit']`);
+let removeTagBtn = document.getElementById(`remove-tag-submit`);
 
 // * Global vars
 let tagList = [];

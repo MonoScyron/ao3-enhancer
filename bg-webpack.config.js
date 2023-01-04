@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/content_scripts/onload.ts',
+    entry: './src/background/background.ts',
     devtool: 'inline-source-map',
     module: {
         rules: [
@@ -10,6 +10,7 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
+                exclude: /src\/background/
             },
         ],
     },
@@ -17,7 +18,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'bundle.js',
+        filename: 'bg_bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
 };

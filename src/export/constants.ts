@@ -10,18 +10,21 @@ export const DEFAULT_VALUES = {
     tags: [],
     warnings: []
 }
+// Settings changed message
+export const SETTINGS_CHANGED = "settings_changed";
 
 /**
  * Redirect these URLs to filter works with excluded stuff
  */
 export const REDIRECT_URLS = [
-    `https:\/\/archiveofourown\.org\/tags\/.*\/works`, // Works/bookmarks in a tag
+    `https://archiveofourown.org/tags/*/works`, // Works in a tag
+    `https://archiveofourown.org/tags/*/bookmarks`, // Bookmarks in a tag
 
-    `https:\/\/archiveofourown\.org\/users\/.*\/works(\\?.*)?`, // User's works
-    `https:\/\/archiveofourown\.org\/users\/.*\/bookmarks(\\?.*)?`, // User's bookmarks
+    `https://archiveofourown.org/users/*/works*`, // User's works
+    `https://archiveofourown.org/users/*/bookmarks*`, // User's bookmarks
 
-    `https:\/\/archiveofourown\.org\/collections\/.*\/works`, // Collection's works
-    `https:\/\/archiveofourown\.org\/collections\/.*\/bookmarks`// Collection's bookmarks
+    `https://archiveofourown.org/collections/*/works`, // Collection's works
+    `https://archiveofourown.org/collections/*/bookmarks`// Collection's bookmarks
 ];
 
 /**
@@ -43,38 +46,3 @@ export enum ORIGIN {
     TAGS = 'tag_id=',
     USERS = 'user_id='
 }
-
-/**
- * Ratings to rating ids
- */
-// export const RATING_ID = {
-//     notRated: 9,
-//     gen: 10,
-//     teen: 11,
-//     mature: 12,
-//     explicit: 13
-// }
-
-/**
- * Warnings to warning ids
- */
-// export const WARNING_ID = {
-//     choseNotToUse: 14,
-//     noWarnings: 16,
-//     violence: 17,
-//     mcd: 18,
-//     nonCon: 19,
-//     underage: 20
-// };
-
-/**
- * Category to category ids
- */
-// export const CATEGORY_ID = {
-//     gen: 21,
-//     fm: 22,
-//     mm: 23,
-//     other: 24,
-//     ff: 116,
-//     multi: 2246
-// }

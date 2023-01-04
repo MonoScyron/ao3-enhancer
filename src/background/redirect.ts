@@ -1,10 +1,13 @@
-import { ORIGIN, STORAGE_KEYS } from "./constants";
+import { ORIGIN } from "../export/constants";
 
 /**
- * Redirect current url to url that filters excluded works
+ * Redirect given url to url that filters excluded works
+ * @param url Url to redirect
+ * @param value Excluded works settings
+ * @returns Url to redirect to, or null if url shouldn't be redirected
  */
-export function redirect() {
-    let parsed = parseURL(window.location.href);
+export function getRedirectURL(url: string, value: { [key: string]: any }): string | null {
+    let parsed = parseURL(url);
 
     let type = parsed[1];
 
@@ -29,24 +32,23 @@ export function redirect() {
     let query = "";
     let language = "";
 
-    browser.storage.local.get(STORAGE_KEYS).then((value) => {
-        // Get exclude data from local storage
-        if(value.language != undefined && value.language[0])
-            language = value.language[1];
-        if(value.query != undefined && value.query[0])
-            query = value.query[1];
-        if(value.tags != undefined)
-            tag = value.tags;
-        if(value.warnings != undefined)
-            warning = value.warnings;
+    // Get exclude data from local storage
+    if(value.language != undefined && value.language[0])
+        language = value.language[1];
+    if(value.query != undefined && value.query[0])
+        query = value.query[1];
+    if(value.tags != undefined)
+        tag = value.tags;
+    if(value.warnings != undefined)
+        warning = value.warnings;
 
-        let url = getRedirectURL(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
-        if(url != null) {
-            url += parsed[3].length == 0 ? "" : "&" + parsed[3];
-            // console.log(`AO3Extension: ${url}`); // DEBUGGING
-            window.location.replace(url);
-        }
-    });
+    let redirectUrl = constructRedirectURLHelper(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
+    if(redirectUrl != null) {
+        redirectUrl += parsed[3].length == 0 ? "" : "&" + parsed[3];
+        return redirectUrl;
+    }
+    else
+        return null;
 }
 
 /**
@@ -66,7 +68,7 @@ export function redirect() {
  * @param languageId ID of language to limit works to
  * @returns URL to redirect to
  */
-function getRedirectURL(origin: ORIGIN, type: string, id: string, excludeRatings: number[] = [], excludeWarnings: number[] = [], excludeCategories: number[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string | null {
+function constructRedirectURLHelper(origin: ORIGIN, type: string, id: string, excludeRatings: number[] = [], excludeWarnings: number[] = [], excludeCategories: number[] = [], excludeTags: string[] = [], crossoverBool: string = "", completeBool: string = "", wordCountNums: number[] = [], dateArr: string[] = [], query: string = "", languageId: string = ""): string | null {
     // Construct exclude url queries
     let ratings = "";
     excludeRatings?.forEach((r) =>
@@ -118,14 +120,19 @@ function getRedirectURL(origin: ORIGIN, type: string, id: string, excludeRatings
     // Construct full url
     if(ratings.length == 0 && archiveWarnings.length == 0 && categories.length == 0 && tags.length == 0 && crossover.length == 0 && wordCount.length == 0 && date.length == 0 && searchWithinResults.length == 0 && language.length == 0)
         return null;
-    let redirect = `https://archiveofourown.org/${type}s?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&${origin.valueOf()}${id}`;
+
+    let redirect = `${type}s?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&${origin.valueOf()}${id}`;
+    if(origin == ORIGIN.COLLECTIONS)
+        redirect = `https://archiveofourown.org/collections/${id}/` + redirect;
+    else
+        redirect = `https://archiveofourown.org/` + redirect;
 
     return redirect;
 }
 
 /**
  * Parses an AO3 url and returns its origin, search type, and id.
- * @param {string} baseURL URL to be parsed.
+ * @param baseURL URL to be parsed.
  * @returns origin:'tags', 'users', or 'collections.'
  * @returns searchType: 'works' or 'bookmarks.'
  * @returns id: id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections').
@@ -134,5 +141,12 @@ function getRedirectURL(origin: ORIGIN, type: string, id: string, excludeRatings
 function parseURL(baseURL: string): [origin: string, searchType: string, id: string, extraId: string] {
     let split = baseURL.split('/');
     let end = split[split.length - 1].split("?");
+    if(split.length > 6) {
+        if(split[5] == "pseuds" && split[4] != split[6])
+            return [split[3], end[0].substring(0, end[0].length - 1), split[4], `pseud_id=${split[6]}` + (end.length > 1 ? `&${end[1]}` : "")];
+        else if(split[3] == 'collections')
+            return [split[3], end[0].substring(0, end[0].length - 1), split[4], `tag_id=${split[6]}` + (end.length > 1 ? `&${end[1]}` : "")];
+    }
+
     return [split[3], end[0].substring(0, end[0].length - 1), split[split.length - 2], end.length > 1 ? end[1] : ""];
 }

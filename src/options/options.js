@@ -10,6 +10,8 @@ const DEFAULT_VALUES = {
     tags: [],
     warnings: []
 }
+// Settings changed message
+const SETTINGS_CHANGED = "settings_changed";
 
 // * Select input from document
 // Kudos to hit ratio
@@ -34,15 +36,6 @@ let excludeWarningCheckbox = {
     underage: document.querySelector(`input[name='exclude-warning-underage']`),
     noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)
 };
-// const checkboxContainers = document.getElementsByClassName("checkbox-container");
-// let excludeWarningContainer = {
-//     choseNotToUse: checkboxContainers[0],
-//     violence: checkboxContainers[1],
-//     mcd: checkboxContainers[2],
-//     nonCon: checkboxContainers[3],
-//     underage: checkboxContainers[4],
-//     noWarnings: checkboxContainers[5]
-// };
 
 // * Global vars
 let tagList = [];
@@ -62,11 +55,11 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 
 // * Save settings to local storage when values are changed
 // Kudos to hit ratio
-kudosHitRatioBtn.addEventListener("click", () =>
-    browser.storage.local.set(
-        { kudosHitRatio: kudosHitRatioBtn.checked }
-    )
-);
+kudosHitRatioBtn.addEventListener("click", () => {
+    browser.storage.local.set({ kudosHitRatio: kudosHitRatioBtn.checked }).then(() =>
+        browser.runtime.sendMessage(SETTINGS_CHANGED)
+    );
+});
 
 // Language
 function setLanguageStorage() {
@@ -83,6 +76,8 @@ function setLanguageStorage() {
         // Enable all related inputs
         languageBtn.classList.remove("disabled");
         languageSelect.classList.remove("disabled");
+
+        browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }
 languageBtn.addEventListener("click", setLanguageStorage);
@@ -103,6 +98,8 @@ function setQueryStorage() {
         // Enable all related inputs
         queryBtn.classList.remove("disabled");
         queryInput.classList.remove("disabled");
+
+        browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }
 queryBtn.addEventListener("click", setQueryStorage);
@@ -118,7 +115,6 @@ excludeTagBtn.addEventListener("click", () => {
 removeTagBtn.addEventListener("click", () => removeTagElement(removeTagSelect.value));
 
 // Warnings
-// TODO: FIX THIS, STORAGE DOESN'T WORK RN
 function addExcludeWarningListener(checkbox) {
     checkbox.addEventListener("change", () => {
         var checked = checkbox.checked;
@@ -128,7 +124,9 @@ function addExcludeWarningListener(checkbox) {
             warningList.push(val);
         else if(!checked)
             warningList.splice(index, 1);
-        browser.storage.local.set({ warnings: warningList });
+        browser.storage.local.set({ warnings: warningList }).then(() =>
+            browser.runtime.sendMessage(SETTINGS_CHANGED)
+        );
     });
 }
 addExcludeWarningListener(excludeWarningCheckbox.choseNotToUse)
@@ -198,6 +196,8 @@ function addTagElement(tag) {
             // Enable all related buttons
             excludeTagBtn.classList.remove("disabled");
             removeTagBtn.classList.remove("disabled");
+
+            browser.runtime.sendMessage(SETTINGS_CHANGED);
         });
     }
 }
@@ -217,5 +217,7 @@ function removeTagElement(tag) {
         // Enable all related buttons
         excludeTagBtn.classList.remove("disabled");
         removeTagBtn.classList.remove("disabled");
+
+        browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }

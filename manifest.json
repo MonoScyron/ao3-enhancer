@@ -9,8 +9,10 @@
         "96": "/src/icons/logo-96.png"
     },
     "permissions": [
-        "activeTab",
-        "storage"
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "https://archiveofourown.org/*"
     ],
     "browser_action": {
         "default_icon": "/src/icons/logo-32.png",
@@ -22,7 +24,7 @@
     },
     "background": {
         "scripts": [
-            "/src/background/background.ts"
+            "/dist/bg_bundle.js"
         ]
     },
     "content_scripts": [
@@ -31,7 +33,7 @@
                 "https://archiveofourown.org/*"
             ],
             "js": [
-                "/dist/bundle.js"
+                "/dist/cs_bundle.js"
             ],
             "css": [
                 "/src/css/extension.css"

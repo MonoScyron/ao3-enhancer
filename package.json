@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "build:debug": "webpack --config webpack.config.js --stats-error-details"
+    "build:cs": "webpack --config cs-webpack.config.js",
+    "build:bg": "webpack --config bg-webpack.config.js"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",

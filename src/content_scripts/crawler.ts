@@ -1,6 +1,6 @@
 /**
   * Adds kudos to hit ratios to works on the page
- * @param {Document} document Document of the page
+ * @param document Document of the page
  * @returns [Array of ratio labels, array of ratio values]
  */
 export function addKudosToHitRatios(document: Document) {

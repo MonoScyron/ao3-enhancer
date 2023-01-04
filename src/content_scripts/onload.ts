@@ -8,7 +8,7 @@ console.log(`AO3Extension: Extension loaded!`);
 browser.storage.local.get(STORAGE_KEYS).then((value) => {
     // If no settings values are in storage, set default setting values in storage
     if(Object.keys(value).length == 0) {
-        browser.storage.local.set(DEFAULT_VALUES).then(() => onloadPromise(value));
+        browser.storage.local.set(DEFAULT_VALUES).then(() => onloadPromise(DEFAULT_VALUES));
     }
     else
         onloadPromise(value);

@@ -19,12 +19,12 @@
         "default_title": "AO3 Enhancer"
     },
     "options_ui": {
-        "page": "/src/options/options.html",
+        "page": "dist/options/options.html",
         "open_in_tab": true
     },
     "background": {
         "scripts": [
-            "/dist/bg_bundle.js"
+            "dist/background/bg_bundle.js"
         ]
     },
     "content_scripts": [
@@ -33,7 +33,7 @@
                 "https://archiveofourown.org/*"
             ],
             "js": [
-                "/dist/cs_bundle.js"
+                "dist/content_scripts/cs_bundle.js"
             ],
             "css": [
                 "/src/css/extension.css"

@@ -58,6 +58,6 @@ function redirect(details: browser.webRequest._OnBeforeRequestDetails): browser.
  */
 function openOptionMenu() {
     browser.tabs.create({
-        url: "/src/options/options.html"
+        url: "/dist/options/options.html"
     });
 }

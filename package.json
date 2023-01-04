@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build:cs": "webpack --config cs-webpack.config.js",
-    "build:bg": "webpack --config bg-webpack.config.js"
+    "build:bg": "webpack --config bg-webpack.config.js",
+    "build:op": "webpack --config op-webpack.config.js"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",
@@ -9,6 +10,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
+    "copy-webpack-plugin": "^11.0.0",
     "ts-loader": "^9.4.2",
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",

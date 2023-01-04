@@ -15,31 +15,31 @@ const SETTINGS_CHANGED = "settings_changed";
 
 // * Select input from document
 // Kudos to hit ratio
-let kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`);
+let kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`)! as HTMLInputElement;
 // Language
-let languageBtn = document.querySelector(`input[name='language-enable']`);
-let languageSelect = document.querySelector(`select[name='language']`);
+let languageBtn = document.querySelector(`input[name='language-enable']`)! as HTMLInputElement;
+let languageSelect = document.querySelector(`select[name='language']`)! as HTMLSelectElement;
 // Query
-let queryBtn = document.querySelector(`input[name='query-enable']`);
-let queryInput = document.querySelector(`input[name='query']`);
+let queryBtn = document.querySelector(`input[name='query-enable']`)! as HTMLInputElement;
+let queryInput = document.querySelector(`input[name='query']`)! as HTMLInputElement;
 // Tags/fandoms
-let excludeTagInput = document.querySelector(`input[name='exclude-tag']`);
-let excludeTagBtn = document.getElementById(`exclude-tag-submit`);
-let removeTagSelect = document.querySelector(`select[name='remove-tag']`);
-let removeTagBtn = document.getElementById(`remove-tag-submit`);
+let excludeTagInput = document.querySelector(`input[name='exclude-tag']`)! as HTMLInputElement;
+let excludeTagBtn = document.getElementById(`exclude-tag-submit`)! as HTMLButtonElement;
+let removeTagSelect = document.querySelector(`select[name='remove-tag']`)! as HTMLSelectElement;
+let removeTagBtn = document.getElementById(`remove-tag-submit`)! as HTMLButtonElement;
 // Warnings
 let excludeWarningCheckbox = {
-    choseNotToUse: document.querySelector(`input[name='exclude-warning-chose-not-to-use']`),
-    violence: document.querySelector(`input[name='exclude-warning-violence']`),
-    mcd: document.querySelector(`input[name='exclude-warning-mcd']`),
-    nonCon: document.querySelector(`input[name='exclude-warning-non-con']`),
-    underage: document.querySelector(`input[name='exclude-warning-underage']`),
-    noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)
+    choseNotToUse: document.querySelector(`input[name='exclude-warning-chose-not-to-use']`)! as HTMLInputElement,
+    violence: document.querySelector(`input[name='exclude-warning-violence']`)! as HTMLInputElement,
+    mcd: document.querySelector(`input[name='exclude-warning-mcd']`)! as HTMLInputElement,
+    nonCon: document.querySelector(`input[name='exclude-warning-non-con']`)! as HTMLInputElement,
+    underage: document.querySelector(`input[name='exclude-warning-underage']`)! as HTMLInputElement,
+    noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)! as HTMLInputElement
 };
 
 // * Global vars
-let tagList = [];
-let warningList = [];
+let tagList: string[] = [];
+let warningList: number[] = [];
 
 // * Sync inputs to values saved in storage
 browser.storage.local.get(STORAGE_KEYS).then((store) => {
@@ -115,10 +115,10 @@ excludeTagBtn.addEventListener("click", () => {
 removeTagBtn.addEventListener("click", () => removeTagElement(removeTagSelect.value));
 
 // Warnings
-function addExcludeWarningListener(checkbox) {
+function addExcludeWarningListener(checkbox: HTMLInputElement) {
     checkbox.addEventListener("change", () => {
         var checked = checkbox.checked;
-        var val = parseInt(checkbox.getAttribute("value"));
+        var val = parseInt(checkbox.getAttribute("value")!);
         var index = warningList.indexOf(val);
         if(checked && index == -1)
             warningList.push(val);
@@ -141,7 +141,7 @@ addExcludeWarningListener(excludeWarningCheckbox.noWarnings)
  * Changes current settings according to passed object
  * @param {string[]} obj Object to get settings from
  */
-function syncSettings(obj) {
+function syncSettings(obj: { [x: string]: any; kudosHitRatio?: any; language?: any; query?: any; tags?: any; warnings?: any; }) {
     // Kudos to hit ratio
     kudosHitRatioBtn.checked = obj.kudosHitRatio;
     // Language
@@ -151,7 +151,7 @@ function syncSettings(obj) {
     queryBtn.checked = obj.query[0];
     queryInput.value = obj.query[1];
     // Tags/fandoms
-    obj.tags.forEach((tag) => {
+    obj.tags.forEach((tag: string) => {
         tagList.push(tag);
         var tagElement = document.createElement('option');
         tagElement.value = tag;
@@ -161,24 +161,24 @@ function syncSettings(obj) {
     // Warnings
     warningList = obj.warnings;
     excludeWarningCheckbox.choseNotToUse.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.choseNotToUse.getAttribute("value"))) != -1;
+        parseInt(excludeWarningCheckbox.choseNotToUse.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.violence.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.violence.getAttribute("value"))) != -1;
+        parseInt(excludeWarningCheckbox.violence.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.mcd.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.mcd.getAttribute("value"))) != -1;
+        parseInt(excludeWarningCheckbox.mcd.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.nonCon.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.nonCon.getAttribute("value"))) != -1;
+        parseInt(excludeWarningCheckbox.nonCon.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.underage.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.underage.getAttribute("value"))) != -1;
+        parseInt(excludeWarningCheckbox.underage.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.noWarnings.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.noWarnings.getAttribute("value"))) != -1;
+        parseInt(excludeWarningCheckbox.noWarnings.getAttribute("value")!)) != -1;
 }
 
 /**
  * Adds tag to the excluded tags list in storage and to the tag select
  * @param {string} tag Tag value to add
  */
-function addTagElement(tag) {
+function addTagElement(tag: string) {
     // Disable all related buttons
     excludeTagBtn.classList.add("disabled");
     removeTagBtn.classList.add("disabled");
@@ -206,12 +206,12 @@ function addTagElement(tag) {
  * Removes tag from the excluded tags list in storage and from the tag select
  * @param {string} tag Tag value to remove
  */
-function removeTagElement(tag) {
+function removeTagElement(tag: any) {
     // Disable all related buttons
     excludeTagBtn.classList.add("disabled");
     removeTagBtn.classList.add("disabled");
 
-    removeTagSelect.removeChild(document.querySelector(`option[value='${tag}']`));
+    removeTagSelect.removeChild(document.querySelector(`option[value='${tag}']`)!);
     tagList.splice(tagList.indexOf(tag), 1);
     browser.storage.local.set({ tags: tagList }).then(() => {
         // Enable all related buttons

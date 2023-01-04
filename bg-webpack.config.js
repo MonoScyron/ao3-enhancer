@@ -18,7 +18,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: 'bg_bundle.js',
+        filename: './background/bg_bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
 };

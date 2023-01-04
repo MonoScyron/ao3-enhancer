@@ -33,9 +33,8 @@ export function addKudosToHitRatios(document: Document) {
     // Create list of ratio elements
     for(let i = 0; i < workList.length; i++) {
         let work = workList[i];
-        let kudos_dd = work.querySelector("dd.kudos");
-        let hits_dd = work.querySelector("dd.hits");
-        // @ts-ignore
+        let kudos_dd = work.querySelector("dd.kudos")!;
+        let hits_dd = work.querySelector("dd.hits")!;
         let hits = parseInt(hits_dd.innerHTML);
 
         // Get kudos & hits from work
@@ -45,13 +44,10 @@ export function addKudosToHitRatios(document: Document) {
             ratio_dt.innerHTML = "Ratio:";
 
             let kudos: number;
-            // @ts-ignore
-            if(kudos_dd.firstChild.nodeName == "A") {
-                // @ts-ignore
-                kudos = parseInt(kudos_dd.firstElementChild.innerHTML);
+            if(kudos_dd.firstChild!.nodeName == "A") {
+                kudos = parseInt(kudos_dd.firstElementChild!.innerHTML);
             }
             else {
-                // @ts-ignore
                 kudos = parseInt(kudos_dd.innerHTML);
             }
 
@@ -71,8 +67,7 @@ export function addKudosToHitRatios(document: Document) {
     // Add list of ratio elements to works
     for(var i = 0; i < statsList.length; i++) {
         if(ratio_dtList[i] != null && ratio_ddList[i] != null) {
-            // @ts-ignore
-            statsList[i].append(ratio_dtList[i], ratio_ddList[i]);
+            statsList[i].append(ratio_dtList[i]!, ratio_ddList[i]!);
         }
     }
 }

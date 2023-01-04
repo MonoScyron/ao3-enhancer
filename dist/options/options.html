@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../icons/gear-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/gear-32.png">
+    <title>AO3 Enhancer Options</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+
+<body>
+    <main>
+        <h1>AO3 Enhancer Options</h1>
+        <div class="section-div">
+            <h2>Enhancer Settings</h2>
+            <div class="option-div">
+                <table class="align-center-left">
+                    <tr>
+                        <td><label>Show Kudos to Hit ratio</label></td>
+                        <td>
+                            <label class="switch">
+                                <input name="kudos-hit-ratio" type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="section-div">
+            <h2>Exclude Some Stuff</h2>
+            <div>
+                <div class="option-div">
+                    <h3>Exclude Tags/Fandoms</h3>
+                    <table class="include-exclude align-center-left">
+                        <tr>
+                            <td>
+                                <input class="input-standard-width" name="exclude-tag" type="text"
+                                    placeholder="Enter a tag/fandom">
+                            </td>
+                            <td>
+                                <button class="submit-button" id="exclude-tag-submit">
+                                    <span class="button-text" id="exclude-tag-submit-text">
+                                        Exclude
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="input-standard-width" name="remove-tag">
+                                </select>
+                            </td>
+                            <td>
+                                <button class="submit-button" id="remove-tag-submit">
+                                    <span class="button-text" id="remove-tag-submit-text">
+                                        Remove tag from exclude
+                                    </span>
+                                </button>
+                            <td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="option-div">
+                    <h3>Exclude Archive Warnings</h3>
+                    <div class="option-div-input">
+                        <ul id="exclude-input-list" class="input-list">
+                            <li>
+                                <label class="checkbox-container">
+                                    Creator Chose Not To Use Archive Warnings
+                                    <input name="exclude-warning-chose-not-to-use" value="14" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    Graphic Depictions Of Violence
+                                    <input name="exclude-warning-violence" value="17" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    Major Character Death
+                                    <input name="exclude-warning-mcd" value="18" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    Rape/Non-Con
+                                    <input name="exclude-warning-non-con" value="19" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    Underage
+                                    <input name="exclude-warning-underage" value="20" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    No Archive Warnings Apply
+                                    <input name="exclude-warning-no-warnings" value="16" type="checkbox">
+                                    <span class="checkbox"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="option-div">
+                    <h3>Show Works Only from One Language</h3>
+                    <table class="align-center-left">
+                        <tr>
+                            <td>
+                                <label>Enable language filtering</label>
+                            </td>
+                            <td>
+                                <label class="switch">
+                                    <input name="language-enable" type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="option-div-input">
+                                    <select class="input-standard-width" name="language">
+                                        <option value=""></option>
+                                        <option value="so">af Soomaali</option>
+                                        <option value="afr">Afrikaans</option>
+                                        <option value="ar">العربية</option>
+                                        <option value="egy">𓂋𓏺𓈖 𓆎𓅓𓏏𓊖</option>
+                                        <option value="arc">ܐܪܡܝܐ | ארמיא</option>
+                                        <option value="hy">հայերեն</option>
+                                        <option value="ast">asturianu</option>
+                                        <option value="id">Bahasa Indonesia</option>
+                                        <option value="ms">Bahasa Malaysia</option>
+                                        <option value="bg">Български</option>
+                                        <option value="bn">বাংলা</option>
+                                        <option value="jv">Basa Jawa</option>
+                                        <option value="ba">Башҡорт теле</option>
+                                        <option value="be">беларуская</option>
+                                        <option value="bos">Bosanski</option>
+                                        <option value="br">Brezhoneg</option>
+                                        <option value="ca">Català</option>
+                                        <option value="ceb">Cebuano</option>
+                                        <option value="cs">Čeština</option>
+                                        <option value="chn">Chinuk Wawa</option>
+                                        <option value="cy">Cymraeg</option>
+                                        <option value="da">Dansk</option>
+                                        <option value="de">Deutsch</option>
+                                        <option value="et">eesti keel</option>
+                                        <option value="el">Ελληνικά</option>
+                                        <option value="sux">𒅴𒂠</option>
+                                        <option value="en">English</option>
+                                        <option value="ang">Eald Englisċ</option>
+                                        <option value="es">Español</option>
+                                        <option value="eo">Esperanto</option>
+                                        <option value="eu">Euskara</option>
+                                        <option value="fa">فارسی</option>
+                                        <option value="fil">Filipino</option>
+                                        <option value="fr">Français</option>
+                                        <option value="fur">Furlan</option>
+                                        <option value="ga">Gaeilge</option>
+                                        <option value="gd">Gàidhlig</option>
+                                        <option value="gl">Galego</option>
+                                        <option value="got">𐌲𐌿𐍄𐌹𐍃𐌺𐌰</option>
+                                        <option value="hak">中文-客家话</option>
+                                        <option value="ko">한국어</option>
+                                        <option value="hau">Hausa | هَرْشَن هَوْسَ</option>
+                                        <option value="hi">हिन्दी</option>
+                                        <option value="hr">Hrvatski</option>
+                                        <option value="haw">ʻŌlelo Hawaiʻi</option>
+                                        <option value="ia">Interlingua</option>
+                                        <option value="zu">isiZulu</option>
+                                        <option value="is">Íslenska</option>
+                                        <option value="it">Italiano</option>
+                                        <option value="he">עברית</option>
+                                        <option value="kan">ಕನ್ನಡ</option>
+                                        <option value="kat">ქართული</option>
+                                        <option value="khm">ភាសាខ្មែរ</option>
+                                        <option value="qkz">Khuzdul</option>
+                                        <option value="sw">Kiswahili</option>
+                                        <option value="ht">kreyòl ayisyen</option>
+                                        <option value="ku">Kurdî | کوردی</option>
+                                        <option value="kir">Кыргызча</option>
+                                        <option value="fcs">Langue des signes québécoise</option>
+                                        <option value="lv">Latviešu valoda</option>
+                                        <option value="lb">Lëtzebuergesch</option>
+                                        <option value="lt">Lietuvių kalba</option>
+                                        <option value="la">Lingua latina</option>
+                                        <option value="hu">Magyar</option>
+                                        <option value="mk">македонски</option>
+                                        <option value="ml">മലയാളം</option>
+                                        <option value="mt">Malti</option>
+                                        <option value="mnc">ᠮᠠᠨᠵᡠ ᡤᡳᠰᡠᠨ</option>
+                                        <option value="mr">मराठी</option>
+                                        <option value="mik">Mikisúkî</option>
+                                        <option value="mon">ᠮᠣᠩᠭᠣᠯ ᠪᠢᠴᠢᠭ᠌ | Монгол Кирилл үсэг</option>
+                                        <option value="my">မြန်မာဘာသာ</option>
+                                        <option value="nah">Nāhuatl</option>
+                                        <option value="nan">中文-闽南话 臺語</option>
+                                        <option value="nl">Nederlands</option>
+                                        <option value="ja">日本語</option>
+                                        <option value="no">Norsk</option>
+                                        <option value="azj">Азәрбајҹан дили | آذربایجان دیلی</option>
+                                        <option value="ce">Нохчийн мотт</option>
+                                        <option value="ota">لسان عثمانى</option>
+                                        <option value="ps">پښتو</option>
+                                        <option value="nds">Plattdüütsch</option>
+                                        <option value="pl">Polski</option>
+                                        <option value="ptBR">Português brasileiro</option>
+                                        <option value="ptPT">Português europeu</option>
+                                        <option value="pa">ਪੰਜਾਬੀ</option>
+                                        <option value="kaz">qazaqşa | қазақша</option>
+                                        <option value="qya">Quenya</option>
+                                        <option value="ro">Română</option>
+                                        <option value="ru">Русский</option>
+                                        <option value="sco">Scots</option>
+                                        <option value="sq">Shqip</option>
+                                        <option value="sjn">Sindarin</option>
+                                        <option value="si">සිංහල</option>
+                                        <option value="sk">Slovenčina</option>
+                                        <option value="slv">Slovenščina</option>
+                                        <option value="gem">Sprēkō Þiudiskō</option>
+                                        <option value="sr">Српски</option>
+                                        <option value="fi">Suomi</option>
+                                        <option value="sv">Svenska</option>
+                                        <option value="ta">தமிழ்</option>
+                                        <option value="tel">తెలుగు</option>
+                                        <option value="th">ไทย</option>
+                                        <option value="tqx">Thermian</option>
+                                        <option value="bod">བོད་སྐད་</option>
+                                        <option value="vi">Tiếng Việt</option>
+                                        <option value="cop">ϯⲙⲉⲧⲣⲉⲙⲛ̀ⲭⲏⲙⲓ</option>
+                                        <option value="tlh">tlhIngan-Hol</option>
+                                        <option value="tok">toki pona</option>
+                                        <option value="tsd">τσακώνικα</option>
+                                        <option value="tr">Türkçe</option>
+                                        <option value="uk">Українська</option>
+                                        <option value="urd">اُردُو</option>
+                                        <option value="uig">ئۇيغۇر تىلى</option>
+                                        <option value="vol">Volapük</option>
+                                        <option value="wuu">中文-吴语</option>
+                                        <option value="yi">יידיש</option>
+                                        <option value="yua">maayaʼ tʼàan</option>
+                                        <option value="yue">中文-广东话 粵語</option>
+                                        <option value="zh">中文-普通话 國語</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="section-div">
+            <h2>More Options</h2>
+            <div>
+                <div class="option-div">
+                    <h3>Search Within Results</h3>
+                    <table class="align-center-left">
+                        <tr>
+                            <td>
+                                <label>Enable search within results</label>
+                            </td>
+                            <td>
+                                <label class="switch">
+                                    <input name="query-enable" type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="option-div-input">
+                                    <input class="input-full-width" name="query" type="text" placeholder="Enter query">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="options.js"></script>
+</body>
+
+</html>

@@ -1,34 +1,23 @@
-// Storage keys
-const STORAGE_KEYS = [
-    "kudosHitRatio", "language", "query", "tags", "warnings"
-];
-// Default values
-const DEFAULT_VALUES = {
-    kudosHitRatio: true,
-    language: [false, ""],
-    query: [false, ""],
-    tags: [],
-    warnings: []
-}
-// Settings changed message
-const SETTINGS_CHANGED = "settings_changed";
+import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED } from "../export/constants";
 
 // * Select input from document
 // Kudos to hit ratio
-let kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`)! as HTMLInputElement;
+const kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`)! as HTMLInputElement;
+// Enable filtering
+const filterBtn = document.querySelector(`input[name='enable-filtering']`)! as HTMLInputElement;
 // Language
-let languageBtn = document.querySelector(`input[name='language-enable']`)! as HTMLInputElement;
-let languageSelect = document.querySelector(`select[name='language']`)! as HTMLSelectElement;
+const languageBtn = document.querySelector(`input[name='language-enable']`)! as HTMLInputElement;
+const languageSelect = document.querySelector(`select[name='language']`)! as HTMLSelectElement;
 // Query
-let queryBtn = document.querySelector(`input[name='query-enable']`)! as HTMLInputElement;
-let queryInput = document.querySelector(`input[name='query']`)! as HTMLInputElement;
+const queryBtn = document.querySelector(`input[name='query-enable']`)! as HTMLInputElement;
+const queryInput = document.querySelector(`input[name='query']`)! as HTMLInputElement;
 // Tags/fandoms
-let excludeTagInput = document.querySelector(`input[name='exclude-tag']`)! as HTMLInputElement;
-let excludeTagBtn = document.getElementById(`exclude-tag-submit`)! as HTMLButtonElement;
-let removeTagSelect = document.querySelector(`select[name='remove-tag']`)! as HTMLSelectElement;
-let removeTagBtn = document.getElementById(`remove-tag-submit`)! as HTMLButtonElement;
+const excludeTagInput = document.querySelector(`input[name='exclude-tag']`)! as HTMLInputElement;
+const excludeTagBtn = document.getElementById(`exclude-tag-submit`)! as HTMLButtonElement;
+const removeTagSelect = document.querySelector(`select[name='remove-tag']`)! as HTMLSelectElement;
+const removeTagBtn = document.getElementById(`remove-tag-submit`)! as HTMLButtonElement;
 // Warnings
-let excludeWarningCheckbox = {
+const excludeWarningCheckbox = {
     choseNotToUse: document.querySelector(`input[name='exclude-warning-chose-not-to-use']`)! as HTMLInputElement,
     violence: document.querySelector(`input[name='exclude-warning-violence']`)! as HTMLInputElement,
     mcd: document.querySelector(`input[name='exclude-warning-mcd']`)! as HTMLInputElement,
@@ -36,6 +25,10 @@ let excludeWarningCheckbox = {
     underage: document.querySelector(`input[name='exclude-warning-underage']`)! as HTMLInputElement,
     noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)! as HTMLInputElement
 };
+
+// * Constant elements defined here
+// Options whose visibility depends on if filtering is enabled
+const FILTERING_ELEMENTS = document.getElementsByClassName("filtering");
 
 // * Global vars
 let tagList: string[] = [];
@@ -55,10 +48,18 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 
 // * Save settings to local storage when values are changed
 // Kudos to hit ratio
-kudosHitRatioBtn.addEventListener("click", () => {
+kudosHitRatioBtn.addEventListener("change", () => {
     browser.storage.local.set({ kudosHitRatio: kudosHitRatioBtn.checked }).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
+});
+
+// Enable filtering
+filterBtn.addEventListener("change", () => {
+    browser.storage.local.set({ filtering: filterBtn.checked }).then(() =>
+        browser.runtime.sendMessage(SETTINGS_CHANGED)
+    );
+    checkFilteringElements(filterBtn.checked);
 });
 
 // Language
@@ -80,7 +81,7 @@ function setLanguageStorage() {
         browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }
-languageBtn.addEventListener("click", setLanguageStorage);
+languageBtn.addEventListener("change", setLanguageStorage);
 languageSelect.addEventListener("change", setLanguageStorage);
 
 // Query
@@ -102,7 +103,7 @@ function setQueryStorage() {
         browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }
-queryBtn.addEventListener("click", setQueryStorage);
+queryBtn.addEventListener("change", setQueryStorage);
 queryInput.addEventListener("input", setQueryStorage);
 
 // Tags/fandoms
@@ -141,9 +142,12 @@ addExcludeWarningListener(excludeWarningCheckbox.noWarnings)
  * Changes current settings according to passed object
  * @param {string[]} obj Object to get settings from
  */
-function syncSettings(obj: { [x: string]: any; kudosHitRatio?: any; language?: any; query?: any; tags?: any; warnings?: any; }) {
+function syncSettings(obj: { [key: string]: any }) {
     // Kudos to hit ratio
     kudosHitRatioBtn.checked = obj.kudosHitRatio;
+    // Enable filtering
+    filterBtn.checked = obj.filtering;
+    checkFilteringElements(filterBtn.checked);
     // Language
     languageBtn.checked = obj.language[0];
     languageSelect.value = obj.language[1];
@@ -172,6 +176,19 @@ function syncSettings(obj: { [x: string]: any; kudosHitRatio?: any; language?: a
         parseInt(excludeWarningCheckbox.underage.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.noWarnings.checked = obj.warnings.indexOf(
         parseInt(excludeWarningCheckbox.noWarnings.getAttribute("value")!)) != -1;
+}
+
+/**
+ * Hide/show all filtering elements
+ * @param filtering If filtering is enabled
+ */
+function checkFilteringElements(filtering: boolean) {
+    if(filtering)
+        for(var i = 0; i < FILTERING_ELEMENTS.length; i++)
+            FILTERING_ELEMENTS.item(i)?.classList.remove("hidden");
+    else
+        for(var i = 0; i < FILTERING_ELEMENTS.length; i++)
+            FILTERING_ELEMENTS.item(i)?.classList.add("hidden");
 }
 
 /**

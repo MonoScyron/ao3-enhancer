@@ -68,7 +68,6 @@ input:checked+.slider:before {
 /* Switch end */
 
 /* Checkbox start */
-/* Customize the label (the container) */
 .checkbox-container {
     display: block;
     position: relative;
@@ -79,7 +78,6 @@ input:checked+.slider:before {
     user-select: none;
 }
 
-/* Hide the browser's default checkbox */
 .checkbox-container input {
     position: absolute;
     opacity: 0;
@@ -88,7 +86,6 @@ input:checked+.slider:before {
     width: 0;
 }
 
-/* Create a custom checkbox */
 .checkbox {
     position: absolute;
     top: -1.5px;
@@ -99,30 +96,25 @@ input:checked+.slider:before {
     box-shadow: rgb(0, 0, 0) 0 0 2px inset;
 }
 
-/* On mouse-over, add a grey background color */
 .checkbox-container:hover input~.checkbox {
     background-color: var(--input-background-dark);
 }
 
-/* When the checkbox is checked, add a blue background */
 .checkbox-container input:checked~.checkbox {
     background-color: var(--red-background);
     box-shadow: rgba(255, 0, 0, 0.5) 0 0 3px inset;
 }
 
-/* Create the checkbox/indicator (hidden when not checked) */
 .checkbox:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-/* Show the checkbox when checked */
 .checkbox-container input:checked~.checkbox:after {
     display: block;
 }
 
-/* Style the checkbox/indicator */
 .checkbox-container .checkbox:after {
     left: 3px;
     top: -1.5px;
@@ -192,6 +184,7 @@ main {
 
     color: var(--text-color);
     background-color: var(--main-background);
+    box-shadow: 0 0 10px var(--main-background);
 }
 
 .section-div {
@@ -203,7 +196,7 @@ main {
 .option-div {
     position: relative;
     width: fit-content;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 
 ul.input-list {
@@ -219,19 +212,19 @@ table {
 }
 
 table tr td:first-of-type {
-    /* background-color: red; */
     padding-right: 7px;
 }
 
-table.align-center-left tr,
-table.left-second-row tr {
+table.align-center-left tr {
     text-align: center;
 }
 
-table.align-center-left tr:nth-child(1),
-table.left-second-row tr:nth-child(1),
-table.left-second-row tbody:nth-child(1) td {
+table.align-center-left tr:not(:last-child) { 
     text-align: left;
+}
+
+table.spaced-table tr:not(:last-child) td {
+    padding-bottom: 10px;
 }
 
 .input-standard-width {
@@ -242,12 +235,12 @@ table.left-second-row tbody:nth-child(1) td {
     width: 100%;
 }
 
+.important-text {
+    font-weight: bold;
+}
+
 .hidden {
     display: none;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    visibility: collapse;
 }
 
 .disabled {

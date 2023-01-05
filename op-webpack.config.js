@@ -27,7 +27,8 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 { from: "src/options/options.css", to: "options/options.css" },
-                { from: "src/options/options.html", to: "options/options.html" }
+                { from: "src/options/options.html", to: "options/options.html" },
+                { from: "src/icons", to: "icons" }
             ],
         }),
     ],

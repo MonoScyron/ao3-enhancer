@@ -2,7 +2,8 @@
   "scripts": {
     "build:cs": "webpack --config cs-webpack.config.js",
     "build:bg": "webpack --config bg-webpack.config.js",
-    "build:op": "webpack --config op-webpack.config.js"
+    "build:op": "webpack --config op-webpack.config.js",
+    "build": "npm run build:cs && npm run build:bg && npm run build:op"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",

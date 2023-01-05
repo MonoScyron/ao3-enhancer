@@ -29,9 +29,22 @@
             </div>
         </div>
         <div class="section-div">
-            <h2>Exclude Some Stuff</h2>
+            <h2>Filtering settings</h2>
             <div>
                 <div class="option-div">
+                    <table class="align-center-left">
+                        <tr>
+                            <td><label class="important-text">Enable filtering</label></td>
+                            <td>
+                                <label class="switch">
+                                    <input name="enable-filtering" type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="option-div filtering">
                     <h3>Exclude Tags/Fandoms</h3>
                     <table class="include-exclude align-center-left">
                         <tr>
@@ -62,7 +75,7 @@
                         </tr>
                     </table>
                 </div>
-                <div class="option-div">
+                <div class="option-div filtering">
                     <h3>Exclude Archive Warnings</h3>
                     <div class="option-div-input">
                         <ul id="exclude-input-list" class="input-list">
@@ -111,7 +124,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="option-div">
+                <div class="option-div filtering">
                     <h3>Show Works Only from One Language</h3>
                     <table class="align-center-left">
                         <tr>
@@ -256,12 +269,7 @@
                         </tr>
                     </table>
                 </div>
-            </div>
-        </div>
-        <div class="section-div">
-            <h2>More Options</h2>
-            <div>
-                <div class="option-div">
+                <div class="option-div filtering">
                     <h3>Search Within Results</h3>
                     <table class="align-center-left">
                         <tr>

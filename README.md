@@ -29,6 +29,11 @@ These are features I currently plan on adding. Please suggest additional feature
 
 ### TODO
 
+- [x] Kudos to Hit Ratio
+- [x] Auto-select Default Language
+- [x] Search within results
+- [x] Auto-exclude Tags/Fandoms
+- [x] Auto-exclude Archive Warnings
 - [ ] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
 - [ ] Use filter for more options stuff
   - [ ] Crossovers

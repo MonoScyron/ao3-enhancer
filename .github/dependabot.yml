@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Version updates for npm
+    directory: "/" # Location of package manifests in 'root' directory
+    schedule:
+      interval: "weekly"

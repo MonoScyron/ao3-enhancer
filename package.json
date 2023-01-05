@@ -7,7 +7,9 @@
     "build-bg:prod": "webpack --mode=production --config bg-webpack.config.js",
     "build-op:prod": "webpack --mode=production --config op-webpack.config.js",
     "build:dev": "npm run build-cs:dev && npm run build-bg:dev && npm run build-op:dev",
-    "build:prod": "npm run build-cs:prod && npm run build-bg:prod && npm run build-op:prod"
+    "build:prod": "npm run build-cs:prod && npm run build-bg:prod && npm run build-op:prod",
+    "zip:prod": "tar.exe -a -c -f ./dist/dist.zip build manifest.json",
+    "prod": "npm run build:prod && npm run zip:prod"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",

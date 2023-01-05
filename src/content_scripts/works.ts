@@ -1,12 +1,26 @@
 
-import { RATING, WARNING, WorkElement, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/constants';
+import { WARNING, WorkElement, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/constants';
+
+/**
+ * Get list of works from page as an array of WorkElement objects
+ * @param document Document of AO3 page
+ * @returns Array of works from page as WorkElement objects
+ */
+export function constructWorkList(document: Document): WorkElement[] {
+    let rawWorks = constructRawWorkList(document);
+    let workList: WorkElement[] = [];
+    for(var i = 0; i < rawWorks.length; i++) {
+        workList.push(constuctWorkElement(rawWorks[i] as HTMLElement));
+    }
+    return workList;
+}
 
 /**
  * Takes a raw work element and parses it into a WorkElement object
  * @param work Raw work element
  * @returns WorkElement object
  */
-function constuctWorkElement(work: HTMLLIElement): WorkElement {
+function constuctWorkElement(work: HTMLElement): WorkElement {
     let ret: WorkElement;
 
     // Author list
@@ -36,7 +50,7 @@ function constuctWorkElement(work: HTMLLIElement): WorkElement {
     });
     // Tag list
     let tList: string[] | null = [];
-    tags.querySelectorAll(':not(.warnings)').forEach((e) => {
+    tags.querySelectorAll('li:not(.warnings)').forEach((e) => {
         tList!.push(e.querySelector('.tag')!.innerHTML);
     });
     if(tList.length == 0)
@@ -50,9 +64,9 @@ function constuctWorkElement(work: HTMLLIElement): WorkElement {
     if(sList.length == 0)
         sList = null;
 
-    let stats = work.querySelector('.stats');
+    let stats = work.querySelector('.stats')!;
     // Chapters
-    let chapters = (stats?.querySelector('dd.chapters') as HTMLElement).innerText.split('/');
+    let chapters = (stats.querySelector('dd.chapters') as HTMLElement).innerText.split('/');
 
     // Categories list
     let cList: CATEGORY[] | null = [];
@@ -79,31 +93,22 @@ function constuctWorkElement(work: HTMLLIElement): WorkElement {
         categories: cList,
         complete: work.querySelector('span.iswip')?.getAttribute('title') == 'Complete Work',
         stats: {
-            language: stats?.querySelector('dd.language')?.innerHTML!,
-            wordCount: parseInt(stats?.querySelector('dd.words')?.innerHTML!),
+            language: stats.querySelector('dd.language')?.innerHTML!,
+            wordCount: parseInt(stats.querySelector('dd.words')?.innerHTML!),
             chapterCount: parseInt(chapters[0]),
-            finalChapterCount: chapters[1] == null ? null : parseInt(chapters[1]),
-            collections: parseInt((stats?.querySelector('dd.collections')! as HTMLElement).innerText),
-            comments: parseInt((stats?.querySelector('dd.comments')! as HTMLElement).innerText),
-            kudos: parseInt((stats?.querySelector('dd.kudos')! as HTMLElement).innerText),
-            bookmarks: parseInt((stats?.querySelector('dd.bookmarks')! as HTMLElement).innerText),
-            hits: parseInt(stats?.querySelector('dd.hits')?.innerHTML!)
+            finalChapterCount: chapters[1] == '?' ? null : parseInt(chapters[1]),
+            collections: stats.querySelector('dd.collections') == null ? 0
+                : parseInt((stats.querySelector('dd.collections') as HTMLElement).innerText),
+            comments: stats.querySelector('dd.comments') == null ? 0
+                : parseInt((stats.querySelector('dd.comments') as HTMLElement).innerText),
+            kudos: stats.querySelector('dd.kudos') == null ? 0
+                : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText),
+            bookmarks: stats.querySelector('dd.bookmarks') == null ? 0
+                : parseInt((stats.querySelector('dd.bookmarks') as HTMLElement).innerText),
+            hits: parseInt(stats.querySelector('dd.hits')?.innerHTML!)
         }
     }
     return ret;
-}
-
-
-/**
- * Get list of works from page as an array of WorkElement objects
- * @param document Document of AO3 page
- * @returns Array of works from page as WorkElement objects
- */
-function constructWorkList(document: Document): WorkElement[] {
-    let rawWorks = constructRawWorkList(document);
-    for(var i = 0; i < rawWorks.length; i++) {
-        // TODO: Finish this
-    }
 }
 
 /**
@@ -111,7 +116,7 @@ function constructWorkList(document: Document): WorkElement[] {
  * @param document Document of AO3 page
  * @returns List of works from page
  */
-export function constructRawWorkList(document: Document): HTMLCollectionOf<Element> {
+function constructRawWorkList(document: Document): HTMLCollectionOf<Element> {
     let type = document.querySelector('.group')?.classList[0];
     if(document.URL.split('/')[3] == "works") {
         return document.getElementsByClassName("work meta group"); // meta

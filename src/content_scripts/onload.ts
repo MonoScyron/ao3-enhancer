@@ -1,5 +1,5 @@
 import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
-import { addKudosToHitRatios } from './crawler';
+import { addKudosToHitRatios } from './ratio';
 
 // * Executed code start
 browser.storage.local.get(STORAGE_KEYS).then((value) => {

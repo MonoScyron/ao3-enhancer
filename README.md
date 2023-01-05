@@ -1,20 +1,67 @@
 # AO3 Enhancer
-Enhancment extension for AO3
+
+Firefox extension for the fanfiction website [ArchiveOfOurOwn](http://archiveofourown.org/).
+
+## Installing
+
+WIP!
 
 ## Features
-Note: Keep in mind that this extension is currently heavily work-in-progress.
 
-#### Kudos to Hit Ratio
-Adds a kudos to hit percentage to the stats list of a work.
+Most features are disabled by default. Please click on the extension icon to enable features in the options menu.
 
-#### Auto-exclude Tags/Fandoms
-Automatically excludes entered tags/fandoms via the AO3 filter when searching for works.
+### Enhancer Additions
 
-#### Auto-exclude Archive Warnings.
-Automatically excludes selected warnings via the AO3 filter when searching for works.
+**Kudos to Hit Ratio**: Adds a kudos to hit percentage to the stats list of a work.
 
-#### Auto-select Default Language
-Automatically applies a selected language to the AO3 filter when searching for works.
+### Filtering Settings
 
-#### Search within results
-Automatically searches within results with a supplied query when searching for works.
+Automatically modifies AO3 urls, using the archive's built-in filter to:
+
+- **Exclude tags/fandoms** - Exclude works with specific tags/fandoms.
+- **Exclude archive warnings** - Exclude selected warnings.
+- **Select a default language** - Only works of a selected language will be displayed.
+- **Search within results** - Apply a supplied query.
+
+## Roadmap
+
+These are features I currently plan on adding. Please suggest additional features in the issues tab!
+
+### TODO
+
+- [x] Kudos to Hit Ratio
+- [x] Auto-select Default Language
+- [x] Search within results
+- [x] Auto-exclude Tags/Fandoms
+- [x] Auto-exclude Archive Warnings
+- [ ] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
+- [ ] Use filter for more options stuff
+  - [ ] Crossovers
+  - [ ] Completion status
+  - [ ] Word count
+  - [ ] Date updated
+- [ ] Auto-exclude other stuff not included up there
+  - [ ] Ratings
+  - [ ] Categories
+- [ ] Auto sort by
+
+#### TODO Lower Priority
+
+These features are unlikely to be added.
+
+- [ ] Reading list: Add specific chapters of fics to a list (Bookmarking chapters)
+- [ ] Auto-include stuff
+  - [ ] Ratings
+  - [ ] Warnings
+  - [ ] Categories
+  - [ ] Tags/Fandoms
+
+## Acknowledgements
+
+This addon was inspired by extensions I use to browse AO3:
+
+- [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`
+- [AO3 Tag Blocker](https://github.com/ao3-tag-blocker/tag-blocker)
+
+The icon is a modifed version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
+The options page background is CC-BY-4.0 by [Hero Patterns](http://www.heropatterns.com/).

@@ -1,9 +1,13 @@
 {
   "scripts": {
-    "build:cs": "webpack --config cs-webpack.config.js",
-    "build:bg": "webpack --config bg-webpack.config.js",
-    "build:op": "webpack --config op-webpack.config.js",
-    "build": "npm run build:cs && npm run build:bg && npm run build:op"
+    "build-cs:dev": "webpack --mode=development --config cs-webpack.config.js",
+    "build-bg:dev": "webpack --mode=development --config bg-webpack.config.js",
+    "build-op:dev": "webpack --mode=development --config op-webpack.config.js",
+    "build-cs:prod": "webpack --mode=production --config cs-webpack.config.js",
+    "build-bg:prod": "webpack --mode=production --config bg-webpack.config.js",
+    "build-op:prod": "webpack --mode=production --config op-webpack.config.js",
+    "build:dev": "npm run build-cs:dev && npm run build-bg:dev && npm run build-op:dev",
+    "build:prod": "npm run build-cs:prod && npm run build-bg:prod && npm run build-op:prod"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",

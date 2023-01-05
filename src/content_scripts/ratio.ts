@@ -23,14 +23,14 @@ export function addKudosToHitRatios(document: Document) {
     let ratio_ddList: (HTMLElement | null)[] = [];
 
     workList.forEach((work, i) => {
-        if(work.stats.kudos != null && work.stats.hits != 0) {
+        if(work.kudos != 0 && work.hits != 0) {
             var ratio_dt = document.createElement("dt");
             ratio_dt.className = `kudos-to-hit-ratio`;
             ratio_dt.innerHTML = "Ratio:";
 
             var ratio_dd = document.createElement("dd");
             ratio_dd.className = `ratio`;
-            ratio_dd.innerHTML = Math.round((work.stats.kudos / work.stats.hits) * 1000) / 10 + "%";
+            ratio_dd.innerHTML = Math.round((work.kudos / work.hits) * 1000) / 10 + "%";
 
             ratio_dtList[i] = ratio_dt;
             ratio_ddList[i] = ratio_dd;

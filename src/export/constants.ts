@@ -51,27 +51,22 @@ export interface WorkElement {
     authors: string[],
     recipients: string[] | null,
     fandoms: string[],
-    tags: {
-        warnings: WARNING[],
-        tags: string[] | null
-    },
+    warnings: WARNING[],
+    tags: string[] | null,
     summary: string,
     series: string[] | null,
-    updateDate: string,
     rating: RATING,
     categories: CATEGORY[] | null,
     complete: boolean,
-    stats: {
-        language: string,
-        wordCount: number,
-        chapterCount: number,
-        finalChapterCount: number | null,
-        collections: number,
-        comments: number,
-        kudos: number,
-        bookmarks: number,
-        hits: number
-    }
+    language: string,
+    wordCount: number,
+    chapterCount: number,
+    finalChapterCount: number | null,
+    collections: number,
+    comments: number,
+    kudos: number,
+    bookmarks: number,
+    hits: number
 };
 
 /** Rating of works to id */

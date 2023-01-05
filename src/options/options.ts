@@ -1,4 +1,4 @@
-import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED } from "../export/constants";
+import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED, WARNING, idToWarningEnum } from '../export/constants';
 
 // * Select input from document
 // Kudos to hit ratio
@@ -32,7 +32,7 @@ const FILTERING_ELEMENTS = document.getElementsByClassName("filtering");
 
 // * Global vars
 let tagList: string[] = [];
-let warningList: number[] = [];
+let warningList: WARNING[] = [];
 
 // * Sync inputs to values saved in storage
 browser.storage.local.get(STORAGE_KEYS).then((store) => {
@@ -119,10 +119,10 @@ removeTagBtn.addEventListener("click", () => removeTagElement(removeTagSelect.va
 function addExcludeWarningListener(checkbox: HTMLInputElement) {
     checkbox.addEventListener("change", () => {
         var checked = checkbox.checked;
-        var val = parseInt(checkbox.getAttribute("value")!);
-        var index = warningList.indexOf(val);
+        var val = parseInt(checkbox.getAttribute("value")!)
+        var index = warningList.indexOf(idToWarningEnum(val));
         if(checked && index == -1)
-            warningList.push(val);
+            warningList.push(idToWarningEnum(val));
         else if(!checked)
             warningList.splice(index, 1);
         browser.storage.local.set({ warnings: warningList }).then(() =>
@@ -163,7 +163,9 @@ function syncSettings(obj: { [key: string]: any }) {
         removeTagSelect.appendChild(tagElement);
     });
     // Warnings
-    warningList = obj.warnings;
+    obj.warnings.forEach((e: number) => {
+        warningList.push(idToWarningEnum(e));
+    });
     excludeWarningCheckbox.choseNotToUse.checked = obj.warnings.indexOf(
         parseInt(excludeWarningCheckbox.choseNotToUse.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.violence.checked = obj.warnings.indexOf(

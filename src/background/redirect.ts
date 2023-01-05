@@ -7,6 +7,10 @@ import { ORIGIN } from "../export/constants";
  * @returns Url to redirect to, or null if url shouldn't be redirected
  */
 export function getRedirectURL(url: string, value: { [key: string]: any }): string | null {
+    // If filtering is off, return null
+    if(!value.filtering)
+        return null;
+
     let parsed = parseURL(url);
 
     let type = parsed[1];

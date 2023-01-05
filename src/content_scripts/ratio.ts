@@ -1,3 +1,5 @@
+import { constructRawWorkList } from "./works";
+
 /**
   * Adds kudos to hit ratios to works on the page
  * @param document Document of the page
@@ -9,18 +11,9 @@ export function addKudosToHitRatios(document: Document) {
     let ratio_ddList: (HTMLElement | null)[] = [];
 
     // Get list of works
-    let workList: HTMLCollectionOf<Element>;
-    let type = document.querySelector('.group')?.classList[0];
-    if(document.URL.split('/')[3] == "works") {
-        workList = document.getElementsByClassName("work meta group"); // meta
-    }
-    else if(type == "bookmark" || type == "work") {
-        workList = document.getElementsByClassName(type + " blurb group");
-    }
-    else {
-        workList = document.getElementsByClassName("work blurb group");
-    }
+    let workList = constructRawWorkList(document);
 
+    // TODO: Use use work crawler to get stats instead
     // Get list of work stats
     let statsList: NodeListOf<Element>;
     if(document.URL.split('/')[3] == "works") {
@@ -29,6 +22,7 @@ export function addKudosToHitRatios(document: Document) {
     else {
         statsList = document.querySelectorAll(".group[role='article'] dl.stats");
     }
+
 
     // Create list of ratio elements
     for(let i = 0; i < workList.length; i++) {

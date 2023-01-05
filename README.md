@@ -58,10 +58,11 @@ These features are unlikely to be added.
 
 ## Acknowledgements
 
-This addon was inspired by extensions I use to browse AO3:
+This addon was inspired by the extensions I use to browse AO3:
 
 - [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`
 - [AO3 Tag Blocker](https://github.com/ao3-tag-blocker/tag-blocker)
 
 The icon is a modifed version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
+
 The options page background is CC-BY-4.0 by [Hero Patterns](http://www.heropatterns.com/).

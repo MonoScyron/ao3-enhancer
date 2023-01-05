@@ -36,13 +36,13 @@ These are features I currently plan on adding. Please suggest additional feature
 - [x] Auto-exclude Archive Warnings
 - [ ] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
 - [ ] Use filter for more options stuff
-  - [ ] Crossovers
-  - [ ] Completion status
-  - [ ] Word count
-  - [ ] Date updated
+    - [ ] Crossovers
+    - [ ] Completion status
+    - [ ] Word count
+    - [ ] Date updated
 - [ ] Auto-exclude other stuff not included up there
-  - [ ] Ratings
-  - [ ] Categories
+    - [ ] Ratings
+    - [ ] Categories
 - [ ] Auto sort by
 
 #### TODO Lower Priority
@@ -51,18 +51,46 @@ These features are unlikely to be added.
 
 - [ ] Reading list: Add specific chapters of fics to a list (Bookmarking chapters)
 - [ ] Auto-include stuff
-  - [ ] Ratings
-  - [ ] Warnings
-  - [ ] Categories
-  - [ ] Tags/Fandoms
+    - [ ] Ratings
+    - [ ] Warnings
+    - [ ] Categories
+    - [ ] Tags/Fandoms
+
+## Building the Add-on
+
+This section will walk you through how to build the add-on yourself.
+
+Begin by installing required packages with `npm install`, then build the add-on with provided scripts using webpack.
+
+#### Development build
+
+This will cause webpack to optimize for development. To build for development, run:
+
+`npm run build:dev`
+
+#### Production build
+
+This will cause webpack to optimize for production. To build for production, run:
+
+`npm run build:prod`
+
+#### Add-on Complilaton
+Latest version of the add-on was built using these software versions:
+
+```
+Windows 10
+Version: 21H2
+Npm: 8.19.2
+Node: v18.12.1
+```
 
 ## Acknowledgements
 
 This addon was inspired by the extensions I use to browse AO3:
 
-- [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`
-- [AO3 Tag Blocker](https://github.com/ao3-tag-blocker/tag-blocker)
+-   [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`
+-   [AO3 Tag Blocker](https://github.com/ao3-tag-blocker/tag-blocker)
 
-The icon is a modifed version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
+The icon is a modified version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
 
 The options page background is CC-BY-4.0 by [Hero Patterns](http://www.heropatterns.com/).

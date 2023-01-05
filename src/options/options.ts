@@ -159,7 +159,7 @@ function syncSettings(obj: { [key: string]: any }) {
         tagList.push(tag);
         var tagElement = document.createElement('option');
         tagElement.value = tag;
-        tagElement.innerHTML = tag;
+        tagElement.innerText = tag;
         removeTagSelect.appendChild(tagElement);
     });
     // Warnings
@@ -205,7 +205,7 @@ function addTagElement(tag: string) {
     if(tagList.indexOf(tag) == -1) {
         var tagElement = document.createElement('option');
         tagElement.value = tag;
-        tagElement.innerHTML = tag;
+        tagElement.innerText = tag;
 
         removeTagSelect.insertBefore(tagElement, removeTagSelect.children[0]);
         removeTagSelect.value = tag;

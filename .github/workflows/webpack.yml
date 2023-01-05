@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build extension
+    - name: Build and zip extension
       run: |
         npm install
-        npm run build:dev
+        npm run dev

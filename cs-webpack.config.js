@@ -19,6 +19,6 @@ module.exports = {
     },
     output: {
         filename: './content_scripts/cs_bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
     },
 };

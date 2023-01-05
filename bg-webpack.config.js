@@ -19,6 +19,6 @@ module.exports = {
     },
     output: {
         filename: './background/bg_bundle.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
     },
 };

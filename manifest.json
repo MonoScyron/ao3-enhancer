@@ -5,8 +5,8 @@
     "description": "Enhancment extension for AO3.",
     "author": "MonoScyron",
     "icons": {
-        "48": "/dist/icons/logo-48.png",
-        "96": "/dist/icons/logo-96.png"
+        "48": "/build/icons/logo-48.png",
+        "96": "/build/icons/logo-96.png"
     },
     "permissions": [
         "storage",
@@ -15,16 +15,16 @@
         "https://archiveofourown.org/*"
     ],
     "browser_action": {
-        "default_icon": "/dist/icons/logo-32.png",
+        "default_icon": "/build/icons/logo-32.png",
         "default_title": "AO3 Enhancer"
     },
     "options_ui": {
-        "page": "dist/options/options.html",
+        "page": "build/options/options.html",
         "open_in_tab": true
     },
     "background": {
         "scripts": [
-            "dist/background/bg_bundle.js"
+            "build/background/bg_bundle.js"
         ]
     },
     "content_scripts": [
@@ -33,7 +33,7 @@
                 "https://archiveofourown.org/*"
             ],
             "js": [
-                "dist/content_scripts/cs_bundle.js"
+                "build/content_scripts/cs_bundle.js"
             ]
         }
     ]

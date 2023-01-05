@@ -21,7 +21,7 @@ module.exports = {
     },
     output: {
         filename: './options/options.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'build'),
     },
     plugins: [
         new CopyPlugin({

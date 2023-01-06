@@ -40,7 +40,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "ao3-enhancer@MonoScyron",
-            "strict_min_version": "48.0"
+            "strict_min_version": "57.0"
         }
     }
 }

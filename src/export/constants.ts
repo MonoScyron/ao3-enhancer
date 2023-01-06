@@ -46,6 +46,8 @@ export const enum ORIGIN {
 
 /** Interface for a parsed work */
 export interface WorkElement {
+    /** Raw list element of work. Is null if work element refers to a meta element. */
+    element: HTMLLIElement | null;
     href: string,
     title: string,
     authors: string[],

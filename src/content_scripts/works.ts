@@ -81,6 +81,7 @@ function constructWorkElementMeta(document: Document): WorkElement {
 
 
     ret = {
+        element: null,
         href: document.URL.split("/chapter")[0],
         title: (preface.querySelector(".title")! as HTMLElement).innerText,
         authors: aList,
@@ -171,6 +172,7 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
         cList = null;
 
     ret = {
+        element: work as HTMLLIElement,
         href: `https://archiveofourown.org${work.querySelector(".heading")?.firstElementChild?.getAttribute("href")!}`,
         title: work.querySelector(".heading")?.firstElementChild?.innerHTML!,
         authors: aList,
@@ -207,10 +209,8 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
  */
 function constructRawWorkList(document: Document): HTMLElement[] {
     let ret: HTMLElement[] = [];
-    document.querySelectorAll('.index.group').forEach((e) => {
-        e.querySelectorAll('.group[role="article"]').forEach((w) => {
-            ret.push(w as HTMLElement);
-        });
+    document.querySelectorAll('.index.group .group[role="article"]').forEach((e) => {
+        ret.push(e as HTMLElement);
     });
     return ret;
 }

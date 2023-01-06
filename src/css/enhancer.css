@@ -1,0 +1,34 @@
+.hidden-work.hidden .show-text,
+.hidden-work .hide-text {
+    display: inline-block;
+}
+
+.hidden-work .show-text,
+.hidden-work.hidden .hide-text {
+    display: none;
+}
+
+.show-button {
+    cursor: pointer;
+    float: right;
+    padding: 5px;
+    position: relative;
+    z-index: 10;
+}
+
+.show-div,
+.show-button,
+.show-div a {
+    visibility: visible;
+}
+
+.show-div p.datetime {
+    position: relative;
+    float: right;
+    margin: 11px;
+    padding-right: 5px;
+}
+
+.hidden * {
+    visibility: collapse;
+}

@@ -34,6 +34,9 @@
             ],
             "js": [
                 "build/content_scripts/cs_bundle.js"
+            ],
+            "css": [
+                "build/css/enhancer.css"
             ]
         }
     ],

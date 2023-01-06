@@ -10,7 +10,8 @@
     "build:prod": "npm run build-cs:prod && npm run build-bg:prod && npm run build-op:prod",
     "zip": "@powershell IF(!(Test-Path dist)) { mkdir dist }; tar.exe -a -c -f ./dist/dist.zip build manifest.json",
     "dev": "npm run build:dev && npm run zip",
-    "prod": "npm run build:prod && npm run zip"
+    "prod": "npm run build:prod && npm run zip",
+    "zip-sauce": "@powershell IF(!(Test-Path $env:TEMP/ao3-enhancer-sauce)) { mkdir $env:TEMP/ao3-enhancer-sauce }; copy ./* $env:TEMP/ao3-enhancer-sauce; Compress-Archive -Path $env:TEMP/ao3-enhancer-sauce -DestinationPath ./dist/ao3-sauce.zip -Force; Remove-Item -Recurse $env:TEMP/ao3-enhancer-sauce"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",

@@ -4,7 +4,7 @@ Firefox extension for the fanfiction website [ArchiveOfOurOwn](http://archiveofo
 
 ## Installing
 
-WIP!
+[Install this add-on for Firefox](https://addons.mozilla.org/en-US/firefox/addon/ao3-enhancer/)
 
 ## Features
 

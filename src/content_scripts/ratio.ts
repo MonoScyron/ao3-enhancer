@@ -9,15 +9,6 @@ export function addKudosToHitRatios(document: Document) {
     // Get list of works
     let workList = constructWorkList(document);
 
-    // Get list of work stats
-    let statsList: NodeListOf<Element>;
-    if(document.URL.split('/')[3] == "works") {
-        statsList = document.querySelectorAll("dl.stats");
-    }
-    else {
-        statsList = document.querySelectorAll(".group[role='article'] dl.stats");
-    }
-
     // Create ratio elements for all works on page
     let ratio_dtList: (HTMLElement | null)[] = [];
     let ratio_ddList: (HTMLElement | null)[] = [];
@@ -42,9 +33,9 @@ export function addKudosToHitRatios(document: Document) {
     });
 
     // Add list of ratio elements to works
-    for(var i = 0; i < statsList.length; i++) {
+    for(var i = 0; i < workList.length; i++) {
         if(ratio_dtList[i] != null && ratio_ddList[i] != null) {
-            statsList[i].append(ratio_dtList[i]!, ratio_ddList[i]!);
+            workList[i].element?.querySelector('dl.stats')?.append(ratio_dtList[i]!, ratio_ddList[i]!);
         }
     }
 }

@@ -1,4 +1,5 @@
-import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED, WARNING, idToWarningEnum } from '../export/constants';
+import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED } from '../export/constants';
+import { WARNING, idToWarningEnum } from '../export/enums';
 
 // * Select input from document
 // Kudos to hit ratio
@@ -137,7 +138,7 @@ addExcludeWarningListener(excludeWarningCheckbox.nonCon)
 addExcludeWarningListener(excludeWarningCheckbox.underage)
 addExcludeWarningListener(excludeWarningCheckbox.noWarnings)
 
-// * Functions
+// * Private functions
 /**
  * Changes current settings according to passed object
  * @param {string[]} obj Object to get settings from

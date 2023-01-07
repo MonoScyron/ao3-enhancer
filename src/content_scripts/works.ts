@@ -1,5 +1,5 @@
-
-import { WARNING, WorkElement, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/constants';
+import { WARNING, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/enums';
+import { WorkElement } from '../export/objects';
 
 /**
  * Get list of works from page as an array of WorkElement objects
@@ -20,6 +20,7 @@ export function constructWorkList(document: Document): WorkElement[] {
     return workList;
 }
 
+// * Private functions
 /**
  * Get the current work's meta as an HTMLElement
  * @param document Document of AO3 work page

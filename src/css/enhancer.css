@@ -1,34 +1,42 @@
-.hidden-work.hidden .show-text,
-.hidden-work .hide-text {
-    display: inline-block;
+.enhancer-hidden-work.enhancer-hidden li {
+    visibility: collapse;
+    height: 3em;
 }
 
-.hidden-work .show-text,
-.hidden-work.hidden .hide-text {
+.enhancer-hidden-work.enhancer-hidden .on-hide,
+.enhancer-hidden-work .on-show {
+    display: block;
+}
+
+.enhancer-hidden-work .on-hide,
+.enhancer-hidden-work.enhancer-hidden .on-show {
     display: none;
 }
 
+.show-button a {
+    height: fit-content;
+    padding-top: 2.5px;
+    padding-bottom: 0;
+    padding-left: 10px;
+
+    height: 29px;
+    display: flex;
+}
+
+.show-button a span {
+    position: relative;
+    bottom: 7px;
+}
+
 .show-button {
+    position: relative;
     cursor: pointer;
     float: right;
-    padding: 5px;
-    position: relative;
+    padding: 5px 0 0 5px;
     z-index: 10;
 }
 
-.show-div,
-.show-button,
-.show-div a {
-    visibility: visible;
-}
-
-.show-div p.datetime {
+.show-div {
     position: relative;
-    float: right;
-    margin: 11px;
-    padding-right: 5px;
-}
-
-.hidden * {
-    visibility: collapse;
+    float: none;
 }

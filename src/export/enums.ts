@@ -1,3 +1,10 @@
+/** Origin of page to redirect */
+export const enum ORIGIN {
+    COLLECTIONS = 'collection_id=',
+    TAGS = 'tag_id=',
+    USERS = 'user_id='
+}
+
 /** Rating of works to id */
 export enum RATING {
     notRated = 9,

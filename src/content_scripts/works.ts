@@ -1,5 +1,6 @@
 
-import { WARNING, WorkElement, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/constants';
+import { WARNING, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/enums';
+import { WorkElement } from '../export/objects';
 
 /**
  * Get list of works from page as an array of WorkElement objects
@@ -28,16 +29,16 @@ export function constructWorkList(document: Document): WorkElement[] {
 function constructWorkElementMeta(document: Document): WorkElement {
     let ret: WorkElement;
     let workMeta = document.querySelector(".work.meta.group")!;
-    let preface = document.querySelector(".preface.group")!;
+    let workskin = document.querySelector("#workskin")!;
 
     // Author list
     let aList: string[] = [];
-    preface.querySelectorAll("a[rel='author']").forEach((e) => {
+    workskin.querySelectorAll("a[rel='author']").forEach((e) => {
         aList.push(e.innerHTML);
     });
     // Gift list
     let gList: string[] | null = [];
-    preface.querySelectorAll("a[href$='/gifts']").forEach((e) => {
+    workskin.querySelectorAll("a[href$='/gifts']").forEach((e) => {
         gList?.push(e.innerHTML);
     });
     if(gList.length == 0)
@@ -79,16 +80,17 @@ function constructWorkElementMeta(document: Document): WorkElement {
     if(cList.length == 0)
         cList = null;
 
-
     ret = {
+        element: workMeta as HTMLElement,
         href: document.URL.split("/chapter")[0],
-        title: (preface.querySelector(".title")! as HTMLElement).innerText,
+        title: (workskin.querySelector(".title")! as HTMLElement).innerText,
         authors: aList,
         recipients: gList,
         fandoms: fList,
         warnings: wList,
         tags: tList,
-        summary: (preface.querySelector(".summary .userstuff")! as HTMLElement).innerText,
+        summary: workskin.querySelector(".summary .userstuff") == null ? ""
+            : (workskin.querySelector(".summary .userstuff") as HTMLElement).innerText,
         series: sList,
         rating: ratingToEnum((workMeta.querySelector("dd.rating")! as HTMLElement).innerText),
         categories: cList,
@@ -171,6 +173,7 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
         cList = null;
 
     ret = {
+        element: work as HTMLElement,
         href: `https://archiveofourown.org${work.querySelector(".heading")?.firstElementChild?.getAttribute("href")!}`,
         title: work.querySelector(".heading")?.firstElementChild?.innerHTML!,
         authors: aList,
@@ -178,7 +181,8 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
         fandoms: fList,
         warnings: wList,
         tags: tList,
-        summary: (work.querySelector('.summary')! as HTMLElement).innerText,
+        summary: work.querySelector('.summary') == null ? ""
+            : (work.querySelector('.summary') as HTMLElement).innerText,
         series: sList,
         rating: ratingToEnum(work.querySelector('span.rating')?.getAttribute('title')!),
         categories: cList,
@@ -209,7 +213,8 @@ function constructRawWorkList(document: Document): HTMLElement[] {
     let ret: HTMLElement[] = [];
     document.querySelectorAll('.index.group').forEach((e) => {
         e.querySelectorAll('.group[role="article"]').forEach((w) => {
-            ret.push(w as HTMLElement);
+            if(w.classList.contains('work') || w.classList.contains('bookmark'))
+                ret.push(w as HTMLElement);
         });
     });
     return ret;

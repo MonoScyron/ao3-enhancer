@@ -1,4 +1,5 @@
-import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED, WARNING, idToWarningEnum } from '../export/constants';
+import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED, } from '../export/constants';
+import { WARNING, idToWarningEnum } from '../export/enums';
 
 // * Select input from document
 // Kudos to hit ratio

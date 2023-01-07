@@ -1,4 +1,4 @@
-import { ORIGIN } from "../export/constants";
+import { ORIGIN } from "../export/enums";
 
 /**
  * Redirect given url to url that filters excluded works

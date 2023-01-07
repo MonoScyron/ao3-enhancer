@@ -7,10 +7,8 @@ const kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`)
 // Enable filtering
 const filterBtn = document.querySelector(`input[name='enable-filtering']`)! as HTMLInputElement;
 // Language
-const languageBtn = document.querySelector(`input[name='language-enable']`)! as HTMLInputElement;
 const languageSelect = document.querySelector(`select[name='language']`)! as HTMLSelectElement;
 // Query
-const queryBtn = document.querySelector(`input[name='query-enable']`)! as HTMLInputElement;
 const queryInput = document.querySelector(`input[name='query']`)! as HTMLInputElement;
 // Tags/fandoms
 const excludeTagInput = document.querySelector(`input[name='exclude-tag']`)! as HTMLInputElement;
@@ -26,6 +24,7 @@ const excludeWarningCheckbox = {
     underage: document.querySelector(`input[name='exclude-warning-underage']`)! as HTMLInputElement,
     noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)! as HTMLInputElement
 };
+// TODO: Select inputs for crossover, completion, word count, and update date
 
 // * Constant elements defined here
 // Options whose visibility depends on if filtering is enabled
@@ -48,6 +47,7 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 });
 
 // * Save settings to local storage when values are changed
+// TODO: Save settings when values are changed for crossover, completion, word count, and update date
 // Kudos to hit ratio
 kudosHitRatioBtn.addEventListener("change", () => {
     browser.storage.local.set({ kudosHitRatio: kudosHitRatioBtn.checked }).then(() =>
@@ -66,45 +66,33 @@ filterBtn.addEventListener("change", () => {
 // Language
 function setLanguageStorage() {
     // Disable all related inputs
-    languageBtn.classList.add("disabled");
     languageSelect.classList.add("disabled");
 
     browser.storage.local.set({
-        language: [
-            languageBtn.checked,
-            languageSelect.value
-        ]
+        language: languageSelect.value
     }).then(() => {
         // Enable all related inputs
-        languageBtn.classList.remove("disabled");
         languageSelect.classList.remove("disabled");
 
         browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }
-languageBtn.addEventListener("change", setLanguageStorage);
 languageSelect.addEventListener("change", setLanguageStorage);
 
 // Query
 function setQueryStorage() {
     // Disable all related inputs
-    queryBtn.classList.add("disabled");
     queryInput.classList.add("disabled");
 
     browser.storage.local.set({
-        query: [
-            queryBtn.checked,
-            queryInput.value
-        ]
+        query: queryInput.value
     }).then(() => {
         // Enable all related inputs
-        queryBtn.classList.remove("disabled");
         queryInput.classList.remove("disabled");
 
         browser.runtime.sendMessage(SETTINGS_CHANGED);
     });
 }
-queryBtn.addEventListener("change", setQueryStorage);
 queryInput.addEventListener("input", setQueryStorage);
 
 // Tags/fandoms
@@ -150,11 +138,9 @@ function syncSettings(obj: { [key: string]: any }) {
     filterBtn.checked = obj.filtering;
     checkFilteringElements(filterBtn.checked);
     // Language
-    languageBtn.checked = obj.language[0];
-    languageSelect.value = obj.language[1];
+    languageSelect.value = obj.language;
     // Query
-    queryBtn.checked = obj.query[0];
-    queryInput.value = obj.query[1];
+    queryInput.value = obj.query;
     // Tags/fandoms
     obj.tags.forEach((tag: string) => {
         tagList.push(tag);
@@ -179,6 +165,8 @@ function syncSettings(obj: { [key: string]: any }) {
         parseInt(excludeWarningCheckbox.underage.getAttribute("value")!)) != -1;
     excludeWarningCheckbox.noWarnings.checked = obj.warnings.indexOf(
         parseInt(excludeWarningCheckbox.noWarnings.getAttribute("value")!)) != -1;
+
+    // TODO: Sync settings for crossover, completion, word count, and update date
 }
 
 /**

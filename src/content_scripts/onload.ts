@@ -12,7 +12,7 @@ browser.storage.local.get(STORAGE_KEYS).then((value) => {
 });
 // * Executed code end
 
-// * Functions
+// * Private functions
 /**
  * Executed after all promises are fulfilled
  * @param value Local storage values of all saved settings

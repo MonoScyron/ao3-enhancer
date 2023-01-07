@@ -37,14 +37,15 @@ export function getRedirectURL(url: string, value: { [key: string]: any }): stri
     let language = "";
 
     // Get exclude data from local storage
-    if(value.language != undefined && value.language[0])
-        language = value.language[1];
-    if(value.query != undefined && value.query[0])
-        query = value.query[1];
+    if(value.language != undefined && value.language.length > 0)
+        language = value.language;
+    if(value.query != undefined && value.query.length > 0)
+        query = value.query;
     if(value.tags != undefined)
         tag = value.tags;
     if(value.warnings != undefined)
         warning = value.warnings;
+    // TODO: Get exclude data for crossover, completion, word count, and update date
 
     let redirectUrl = constructRedirectURLHelper(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
     if(redirectUrl != null) {
@@ -55,6 +56,7 @@ export function getRedirectURL(url: string, value: { [key: string]: any }): stri
         return null;
 }
 
+// * Private functions
 /**
  * Returns redirect URL to contain excluded tags, overriding the previous URL's history
  * @param origin Origin of document

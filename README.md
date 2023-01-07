@@ -94,3 +94,5 @@ This addon was inspired by the extensions I use to browse AO3:
 The icon is a modified version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
 
 The options page background is CC-BY-4.0 by [Hero Patterns](http://www.heropatterns.com/).
+
+The eye and arrow icons used are MIT license by [Heroicons](https://heroicons.com/).

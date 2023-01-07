@@ -35,7 +35,7 @@ browser.runtime.onMessage.addListener((message: string) => {
     }
 });
 
-// * Functions
+// * Private functions
 /**
  * Redirects url to filter excluded works
  * @param details Web request details

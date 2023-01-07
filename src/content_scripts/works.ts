@@ -21,6 +21,7 @@ export function constructWorkList(document: Document): WorkElement[] {
     return workList;
 }
 
+// * Private functions
 /**
  * Get the current work's meta as an HTMLElement
  * @param document Document of AO3 work page

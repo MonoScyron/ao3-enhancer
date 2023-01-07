@@ -128,16 +128,8 @@
                     <table class="align-center-left">
                         <tr>
                             <td>
-                                <label>Enable language filtering</label>
+                                <label>Language filtering</label>
                             </td>
-                            <td>
-                                <label class="switch">
-                                    <input name="language-enable" type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
                             <td colspan="2">
                                 <div class="option-div-input">
                                     <select class="input-standard-width" name="language">
@@ -269,27 +261,101 @@
                     </table>
                 </div>
                 <div class="option-div filtering">
-                    <h3>Search Within Results</h3>
-                    <table class="align-center-left">
-                        <tr>
-                            <td>
-                                <label>Enable search within results</label>
-                            </td>
-                            <td>
-                                <label class="switch">
-                                    <input name="query-enable" type="checkbox">
-                                    <span class="slider"></span>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <div class="option-div-input">
-                                    <input class="input-full-width" name="query" type="text" placeholder="Enter query">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    <!-- TODO: Remove open attribute from details -->
+                    <details open>
+                        <summary>
+                            <span>
+                                <h3>More Options</h3>
+                                <svg class="arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                    fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <svg class="arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                    fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd"
+                                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </summary>
+                        <table class="align-right-left">
+                            <tr class="pad-bottom">
+                                <td>
+                                    <label>Crossover filtering:</label>
+                                </td>
+                                <td>
+                                    <select class="input-fit-content" name="crossover">
+                                        <option selected value="">Include crossovers</option>
+                                        <option value="F">Exclude crossovers</option>
+                                        <option value="T">Show only crossovers</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="pad-bottom">
+                                <td>
+                                    <label>Completion filtering:</label>
+                                </td>
+                                <td>
+                                    <select class="input-fit-content" name="completion">
+                                        <option selected value="">All works</option>
+                                        <option value="F">Complete works only</option>
+                                        <option value="T">WIP only</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="pad-bottom">
+                                <td>
+                                    <label>Word count filtering:</label>
+                                </td>
+                                <td>
+                                    <div id="word-count-container" class="option-div-input">
+                                        <input class="input-smaller-width" name="min-word-count" type="text"
+                                            inputmode="numeric" placeholder="From">
+                                        <input class="input-smaller-width" name="max-word-count" type="text"
+                                            inputmode="numeric" placeholder="To">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="pad-bottom">
+                                <td>
+                                    <label>Update date filtering:</label>
+                                </td>
+                                <td>
+                                    <table id="date-table">
+                                        <tr>
+                                            <td>
+                                                <label>From</label>
+                                            </td>
+                                            <td>
+                                                <input class="input-small-width" name="from-date" type="date"
+                                                    placeholder="From">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>To</label>
+                                            </td>
+                                            <td>
+                                                <input class="input-small-width" name="to-date" type="date"
+                                                    placeholder="To">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Search within results:</label>
+                                </td>
+                                <td>
+                                    <input class="input-standard-width" name="query" type="text"
+                                        placeholder="Enter query">
+                                </td>
+                            </tr>
+                        </table>
+                    </details>
                 </div>
             </div>
         </div>

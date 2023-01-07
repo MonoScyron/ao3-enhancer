@@ -7,8 +7,8 @@ export const STORAGE_KEYS = [
 export const DEFAULT_VALUES = {
     kudosHitRatio: true,
     filtering: false,
-    language: [false, ""],
-    query: [false, ""],
+    language: "",
+    query: "",
     tags: [],
     warnings: []
 }

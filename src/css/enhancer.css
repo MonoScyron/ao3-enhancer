@@ -1,42 +1,23 @@
-.enhancer-hidden-work.enhancer-hidden li {
-    visibility: collapse;
-    height: 3em;
+.work-hidden .display-on-hide,
+li:not(.work-hidden) .display-on-show {
+    display: inline;
 }
 
-.enhancer-hidden-work.enhancer-hidden .on-hide,
-.enhancer-hidden-work .on-show {
-    display: block;
-}
-
-.enhancer-hidden-work .on-hide,
-.enhancer-hidden-work.enhancer-hidden .on-show {
+.work-hidden .display-on-show,
+li:not(.work-hidden) .display-on-hide {
     display: none;
 }
 
-.show-button a {
-    height: fit-content;
-    padding-top: 2.5px;
-    padding-bottom: 0;
-    padding-left: 10px;
-
-    height: 29px;
-    display: flex;
-}
-
-.show-button a span {
-    position: relative;
-    bottom: 7px;
-}
-
-.show-button {
-    position: relative;
+.enhancer-fold .action {
+    position: absolute;
+    right: 8px;
+    top: 10px;
     cursor: pointer;
-    float: right;
-    padding: 5px 0 0 5px;
-    z-index: 10;
+    padding-bottom: 5px;
+    padding-left: 10px;
 }
 
-.show-div {
+.enhancer-fold .action span {
+    bottom: 4.5px;
     position: relative;
-    float: none;
 }

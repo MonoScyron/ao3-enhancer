@@ -55,6 +55,7 @@ export function getRedirectURL(url: string, value: { [key: string]: any }): stri
         return null;
 }
 
+// * Private functions
 /**
  * Returns redirect URL to contain excluded tags, overriding the previous URL's history
  * @param origin Origin of document

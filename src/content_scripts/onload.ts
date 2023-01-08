@@ -1,5 +1,6 @@
 import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
 import { addKudosToHitRatios } from './ratio';
+import { constructWorkList } from './works';
 
 // * Executed code start
 browser.storage.local.get(STORAGE_KEYS).then((value) => {
@@ -18,7 +19,9 @@ browser.storage.local.get(STORAGE_KEYS).then((value) => {
  * @param value Local storage values of all saved settings
  */
 function onloadPromise(value: { [key: string]: any }, document: Document): void {
+    var works = constructWorkList(document);
+
     // Add kudos to hit ratio if enabled
     if(value.kudosHitRatio)
-        addKudosToHitRatios(document);
+        addKudosToHitRatios(works);
 }

@@ -34,7 +34,7 @@ These are features I currently plan on adding. Please suggest additional feature
 - [x] Search within results
 - [x] Auto-exclude Tags/Fandoms
 - [x] Auto-exclude Archive Warnings
-- [ ] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
+- [x] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
 - [ ] Use filter for more options stuff
     - [ ] Crossovers
     - [ ] Completion status
@@ -94,3 +94,5 @@ This addon was inspired by the extensions I use to browse AO3:
 The icon is a modified version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
 
 The options page background is CC-BY-4.0 by [Hero Patterns](http://www.heropatterns.com/).
+
+The eye icons used are MIT license by [Heroicons](https://heroicons.com/).

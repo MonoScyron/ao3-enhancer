@@ -16,12 +16,12 @@ Most features are disabled by default. Please click on the extension icon to ena
 
 ### Filtering Settings
 
-Automatically modifies AO3 urls, using the archive's built-in filter to:
+Automatically modifies AO3 urls using the archive's built-in filter.
 
 - **Exclude tags/fandoms**: Exclude works with specific tags/fandoms.
 - **Exclude archive warnings**: Exclude selected warnings.
 - **Select a default language**: Only works of a selected language will be displayed.
-- **Search within results**: Apply a supplied query.
+- **More options**: Filter for crossovers, completion, word count, date updated, and search within results.
 
 ## Roadmap
 

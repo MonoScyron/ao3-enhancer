@@ -1,16 +1,21 @@
 // Storage keys
 export const STORAGE_KEYS = [
-    "kudosHitRatio", "filtering", "language", "query", "tags", "warnings"
+    "kudosHitRatio", "filtering", "language", "query", "tags", "warnings",
+    "crossover", "completion", "wordCount", "updateDate"
 ];
 
 // Default values
 export const DEFAULT_VALUES = {
     kudosHitRatio: true,
     filtering: false,
-    language: [false, ""],
-    query: [false, ""],
+    language: "",
+    query: "",
     tags: [],
-    warnings: []
+    warnings: [],
+    crossover: "",
+    completion: "",
+    wordCount: ["", ""],
+    updateDate: ["", ""]
 }
 
 // Settings changed message

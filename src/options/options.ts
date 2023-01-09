@@ -3,29 +3,37 @@ import { WARNING, idToWarningEnum } from '../export/enums';
 
 // * Select input from document
 // Kudos to hit ratio
-const kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`)! as HTMLInputElement;
+const kudosHitRatioBtn = document.querySelector(`input[name='kudos-hit-ratio']`) as HTMLInputElement;
 // Enable filtering
-const filterBtn = document.querySelector(`input[name='enable-filtering']`)! as HTMLInputElement;
+const filterBtn = document.querySelector(`input[name='enable-filtering']`) as HTMLInputElement;
 // Language
-const languageBtn = document.querySelector(`input[name='language-enable']`)! as HTMLInputElement;
-const languageSelect = document.querySelector(`select[name='language']`)! as HTMLSelectElement;
+const languageSelect = document.querySelector(`select[name='language']`) as HTMLSelectElement;
 // Query
-const queryBtn = document.querySelector(`input[name='query-enable']`)! as HTMLInputElement;
-const queryInput = document.querySelector(`input[name='query']`)! as HTMLInputElement;
+const queryInput = document.querySelector(`input[name='query']`) as HTMLInputElement;
 // Tags/fandoms
-const excludeTagInput = document.querySelector(`input[name='exclude-tag']`)! as HTMLInputElement;
-const excludeTagBtn = document.getElementById(`exclude-tag-submit`)! as HTMLButtonElement;
-const removeTagSelect = document.querySelector(`select[name='remove-tag']`)! as HTMLSelectElement;
-const removeTagBtn = document.getElementById(`remove-tag-submit`)! as HTMLButtonElement;
+const excludeTagInput = document.querySelector(`input[name='exclude-tag']`) as HTMLInputElement;
+const excludeTagBtn = document.getElementById(`exclude-tag-submit`) as HTMLButtonElement;
+const removeTagSelect = document.querySelector(`select[name='remove-tag']`) as HTMLSelectElement;
+const removeTagBtn = document.getElementById(`remove-tag-submit`) as HTMLButtonElement;
 // Warnings
 const excludeWarningCheckbox = {
-    choseNotToUse: document.querySelector(`input[name='exclude-warning-chose-not-to-use']`)! as HTMLInputElement,
-    violence: document.querySelector(`input[name='exclude-warning-violence']`)! as HTMLInputElement,
-    mcd: document.querySelector(`input[name='exclude-warning-mcd']`)! as HTMLInputElement,
-    nonCon: document.querySelector(`input[name='exclude-warning-non-con']`)! as HTMLInputElement,
-    underage: document.querySelector(`input[name='exclude-warning-underage']`)! as HTMLInputElement,
-    noWarnings: document.querySelector(`input[name='exclude-warning-no-warnings']`)! as HTMLInputElement
+    choseNotToUse: document.querySelector(`input[name='exclude-warning-chose-not-to-use']`) as HTMLInputElement,
+    violence: document.querySelector(`input[name='exclude-warning-violence']`) as HTMLInputElement,
+    mcd: document.querySelector(`input[name='exclude-warning-mcd']`) as HTMLInputElement,
+    nonCon: document.querySelector(`input[name='exclude-warning-non-con']`) as HTMLInputElement,
+    underage: document.querySelector(`input[name='exclude-warning-underage']`) as HTMLInputElement,
+    noWarningsApply: document.querySelector(`input[name='exclude-warning-no-warnings']`) as HTMLInputElement
 };
+// Crossover
+const crossoverSelect = document.querySelector(`select[name='crossover']`) as HTMLInputElement;
+// Completion
+const completionSelect = document.querySelector(`select[name='completion']`) as HTMLInputElement;
+// Word count
+const wordCountFromInput = document.querySelector(`input[name='min-word-count']`) as HTMLInputElement;
+const wordCountToInput = document.querySelector(`input[name='max-word-count']`) as HTMLInputElement;
+// Update date
+const dateFromInput = document.querySelector(`input[name='from-date']`) as HTMLInputElement;
+const dateToInput = document.querySelector(`input[name='to-date']`) as HTMLInputElement;
 
 // * Constant elements defined here
 // Options whose visibility depends on if filtering is enabled
@@ -48,6 +56,38 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 });
 
 // * Save settings to local storage when values are changed
+// Update date
+function dateListener() {
+    browser.storage.local.set({
+        updateDate: [dateFromInput.value, dateToInput.value]
+    }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
+}
+dateFromInput.addEventListener('input', dateListener);
+dateToInput.addEventListener('input', dateListener);
+
+// Word count
+function wordCountListener() {
+    browser.storage.local.set({
+        wordCount: [wordCountFromInput.value, wordCountToInput.value]
+    }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
+}
+wordCountFromInput.addEventListener('input', wordCountListener);
+wordCountToInput.addEventListener('input', wordCountListener);
+
+// Completion
+completionSelect.addEventListener('change', () => {
+    browser.storage.local.set({ completion: completionSelect.value }).then(() =>
+        browser.runtime.sendMessage(SETTINGS_CHANGED)
+    );
+});
+
+// Crossover
+crossoverSelect.addEventListener('change', () => {
+    browser.storage.local.set({ crossover: crossoverSelect.value }).then(() =>
+        browser.runtime.sendMessage(SETTINGS_CHANGED)
+    );
+});
+
 // Kudos to hit ratio
 kudosHitRatioBtn.addEventListener("change", () => {
     browser.storage.local.set({ kudosHitRatio: kudosHitRatioBtn.checked }).then(() =>
@@ -64,48 +104,18 @@ filterBtn.addEventListener("change", () => {
 });
 
 // Language
-function setLanguageStorage() {
-    // Disable all related inputs
-    languageBtn.classList.add("disabled");
-    languageSelect.classList.add("disabled");
-
-    browser.storage.local.set({
-        language: [
-            languageBtn.checked,
-            languageSelect.value
-        ]
-    }).then(() => {
-        // Enable all related inputs
-        languageBtn.classList.remove("disabled");
-        languageSelect.classList.remove("disabled");
-
-        browser.runtime.sendMessage(SETTINGS_CHANGED);
-    });
-}
-languageBtn.addEventListener("change", setLanguageStorage);
-languageSelect.addEventListener("change", setLanguageStorage);
+languageSelect.addEventListener("change", () => {
+    browser.storage.local.set({ language: languageSelect.value }).then(() =>
+        browser.runtime.sendMessage(SETTINGS_CHANGED)
+    );
+});
 
 // Query
-function setQueryStorage() {
-    // Disable all related inputs
-    queryBtn.classList.add("disabled");
-    queryInput.classList.add("disabled");
-
-    browser.storage.local.set({
-        query: [
-            queryBtn.checked,
-            queryInput.value
-        ]
-    }).then(() => {
-        // Enable all related inputs
-        queryBtn.classList.remove("disabled");
-        queryInput.classList.remove("disabled");
-
-        browser.runtime.sendMessage(SETTINGS_CHANGED);
-    });
-}
-queryBtn.addEventListener("change", setQueryStorage);
-queryInput.addEventListener("input", setQueryStorage);
+queryInput.addEventListener("input", () => {
+    browser.storage.local.set({ query: queryInput.value }).then(() =>
+        browser.runtime.sendMessage(SETTINGS_CHANGED)
+    );
+});
 
 // Tags/fandoms
 excludeTagBtn.addEventListener("click", () => {
@@ -136,7 +146,7 @@ addExcludeWarningListener(excludeWarningCheckbox.violence)
 addExcludeWarningListener(excludeWarningCheckbox.mcd)
 addExcludeWarningListener(excludeWarningCheckbox.nonCon)
 addExcludeWarningListener(excludeWarningCheckbox.underage)
-addExcludeWarningListener(excludeWarningCheckbox.noWarnings)
+addExcludeWarningListener(excludeWarningCheckbox.noWarningsApply)
 
 // * Private functions
 /**
@@ -150,11 +160,9 @@ function syncSettings(obj: { [key: string]: any }) {
     filterBtn.checked = obj.filtering;
     checkFilteringElements(filterBtn.checked);
     // Language
-    languageBtn.checked = obj.language[0];
-    languageSelect.value = obj.language[1];
+    languageSelect.value = obj.language;
     // Query
-    queryBtn.checked = obj.query[0];
-    queryInput.value = obj.query[1];
+    queryInput.value = obj.query;
     // Tags/fandoms
     obj.tags.forEach((tag: string) => {
         tagList.push(tag);
@@ -167,18 +175,22 @@ function syncSettings(obj: { [key: string]: any }) {
     obj.warnings.forEach((e: number) => {
         warningList.push(idToWarningEnum(e));
     });
-    excludeWarningCheckbox.choseNotToUse.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.choseNotToUse.getAttribute("value")!)) != -1;
-    excludeWarningCheckbox.violence.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.violence.getAttribute("value")!)) != -1;
-    excludeWarningCheckbox.mcd.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.mcd.getAttribute("value")!)) != -1;
-    excludeWarningCheckbox.nonCon.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.nonCon.getAttribute("value")!)) != -1;
-    excludeWarningCheckbox.underage.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.underage.getAttribute("value")!)) != -1;
-    excludeWarningCheckbox.noWarnings.checked = obj.warnings.indexOf(
-        parseInt(excludeWarningCheckbox.noWarnings.getAttribute("value")!)) != -1;
+    excludeWarningCheckbox.choseNotToUse.checked = obj.warnings.indexOf(WARNING.choseNotToUse) != -1;
+    excludeWarningCheckbox.violence.checked = obj.warnings.indexOf(WARNING.violence) != -1;
+    excludeWarningCheckbox.mcd.checked = obj.warnings.indexOf(WARNING.mcd) != -1;
+    excludeWarningCheckbox.nonCon.checked = obj.warnings.indexOf(WARNING.nonCon) != -1;
+    excludeWarningCheckbox.underage.checked = obj.warnings.indexOf(WARNING.underage) != -1;
+    excludeWarningCheckbox.noWarningsApply.checked = obj.warnings.indexOf(WARNING.noWarningsApply) != -1;
+    // Crossover
+    crossoverSelect.value = obj.crossover;
+    // Completion
+    completionSelect.value = obj.completion;
+    // Word count
+    wordCountFromInput.value = obj.wordCount[0];
+    wordCountToInput.value = obj.wordCount[1];
+    // Update date
+    dateFromInput.value = obj.updateDate[0];
+    dateToInput.value = obj.updateDate[1];
 }
 
 /**

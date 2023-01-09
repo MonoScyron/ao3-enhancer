@@ -135,7 +135,11 @@ button.submit-button {
     cursor: pointer;
 }
 
-input[type="text"]:focus-visible {
+.submit-button {
+    cursor: pointer;
+}
+
+input:focus-visible {
     outline: 2.5px solid var(--background-color);
 }
 
@@ -228,6 +232,14 @@ table.align-center-left tr:not(:last-child) {
     text-align: left;
 }
 
+table.align-right-left td {
+    text-align: right;
+}
+
+table.align-right-left td:last-child {
+    text-align: left;
+}
+
 table.spaced-table tr:not(:last-child) td {
     padding-bottom: 10px;
 }
@@ -236,8 +248,84 @@ table.spaced-table tr:not(:last-child) td {
     width: 200px;
 }
 
+.input-small-width {
+    width: 120px;
+}
+
+.input-smaller-width {
+    width: 70px;
+}
+
 .input-full-width {
     width: 100%;
+}
+
+.input-fit-content {
+    width: fit-content;
+}
+
+table .pad-bottom td {
+    padding-bottom: 25px;
+}
+
+#word-count-container input:first-child {
+    margin-right: 10px;
+}
+
+#date-table {
+    border-spacing: 0;
+}
+
+#date-table td {
+    padding: 0;
+}
+
+#date-table td:first-child {
+    padding-right: 6px;
+}
+
+#date-table tr:first-child td {
+    padding-bottom: 6px;
+}
+
+#date-table label {
+    font-size: 13px;
+}
+
+summary {
+    cursor: pointer;
+}
+
+details>summary {
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.arrow-down,
+.arrow-right {
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+    display: none;
+}
+
+details[open] .arrow-down {
+    display: flex;
+}
+
+details:not([open]) .arrow-right {
+    display: flex;
+}
+
+summary span {
+    display: flex;
+}
+
+summary h3 {
+    margin-right: 5px;
 }
 
 .important-text {

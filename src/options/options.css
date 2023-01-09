@@ -131,6 +131,10 @@ button.submit-button {
     background-color: var(--text-color);
 }
 
+.submit-button {
+    cursor: pointer;
+}
+
 input:focus-visible {
     outline: 2.5px solid var(--background-color);
 }
@@ -144,7 +148,8 @@ h3 {
 
 body,
 input {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
 }
 
 h1 {

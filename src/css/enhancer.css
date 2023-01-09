@@ -1,0 +1,23 @@
+.work-hidden .display-on-hide,
+li:not(.work-hidden) .display-on-show {
+    display: inline;
+}
+
+.work-hidden .display-on-show,
+li:not(.work-hidden) .display-on-hide {
+    display: none;
+}
+
+.enhancer-fold .action {
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    padding-left: 10px;
+}
+
+.enhancer-fold .action span {
+    bottom: 4.5px;
+    position: relative;
+}

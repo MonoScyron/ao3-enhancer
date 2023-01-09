@@ -34,7 +34,7 @@ These are features I currently plan on adding. Please suggest additional feature
 - [x] Search within results
 - [x] Auto-exclude Tags/Fandoms
 - [x] Auto-exclude Archive Warnings
-- [ ] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
+- [x] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
 - [x] Use filter for more options stuff
     - [x] Crossovers
     - [x] Completion status

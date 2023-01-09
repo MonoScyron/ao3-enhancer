@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: './src/content_scripts/onload.ts',
@@ -20,4 +21,11 @@ module.exports = {
         filename: './content_scripts/cs_bundle.js',
         path: path.resolve(__dirname, 'build'),
     },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                { from: "src/css/enhancer.css", to: "css/enhancer.css" }
+            ],
+        }),
+    ],
 };

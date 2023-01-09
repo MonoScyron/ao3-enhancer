@@ -1,4 +1,3 @@
-
 import { WARNING, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/enums';
 import { WorkElement } from '../export/objects';
 

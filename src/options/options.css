@@ -135,6 +135,10 @@ button.submit-button {
     cursor: pointer;
 }
 
+.submit-button {
+    cursor: pointer;
+}
+
 input:focus-visible {
     outline: 2.5px solid var(--background-color);
 }

@@ -35,11 +35,11 @@ These are features I currently plan on adding. Please suggest additional feature
 - [x] Auto-exclude Tags/Fandoms
 - [x] Auto-exclude Archive Warnings
 - [ ] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
-- [ ] Use filter for more options stuff
-    - [ ] Crossovers
-    - [ ] Completion status
-    - [ ] Word count
-    - [ ] Date updated
+- [x] Use filter for more options stuff
+    - [x] Crossovers
+    - [x] Completion status
+    - [x] Word count
+    - [x] Date updated
 - [ ] Auto-exclude other stuff not included up there
     - [ ] Ratings
     - [ ] Categories

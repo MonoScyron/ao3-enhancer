@@ -45,7 +45,24 @@ export function getRedirectURL(url: string, value: { [key: string]: any }): stri
         tag = value.tags;
     if(value.warnings != undefined)
         warning = value.warnings;
-    // TODO: Get exclude data for crossover, completion, word count, and update date
+    if(type == 'work') {
+        if(value.crossover != undefined && value.crossover.length > 0)
+            crossover = value.crossover;
+        if(value.completion != undefined && value.completion.length > 0)
+            complete = value.completion;
+        if(value.wordCount != undefined) {
+            if(value.wordCount[0].length > 0)
+                wordCount[0] = parseInt(value.wordCount[0]);
+            if(value.wordCount[1].length > 0)
+                wordCount[1] = parseInt(value.wordCount[1]);
+        }
+        if(value.updateDate != undefined) {
+            if(value.updateDate[0].length > 0)
+                date[0] = value.updateDate[0];
+            if(value.updateDate[1].length > 0)
+                date[1] = value.updateDate[1];
+        }
+    }
 
     let redirectUrl = constructRedirectURLHelper(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
     if(redirectUrl != null) {
@@ -139,8 +156,8 @@ function constructRedirectURLHelper(origin: ORIGIN, type: string, id: string, ex
 /**
  * Parses an AO3 url and returns its origin, search type, and id.
  * @param baseURL URL to be parsed.
- * @returns origin:'tags', 'users', or 'collections.'
- * @returns searchType: 'works' or 'bookmarks.'
+ * @returns origin:'tags', 'users', or 'collections'.
+ * @returns searchType: 'work' or 'bookmark'.
  * @returns id: id of fandom (if origin='works'), id of user (if origin='bookmarks), or id of collection (if origin='collections').
  * @returns extraId: Extra ids in URLs, or empty string if no extra id. Returned as full id with definition (Ex: "fandom_id=1234123").
  */

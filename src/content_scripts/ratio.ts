@@ -3,9 +3,8 @@ import { WorkElement } from '../export/objects';
 /**
   * Adds kudos to hit ratios to works on the page
  * @param document Document of the page
- * @returns [Array of ratio labels, array of ratio values]
  */
-export function addKudosToHitRatios(workList: WorkElement[]) {
+export function addKudosToHitRatios(workList: WorkElement[]): void {
     // Create ratio elements for all works on page
     let ratio_dtList: (HTMLElement | null)[] = [];
     let ratio_ddList: (HTMLElement | null)[] = [];

@@ -5,9 +5,9 @@ import { WorkElement } from "../export/objects";
  * @param works Works on page
  * @param document Document the works belong to
  */
-export function hideWorks(works: WorkElement[], document: Document) {
+export function hideWorks(works: WorkElement[], document: Document, settings: { [key: string]: any }) {
     works.forEach(w => {
-        var reason = shouldHide(w);
+        var reason = shouldHide(w, settings);
         if(reason != null)
             hideWork(w, reason, document);
     });
@@ -19,9 +19,12 @@ export function hideWorks(works: WorkElement[], document: Document) {
  * @param work Work to check
  * @return Full reason why the work should be hidden, null if work shouldn't be hidden
  */
-function shouldHide(work: WorkElement): string | null {
-    // TODO: Implment me when in-page filtering is added
-    // * When returning string, should be in form of "([Reason why work is hidden]: [Value of reason])"
+function shouldHide(work: WorkElement, settings: { [key: string]: any }): string | null {
+    // ! When returning string, should be in form of `([Reason why work is hidden]: ${Value of reason})`
+    if(!Number.isNaN(settings.hideByNumFandom) && work.fandoms.length > settings.hideByNumFandom) {
+        return `(Too many fandoms: ${work.fandoms.length})`
+    }
+
     return null;
 }
 

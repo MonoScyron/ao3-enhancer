@@ -34,6 +34,8 @@ const wordCountToInput = document.querySelector(`input[name='max-word-count']`) 
 // Update date
 const dateFromInput = document.querySelector(`input[name='from-date']`) as HTMLInputElement;
 const dateToInput = document.querySelector(`input[name='to-date']`) as HTMLInputElement;
+// Hide by num fandoms
+const hideByNumFandomInput = document.querySelector(`input[name='hide-by-num-fandom']`) as HTMLInputElement;
 
 // * Constant elements defined here
 // Options whose visibility depends on if filtering is enabled
@@ -56,6 +58,17 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 });
 
 // * Save settings to local storage when values are changed
+// Hide by num fandoms
+hideByNumFandomInput.addEventListener('change', () => {
+    // If value = stupid or 0, set value to empty
+    if(Number.isNaN(parseInt(hideByNumFandomInput.value)) || parseInt(hideByNumFandomInput.value) == 0)
+        hideByNumFandomInput.value = '';
+
+    browser.storage.local.set({
+        hideByNumFandom: parseInt(hideByNumFandomInput.value)
+    }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
+});
+
 // Update date
 function dateListener() {
     browser.storage.local.set({
@@ -191,6 +204,8 @@ function syncSettings(obj: { [key: string]: any }) {
     // Update date
     dateFromInput.value = obj.updateDate[0];
     dateToInput.value = obj.updateDate[1];
+    // Hide by num fandoms
+    hideByNumFandomInput.value = obj.hideByNumFandom == 0 ? '' : obj.hideByNumFandom;
 }
 
 /**

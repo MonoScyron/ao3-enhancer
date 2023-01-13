@@ -1,6 +1,7 @@
 import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
 import { addKudosToHitRatios } from './ratio';
 import { constructWorkList } from './works';
+import { hideWorks } from './hide-works';
 
 // * Executed code start
 browser.storage.local.get(STORAGE_KEYS).then((value) => {
@@ -24,4 +25,10 @@ function onloadPromise(value: { [key: string]: any }, document: Document): void 
     // Add kudos to hit ratio if enabled
     if(value.kudosHitRatio)
         addKudosToHitRatios(works);
+
+    // Hide works if page not a work page
+    if(document.URL.split('/')[3] != "works")
+        hideWorks(works, document, value);
 }
+
+// TODO: On load to user marked-for-later page, filter it (https://www.npmjs.com/package/ao3api for how to POST requests)

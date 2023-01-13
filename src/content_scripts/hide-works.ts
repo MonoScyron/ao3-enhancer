@@ -6,10 +6,11 @@ import { WorkElement } from "../export/objects";
  * @param document Document the works belong to
  */
 export function hideWorks(works: WorkElement[], document: Document, settings: { [key: string]: any }) {
+    let parser = new DOMParser();
     works.forEach(w => {
         var reason = shouldHide(w, settings);
         if(reason != null)
-            hideWork(w, reason, document);
+            hideWork(w, reason, document, parser);
     });
 }
 
@@ -33,13 +34,17 @@ function shouldHide(work: WorkElement, settings: { [key: string]: any }): string
  * @param work Work to be hidden
  * @param reason Reason why work should be hidden (from shouldHide method)
  * @param document Document the work belongs to
+ * @param parser DOMParser to safely parse the work HTML
  */
-function hideWork(work: WorkElement, reason: string, document: Document): void {
+function hideWork(work: WorkElement, reason: string, document: Document, parser: DOMParser): void {
     let workElement = work.element!;
 
     let cut = document.createElement('div');
     cut.className = 'cut display-on-show';
-    cut.innerHTML = work.element!.innerHTML;
+    let workNodes = parser.parseFromString(work.element!.innerHTML, 'text/html').body.childNodes;
+    workNodes.forEach(element => {
+        cut.append(element);
+    });
 
     let fold: HTMLElement = document.createElement("div");
     fold.innerHTML = `
@@ -68,8 +73,8 @@ function hideWork(work: WorkElement, reason: string, document: Document): void {
     `;
     fold = fold.firstElementChild as HTMLElement;
 
-    let reasonContainer = fold.querySelector('.reason-hidden')!;
-    reasonContainer.innerHTML = reason;
+    let reasonContainer = fold.querySelector('.reason-hidden') as HTMLElement;
+    reasonContainer.innerText = reason;
     workElement.replaceChildren();
     workElement.classList.add('work-hidden');
     workElement.append(fold, cut);

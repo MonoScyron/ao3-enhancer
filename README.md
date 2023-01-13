@@ -6,6 +6,20 @@ Firefox extension for the fanfiction website [ArchiveOfOurOwn](http://archiveofo
 
 [Install this add-on for Firefox](https://addons.mozilla.org/en-US/firefox/addon/ao3-enhancer/)
 
+## Installing on Mobile
+
+This guide details how to install any add-on in general on Firefox Nightly browsers on mobile.
+
+Note: This extension should work on mobile, but it has not been extensively tested there. Please report any bugs you find in the issues tab!
+
+1. Create a collection on the [Firefox Add-ons collections page](https://addons.mozilla.org/en-US/firefox/collections/)
+2. Add "AO3 Enhancer" (Or any other add-on) to that collection
+3. Open Firefox Nightly's settings
+4. Select Custom Add-on Collection in the Advanced section
+5. Your User ID can be found by looking at the URL of your Firefox Add-on's profile
+6. Your Collection name is whatever you decided to name your collection
+7. Firefox Nightly will now allow you to install all the add-ons in your collection
+
 ## Features
 
 Most features are disabled by default. Please click on the extension icon to enable features in the options menu.

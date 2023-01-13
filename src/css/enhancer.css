@@ -17,7 +17,6 @@ li:not(.work-hidden) .display-on-hide {
     padding-left: 10px;
 }
 
-.enhancer-fold .action span {
-    bottom: 4.5px;
-    position: relative;
+p.enhancer-fold {
+    width: 75%;
 }

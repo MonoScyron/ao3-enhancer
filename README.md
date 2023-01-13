@@ -12,9 +12,10 @@ Most features are disabled by default. Please click on the extension icon to ena
 
 ### Enhancer Additions
 
-**Kudos to Hit Ratio**: Adds a kudos to hit percentage to the stats list of a work.
+- **Kudos to Hit Ratio**: Adds a kudos to hit percentage to the stats list of a work.
+- **Hide Fics With Too Many Fandoms**: Automatically hides works with too many fandoms.
 
-### Filtering Settings
+### Built-in Filtering Settings
 
 Automatically modifies AO3 urls using the archive's built-in filter.
 
@@ -29,21 +30,9 @@ These are features I currently plan on adding. Please suggest additional feature
 
 ### TODO
 
-- [x] Kudos to Hit Ratio
-- [x] Auto-select Default Language
-- [x] Search within results
-- [x] Auto-exclude Tags/Fandoms
-- [x] Auto-exclude Archive Warnings
-- [x] Add support for hiding works by collapsing work containers (Not doing anything with this yet though)
-- [x] Use filter for more options stuff
-    - [x] Crossovers
-    - [x] Completion status
-    - [x] Word count
-    - [x] Date updated
-- [ ] Auto-exclude other stuff not included up there
-    - [ ] Ratings
-    - [ ] Categories
-- [ ] Auto sort by
+- [ ] Filter & sort your marked-for-later fics
+- [ ] Filter fics by if already read
+- [ ] Filter fics by author
 
 #### TODO Lower Priority
 

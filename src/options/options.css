@@ -127,20 +127,42 @@ input:checked+.slider:before {
 
 select,
 input,
-button.submit-button {
+button {
     background-color: var(--text-color);
 }
 
-.submit-button {
-    cursor: pointer;
-}
 
-.submit-button {
+button.submit-button {
     cursor: pointer;
 }
 
 input:focus-visible {
     outline: 2.5px solid var(--background-color);
+}
+
+.input-standard-width {
+    width: 200px;
+}
+
+.input-small-width {
+    width: 120px;
+}
+
+.input-smaller-width {
+    width: 70px;
+}
+
+
+.input-smallest-width {
+    width: 50px;
+}
+
+.input-full-width {
+    width: 100%;
+}
+
+.input-fit-content {
+    width: fit-content;
 }
 
 h1,
@@ -220,7 +242,7 @@ table {
     border-spacing: 10px;
 }
 
-table tr td:first-of-type {
+table td:first-of-type {
     padding-right: 7px;
 }
 
@@ -244,28 +266,12 @@ table.spaced-table tr:not(:last-child) td {
     padding-bottom: 10px;
 }
 
-.input-standard-width {
-    width: 200px;
-}
-
-.input-small-width {
-    width: 120px;
-}
-
-.input-smaller-width {
-    width: 70px;
-}
-
-.input-full-width {
-    width: 100%;
-}
-
-.input-fit-content {
-    width: fit-content;
-}
-
-table .pad-bottom td {
+.pad-bottom td {
     padding-bottom: 25px;
+}
+
+table td.no-side-gap {
+    padding-right: 0;
 }
 
 #word-count-container input:first-child {

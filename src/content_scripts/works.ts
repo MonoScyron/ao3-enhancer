@@ -212,8 +212,9 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
 function constructRawWorkList(document: Document): HTMLElement[] {
     let ret: HTMLElement[] = [];
     document.querySelectorAll('.index.group').forEach((e) => {
-        e.querySelectorAll('.group[role="article"]').forEach((w) => {
-            if(w.classList.contains('work') || w.classList.contains('bookmark'))
+        e.querySelectorAll('.group[role="article"]:not([class*=series])').forEach((w) => {
+            // Check if work is deleted
+            if(w.querySelector('p.message') == null)
                 ret.push(w as HTMLElement);
         });
     });

@@ -6,7 +6,7 @@ import { WorkElement } from "../export/objects";
  * @param document Document the works belong to
  * @param settings Settings of extension
  */
-export function hideWorks(works: WorkElement[], document: Document, settings: { [key: string]: any }) {
+export function hideWorks(works: WorkElement[], document: Document, settings: { [key: string]: any }): void {
     let parser = new DOMParser();
     works.forEach(w => {
         let reason = shouldHide(w, settings);

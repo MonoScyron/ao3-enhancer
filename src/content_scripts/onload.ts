@@ -2,6 +2,7 @@ import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
 import { addKudosToHitRatios } from './ratio';
 import { constructWorkList } from './works';
 import { hideWorks } from './hide-works';
+import { addSideFilter } from './sort-marked';
 
 // * Executed code start
 browser.storage.local.get(STORAGE_KEYS).then((value) => {
@@ -26,6 +27,11 @@ function onloadPromise(value: { [key: string]: any }, document: Document): void 
     // Add kudos to hit ratio if enabled
     if(value.kudosHitRatio)
         addKudosToHitRatios(works);
+
+    // TODO: Remove testing
+    if(document.URL.split("/").pop() == "readings?show=to-read") {
+        addSideFilter(document);
+    }
 
     // Hide works if page not a work page
     if(document.URL.split('/')[3] != "works")

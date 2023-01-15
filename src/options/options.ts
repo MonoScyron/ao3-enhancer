@@ -83,7 +83,7 @@ hideByNumFandomInput.addEventListener('change', () => {
 });
 
 // Update date
-function dateListener() {
+function dateListener(): void {
     browser.storage.local.set({
         updateDate: [dateFromInput.value, dateToInput.value]
     }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
@@ -93,7 +93,7 @@ dateFromInput.addEventListener('input', dateListener);
 dateToInput.addEventListener('input', dateListener);
 
 // Word count
-function wordCountListener() {
+function wordCountListener(): void {
     browser.storage.local.set({
         wordCount: [wordCountFromInput.value, wordCountToInput.value]
     }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
@@ -155,7 +155,7 @@ excludeTagBtn.addEventListener("click", () => {
 removeTagBtn.addEventListener("click", () => removeTagElement(removeTagSelect.value));
 
 // Warnings
-function addExcludeWarningListener(checkbox: HTMLInputElement) {
+function addExcludeWarningListener(checkbox: HTMLInputElement): void {
     checkbox.addEventListener("change", () => {
         let checked = checkbox.checked;
         let val = parseInt(checkbox.getAttribute("value")!);
@@ -182,7 +182,7 @@ addExcludeWarningListener(excludeWarningCheckbox.noWarningsApply)
  * Changes current settings according to passed object
  * @param {string[]} obj Object to get settings from
  */
-function syncSettings(obj: { [key: string]: any }) {
+function syncSettings(obj: { [key: string]: any }): void {
     // Kudos to hit ratio
     kudosHitRatioBtn.checked = obj.kudosHitRatio;
     // Enable filtering
@@ -230,7 +230,7 @@ function syncSettings(obj: { [key: string]: any }) {
  * Hide/show all filtering elements
  * @param filtering If filtering is enabled
  */
-function checkFilteringElements(filtering: boolean) {
+function checkFilteringElements(filtering: boolean): void {
     for(let i = 0; i < FILTERING_ELEMENTS.length; i++)
         if(filtering)
             FILTERING_ELEMENTS.item(i)?.classList.remove("hidden");
@@ -242,7 +242,7 @@ function checkFilteringElements(filtering: boolean) {
  * Adds tag to the excluded tags list in storage and to the tag select
  * @param {string} tag Tag value to add
  */
-function addTagElement(tag: string) {
+function addTagElement(tag: string): void {
     // Disable all related buttons
     excludeTagBtn.classList.add("disabled");
     removeTagBtn.classList.add("disabled");
@@ -270,7 +270,7 @@ function addTagElement(tag: string) {
  * Removes tag from the excluded tags list in storage and from the tag select
  * @param {string} tag Tag value to remove
  */
-function removeTagElement(tag: any) {
+function removeTagElement(tag: any): void {
     // Disable all related buttons
     excludeTagBtn.classList.add("disabled");
     removeTagBtn.classList.add("disabled");

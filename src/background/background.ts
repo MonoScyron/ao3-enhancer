@@ -56,7 +56,7 @@ function redirect(details: browser.webRequest._OnBeforeRequestDetails): browser.
 /**
  * Opens option menu for extension
  */
-function openOptionMenu() {
+function openOptionMenu(): void {
     browser.tabs.create({
         url: "/build/options/options.html"
     });

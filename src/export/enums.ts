@@ -6,7 +6,7 @@ export const enum ORIGIN {
 }
 
 /** Rating of works to id */
-export enum RATING {
+export const enum RATING {
     notRated = 9,
     gen = 10,
     teen = 11,
@@ -15,7 +15,7 @@ export enum RATING {
 }
 
 /** Category of work to id */
-export enum CATEGORY {
+export const enum CATEGORY {
     gen = 21,
     fm = 22,
     mm = 23,
@@ -25,7 +25,7 @@ export enum CATEGORY {
 }
 
 /** Warnings of work to id */
-export enum WARNING {
+export const enum WARNING {
     choseNotToUse = 14,
     noWarningsApply = 16,
     violence = 17,

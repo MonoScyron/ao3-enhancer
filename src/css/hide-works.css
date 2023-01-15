@@ -21,3 +21,90 @@ li:not(.work-hidden) .display-on-hide {
 p.enhancer-fold {
     width: 75%;
 }
+
+/* TODO: Fix side filter narrow screen */
+
+/* Marked for later sorting css */
+@media (min-width: 674px) {
+    #main.readings-index.dashboard.region ol.reading.work.index.group {
+        width: 75%;
+    }
+}
+
+/* Marked for later sorting css narrow */
+@media (max-width: 673px) {
+    #main.readings-index.dashboard.region ol.reading.work.index.group {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        float: none;
+    }
+
+    .javascript form.filters {
+        margin: 0;
+        max-width: 95%;
+        position: absolute;
+        top: 0;
+        right: -16em;
+        width: 16em;
+        z-index: 400;
+    }
+
+    .filtered .index,
+    form.filters,
+    form dd,
+    form dt,
+    form .meta dd,
+    form .meta dt,
+    form.inbox {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        float: none
+    }
+
+    form.filters dl {
+        width: auto
+    }
+
+    .javascript form.filters {
+        margin: 0;
+        max-width: 95%;
+        position: absolute;
+        top: 0;
+        right: -16em;
+        width: 16em;
+        z-index: 400
+    }
+
+    .javascript .filters fieldset {
+        border: none;
+        margin: 0;
+        position: relative;
+        z-index: 450;
+        box-shadow: none
+    }
+
+    .javascript .filters p.narrow-shown {
+        position: relative
+    }
+
+    .filtering {
+        right: 14em
+    }
+
+    .filtering .filters #leave_filters {
+        background: transparent none;
+        border-bottom: none;
+        position: fixed;
+        top: -101em;
+        bottom: -101em;
+        left: -10em;
+        right: -10em;
+        z-index: 0
+    }
+
+    .filtering #leave_filters:focus {
+        outline: none
+    }
+}

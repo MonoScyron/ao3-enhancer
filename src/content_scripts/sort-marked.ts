@@ -14,7 +14,6 @@ export function addSideFilter(document: Document): void {
     filterNode.innerHTML = FILTER_HTML;
     filterNode = filterNode.firstElementChild as HTMLElement;
 
-    // TODO: Fix filter button duplicating autocomplete fields
     let filterBtn: HTMLElement = document.createElement('div');
     filterBtn.innerHTML = FILTER_BTN_HTML;
     filterBtn = filterBtn.firstElementChild as HTMLElement;

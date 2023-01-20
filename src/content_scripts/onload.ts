@@ -1,4 +1,4 @@
-import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
+import { DEFAULT_VALUES, INSERT_MARKED_CSS, STORAGE_KEYS } from '../export/constants';
 import { addKudosToHitRatios } from './ratio';
 import { constructWorkList } from './works';
 import { hideWorks } from './hide-works';

@@ -23,6 +23,7 @@ export const DEFAULT_VALUES = {
 
 // Settings changed message
 export const SETTINGS_CHANGED = "settings_changed";
+export const INSERT_MARKED_CSS = "insert_marked_css";
 
 /** Redirect these URLs to filter works with excluded stuff */
 export const REDIRECT_URLS = [

@@ -1,4 +1,4 @@
-import { REDIRECT_URLS, SETTINGS_CHANGED, STORAGE_KEYS } from "../export/constants";
+import { INSERT_MARKED_CSS, REDIRECT_URLS, SETTINGS_CHANGED, STORAGE_KEYS } from "../export/constants";
 import { getRedirectURL } from "./redirect";
 
 // * Global variables
@@ -25,12 +25,29 @@ browser.webRequest.onBeforeRequest.addListener(
     ['blocking']
 );
 
-// Synch settings on settings change
+// * Runtime onMessage communication
 browser.runtime.onMessage.addListener((message: string) => {
+    // Synch settings on settings change
     if(message == SETTINGS_CHANGED) {
         // Get settings from storage
         browser.storage.local.get(STORAGE_KEYS).then((value) => {
             settings = value;
+        });
+    }
+    // Insert css for marked for later page
+    else if(message == INSERT_MARKED_CSS) {
+        browser.tabs.query({
+            url: "https://archiveofourown.org/users/*/readings?show=to-read"
+        }).then((tabs) => {
+            tabs.forEach(t => {
+                // TODO: Fix this insert CSS (Issue is injection of files specifically, injecting CSS rules directly works fine)
+                browser.scripting.insertCSS({
+                    target: {
+                        tabId: t.id!
+                    },
+                    files: ["../css/marked-for-later.css"]
+                }).catch((e) => console.log(e))
+            });
         });
     }
 });

@@ -1,4 +1,4 @@
-import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
+import { DEFAULT_VALUES, INSERT_MARKED_CSS, STORAGE_KEYS } from '../export/constants';
 import { addKudosToHitRatios } from './ratio';
 import { constructWorkList } from './works';
 import { hideWorks } from './hide-works';
@@ -28,8 +28,8 @@ function onloadPromise(value: { [key: string]: any }, document: Document): void 
     if(value.kudosHitRatio)
         addKudosToHitRatios(works);
 
-    // TODO: Remove testing
     if(document.URL.split("/").pop() == "readings?show=to-read") {
+        browser.runtime.sendMessage(INSERT_MARKED_CSS);
         addSideFilter(document);
     }
 

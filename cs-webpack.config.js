@@ -24,7 +24,7 @@ module.exports = {
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: "src/css/enhancer.css", to: "css/enhancer.css" }
+                { from: "src/css/", to: "css/" }
             ],
         }),
     ],

@@ -47,6 +47,8 @@ These are features I currently plan on adding. Please suggest additional feature
 - [ ] Filter & sort your marked-for-later fics
 - [ ] Filter fics by if already read
 - [ ] Filter fics by author
+- [ ] Filter fics by individual fic ID
+- [ ] Add ability to get notified when fics are completed
 
 #### TODO Lower Priority
 

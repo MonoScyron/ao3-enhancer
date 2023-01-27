@@ -94,7 +94,8 @@ function constructWorkElementMeta(document: Document): WorkElement {
         series: sList,
         rating: ratingToEnum((workMeta.querySelector("dd.rating")! as HTMLElement).innerText),
         categories: cList,
-        complete: stats.querySelector(".status") != null && stats.querySelector(".status")!.innerHTML.indexOf("Completed") >= 0,
+        complete: stats.querySelector(".status") != null &&
+            stats.querySelector(".status")!.innerHTML.indexOf("Completed") >= 0,
         language: (workMeta.querySelector('dd.language') as HTMLElement).innerText,
         wordCount: parseInt(stats.querySelector('dd.words')?.innerHTML!),
         chapterCount: parseInt(chapters[0]),
@@ -211,12 +212,10 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
  */
 function constructRawWorkList(document: Document): HTMLElement[] {
     let ret: HTMLElement[] = [];
-    document.querySelectorAll('.index.group').forEach((e) => {
-        e.querySelectorAll('.group[role="article"]:not([class*=series])').forEach((w) => {
-            // Check if work is deleted
-            if(w.querySelector('p.message') == null)
-                ret.push(w as HTMLElement);
-        });
+    document.querySelectorAll('.index.group .group[role="article"]:not([class*=series])').forEach((w) => {
+        // Check if work is deleted
+        if(w.querySelector('p.message') == null)
+            ret.push(w as HTMLElement);
     });
     return ret;
 }

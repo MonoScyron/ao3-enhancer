@@ -1,4 +1,4 @@
-import { DEFAULT_VALUES, INSERT_MARKED_CSS, STORAGE_KEYS } from '../export/constants';
+import { DEFAULT_VALUES, STORAGE_KEYS } from '../export/constants';
 import { addKudosToHitRatios } from './ratio';
 import { constructWorkList } from './works';
 import { hideWorks } from './hide-works';
@@ -28,10 +28,8 @@ function onloadPromise(value: { [key: string]: any }, document: Document): void 
     if(value.kudosHitRatio)
         addKudosToHitRatios(works);
 
-    if(document.URL.split("/").pop() == "readings?show=to-read") {
-        browser.runtime.sendMessage(INSERT_MARKED_CSS);
+    if(document.URL.split("/").pop()?.includes("readings?show=to-read"))
         addSideFilter(document);
-    }
 
     // Hide works if page not a work page
     if(document.URL.split('/')[3] != "works")

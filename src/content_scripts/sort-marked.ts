@@ -1,18 +1,26 @@
 import { WorkElement } from '../export/objects';
 import { FILTER_HTML, FILTER_BTN_HTML } from '../export/constants';
 
-// TODO: Filter should call sortMarkedForLater() on submit
-// TODO: Create interface/enum to pass in sort values
+// TODO: Create interface object or enum to pass in sort values
 export function addSideFilter(document: Document): void {
+    let markedForLaterRef = document.createElement("link");
+    markedForLaterRef.setAttribute("rel", "stylesheet");
+    markedForLaterRef.setAttribute("type", "text/css");
+    markedForLaterRef.setAttribute("href", `${browser.runtime.getURL('../build/css/marked-for-later.css')}`);
+    document.head.appendChild(markedForLaterRef);
+
+    // TODO: Side filter should call sortMarkedForLater() on submit w/ object/enum as param to pass sort values
     let filterNode: HTMLElement = document.createElement('div');
     filterNode.innerHTML = FILTER_HTML;
     filterNode = filterNode.firstElementChild as HTMLElement;
 
+    // TODO: Fix filter button duplicating autocomplete fields
     let filterBtn: HTMLElement = document.createElement('div');
     filterBtn.innerHTML = FILTER_BTN_HTML;
     filterBtn = filterBtn.firstElementChild as HTMLElement;
     filterBtn.addEventListener('click', () => {
         filterNode.classList.toggle('narrow-hidden');
+        document.getElementById("outer")?.classList.toggle("filtering");
     });
 
     let mainElement = document.getElementById("main");

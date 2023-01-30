@@ -79,7 +79,7 @@ This will cause webpack to optimize for production. To build for production, run
 
 `npm run build:prod`
 
-#### Add-on Complilaton
+#### Add-on Compilation
 Latest version of the add-on was built using these software versions:
 
 ```

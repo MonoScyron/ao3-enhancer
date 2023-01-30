@@ -48,6 +48,7 @@ These are features I currently plan on adding. Please suggest additional feature
 - [ ] Filter fics by if already read
 - [ ] Filter fics by author
 - [ ] Filter fics by individual fic ID
+- [ ] Filter fics by ratio of kudos to hits
 - [ ] Add ability to get notified when fics are completed
 
 #### TODO Lower Priority

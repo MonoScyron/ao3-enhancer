@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^109.0.0",
-    "@types/node": "^18.11.18"
+    "@types/node": "^18.11.19"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",

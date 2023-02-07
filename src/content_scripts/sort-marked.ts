@@ -11,9 +11,10 @@ export function addSideFilter(document: Document): void {
 
     // TODO: Side filter should call sortMarkedForLater() on submit w/ object/enum as param to pass sort values
     let sideFilter: HTMLElement = document.createElement('div');
+    // TODO: Make FILTER_HTML skeleton
+    // TODO: Fill in ratings, warnings, categories, etc. from marked for later
     sideFilter.innerHTML = FILTER_HTML;
     sideFilter = sideFilter.firstElementChild as HTMLElement;
-    var par = sideFilter.querySelector("dd.autocomplete.search")!;
 
     let filterBtn: HTMLElement = document.createElement('div');
     filterBtn.innerHTML = FILTER_BTN_HTML;
@@ -29,8 +30,11 @@ export function addSideFilter(document: Document): void {
     userNav?.insertBefore(filterBtn, userNav.childNodes[2]);
 
     // Fix duplicating autocomplete fields on click (this is so jank)
-    (par.querySelector("#work_search_other_tag_names_autocomplete") as HTMLElement).click();
-    par.firstElementChild?.setAttribute("style", "display: none");
+    var par = sideFilter.querySelectorAll("dd.autocomplete.search")!;
+    par.forEach(e => {
+        e.firstElementChild?.setAttribute("style", "display: none");
+        (e.querySelector("#work_search_other_tag_names_autocomplete") as HTMLElement).click();
+    })
 }
 
 function sortMarkedForLater(workParent: HTMLOListElement, works: WorkElement[]): void {

@@ -99,7 +99,7 @@ export const FILTER_HTML = `
                                     <input type="radio" name="include_work_search[rating_ids][]"
                                         id="include_work_search_rating_ids_11" value="11">
                                     <span class="indicator" aria-hidden="true"></span><span>Teen And Up Audiences
-                                        (92584)</span>
+                                        (93615)</span>
                                 </label>
                             </li>
                             <li>
@@ -107,28 +107,28 @@ export const FILTER_HTML = `
                                     <input type="radio" name="include_work_search[rating_ids][]"
                                         id="include_work_search_rating_ids_10" value="10">
                                     <span class="indicator" aria-hidden="true"></span><span>General Audiences
-                                        (58171)</span>
+                                        (58791)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_rating_ids_13">
                                     <input type="radio" name="include_work_search[rating_ids][]"
                                         id="include_work_search_rating_ids_13" value="13">
-                                    <span class="indicator" aria-hidden="true"></span><span>Explicit (48977)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Explicit (49647)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_rating_ids_12">
                                     <input type="radio" name="include_work_search[rating_ids][]"
                                         id="include_work_search_rating_ids_12" value="12">
-                                    <span class="indicator" aria-hidden="true"></span><span>Mature (35690)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Mature (36146)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_rating_ids_9">
                                     <input type="radio" name="include_work_search[rating_ids][]"
                                         id="include_work_search_rating_ids_9" value="9">
-                                    <span class="indicator" aria-hidden="true"></span><span>Not Rated (29332)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Not Rated (29761)</span>
                                 </label>
                             </li>
                         </ul>
@@ -145,7 +145,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[archive_warning_ids][]"
                                         id="include_work_search_archive_warning_ids_16" value="16">
                                     <span class="indicator" aria-hidden="true"></span><span>No Archive Warnings Apply
-                                        (130373)</span>
+                                        (131877)</span>
                                 </label>
                             </li>
                             <li>
@@ -153,7 +153,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[archive_warning_ids][]"
                                         id="include_work_search_archive_warning_ids_14" value="14">
                                     <span class="indicator" aria-hidden="true"></span><span>Creator Chose Not To Use
-                                        Archive Warnings (93467)</span>
+                                        Archive Warnings (94527)</span>
                                 </label>
                             </li>
                             <li>
@@ -161,7 +161,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[archive_warning_ids][]"
                                         id="include_work_search_archive_warning_ids_17" value="17">
                                     <span class="indicator" aria-hidden="true"></span><span>Graphic Depictions Of
-                                        Violence (33261)</span>
+                                        Violence (33750)</span>
                                 </label>
                             </li>
                             <li>
@@ -169,21 +169,21 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[archive_warning_ids][]"
                                         id="include_work_search_archive_warning_ids_18" value="18">
                                     <span class="indicator" aria-hidden="true"></span><span>Major Character Death
-                                        (18147)</span>
+                                        (18381)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_archive_warning_ids_20">
                                     <input type="checkbox" name="include_work_search[archive_warning_ids][]"
                                         id="include_work_search_archive_warning_ids_20" value="20">
-                                    <span class="indicator" aria-hidden="true"></span><span>Underage (11636)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Underage (11811)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_archive_warning_ids_19">
                                     <input type="checkbox" name="include_work_search[archive_warning_ids][]"
                                         id="include_work_search_archive_warning_ids_19" value="19">
-                                    <span class="indicator" aria-hidden="true"></span><span>Rape/Non-Con (10269)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Rape/Non-Con (10422)</span>
                                 </label>
                             </li>
                         </ul>
@@ -198,42 +198,42 @@ export const FILTER_HTML = `
                                 <label for="include_work_search_category_ids_23">
                                     <input type="checkbox" name="include_work_search[category_ids][]"
                                         id="include_work_search_category_ids_23" value="23">
-                                    <span class="indicator" aria-hidden="true"></span><span>M/M (140731)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>M/M (142313)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_category_ids_22">
                                     <input type="checkbox" name="include_work_search[category_ids][]"
                                         id="include_work_search_category_ids_22" value="22">
-                                    <span class="indicator" aria-hidden="true"></span><span>F/M (63151)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>F/M (63848)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_category_ids_21">
                                     <input type="checkbox" name="include_work_search[category_ids][]"
                                         id="include_work_search_category_ids_21" value="21">
-                                    <span class="indicator" aria-hidden="true"></span><span>Gen (54401)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Gen (55155)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_category_ids_2246">
                                     <input type="checkbox" name="include_work_search[category_ids][]"
                                         id="include_work_search_category_ids_2246" value="2246">
-                                    <span class="indicator" aria-hidden="true"></span><span>Multi (22634)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Multi (22935)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_category_ids_116">
                                     <input type="checkbox" name="include_work_search[category_ids][]"
                                         id="include_work_search_category_ids_116" value="116">
-                                    <span class="indicator" aria-hidden="true"></span><span>F/F (18415)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>F/F (18627)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_category_ids_24">
                                     <input type="checkbox" name="include_work_search[category_ids][]"
                                         id="include_work_search_category_ids_24" value="24">
-                                    <span class="indicator" aria-hidden="true"></span><span>Other (12392)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Other (12561)</span>
                                 </label>
                             </li>
                         </ul>
@@ -245,25 +245,25 @@ export const FILTER_HTML = `
                     <dd id="include_fandom_tags" class="expandable fandom tags hidden">
                         <ul>
                             <li>
-                                <label for="include_work_search_fandom_ids_3828398">
+                                <label for="include_work_search_fandom_ids_87784924">
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
-                                        id="include_work_search_fandom_ids_3828398" value="3828398">
+                                        id="include_work_search_fandom_ids_87784924" value="87784924">
                                     <span class="indicator" aria-hidden="true"></span><span>僕のヒーローアカデミア | Boku no Hero
-                                        Academia | My Hero Academia (264754)</span>
+                                        Academia | My Hero Academia (Anime &amp; Manga) (267960)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_fandom_ids_13999">
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_13999" value="13999">
-                                    <span class="indicator" aria-hidden="true"></span><span>Naruto (1119)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Naruto (1141)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_fandom_ids_758208">
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_758208" value="758208">
-                                    <span class="indicator" aria-hidden="true"></span><span>Haikyuu!! (685)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Haikyuu!! (687)</span>
                                 </label>
                             </li>
                             <li>
@@ -271,15 +271,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_136512" value="136512">
                                     <span class="indicator" aria-hidden="true"></span><span>Harry Potter - J. K. Rowling
-                                        (624)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label for="include_work_search_fandom_ids_721553">
-                                    <input type="checkbox" name="include_work_search[fandom_ids][]"
-                                        id="include_work_search_fandom_ids_721553" value="721553">
-                                    <span class="indicator" aria-hidden="true"></span><span>Shingeki no Kyojin | Attack
-                                        on Titan (499)</span>
+                                        (631)</span>
                                 </label>
                             </li>
                             <li>
@@ -287,14 +279,22 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_34135873" value="34135873">
                                     <span class="indicator" aria-hidden="true"></span><span>鬼滅の刃 | Demon Slayer: Kimetsu
-                                        no Yaiba (Anime) (497)</span>
+                                        no Yaiba (Anime) (508)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="include_work_search_fandom_ids_721553">
+                                    <input type="checkbox" name="include_work_search[fandom_ids][]"
+                                        id="include_work_search_fandom_ids_721553" value="721553">
+                                    <span class="indicator" aria-hidden="true"></span><span>Shingeki no Kyojin | Attack
+                                        on Titan (503)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_fandom_ids_2692">
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_2692" value="2692">
-                                    <span class="indicator" aria-hidden="true"></span><span>Original Work (446)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Original Work (456)</span>
                                 </label>
                             </li>
                             <li>
@@ -302,7 +302,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_448284" value="448284">
                                     <span class="indicator" aria-hidden="true"></span><span>Pocket Monsters | Pokemon -
-                                        All Media Types (438)</span>
+                                        All Media Types (443)</span>
                                 </label>
                             </li>
                             <li>
@@ -310,7 +310,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_86392389" value="86392389">
                                     <span class="indicator" aria-hidden="true"></span><span>One Piece (Anime &amp;
-                                        Manga) (421)</span>
+                                        Manga) (428)</span>
                                 </label>
                             </li>
                             <li>
@@ -318,7 +318,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[fandom_ids][]"
                                         id="include_work_search_fandom_ids_414093" value="414093">
                                     <span class="indicator" aria-hidden="true"></span><span>Marvel Cinematic Universe
-                                        (411)</span>
+                                        (419)</span>
                                 </label>
                             </li>
                         </ul>
@@ -334,7 +334,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_3741113" value="3741113">
                                     <span class="indicator" aria-hidden="true"></span><span>Midoriya Izuku
-                                        (136265)</span>
+                                        (138002)</span>
                                 </label>
                             </li>
                             <li>
@@ -342,7 +342,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_3741110" value="3741110">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki
-                                        (126282)</span>
+                                        (127777)</span>
                                 </label>
                             </li>
                             <li>
@@ -350,7 +350,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_4598837" value="4598837">
                                     <span class="indicator" aria-hidden="true"></span><span>Todoroki Shouto
-                                        (74081)</span>
+                                        (74827)</span>
                                 </label>
                             </li>
                             <li>
@@ -358,7 +358,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_8689774" value="8689774">
                                     <span class="indicator" aria-hidden="true"></span><span>Aizawa Shouta | Eraserhead
-                                        (69200)</span>
+                                        (70137)</span>
                                 </label>
                             </li>
                             <li>
@@ -366,7 +366,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_3958226" value="3958226">
                                     <span class="indicator" aria-hidden="true"></span><span>Kirishima Eijirou
-                                        (66682)</span>
+                                        (67301)</span>
                                 </label>
                             </li>
                             <li>
@@ -374,7 +374,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_3958238" value="3958238">
                                     <span class="indicator" aria-hidden="true"></span><span>Uraraka Ochako
-                                        (48826)</span>
+                                        (49328)</span>
                                 </label>
                             </li>
                             <li>
@@ -382,7 +382,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_3958253" value="3958253">
                                     <span class="indicator" aria-hidden="true"></span><span>Kaminari Denki
-                                        (48400)</span>
+                                        (48863)</span>
                                 </label>
                             </li>
                             <li>
@@ -390,7 +390,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_9866728" value="9866728">
                                     <span class="indicator" aria-hidden="true"></span><span>Yagi Toshinori | All Might
-                                        (40980)</span>
+                                        (41391)</span>
                                 </label>
                             </li>
                             <li>
@@ -398,7 +398,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_5747754" value="5747754">
                                     <span class="indicator" aria-hidden="true"></span><span>Shinsou Hitoshi
-                                        (37354)</span>
+                                        (37826)</span>
                                 </label>
                             </li>
                             <li>
@@ -406,7 +406,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[character_ids][]"
                                         id="include_work_search_character_ids_10740979" value="10740979">
                                     <span class="indicator" aria-hidden="true"></span><span>Class 1-A (My Hero Academia)
-                                        (35916)</span>
+                                        (36355)</span>
                                 </label>
                             </li>
                         </ul>
@@ -423,7 +423,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_3741107" value="3741107">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki/Midoriya
-                                        Izuku (36475)</span>
+                                        Izuku (37033)</span>
                                 </label>
                             </li>
                             <li>
@@ -431,7 +431,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_4918711" value="4918711">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki/Kirishima
-                                        Eijirou (29398)</span>
+                                        Eijirou (29579)</span>
                                 </label>
                             </li>
                             <li>
@@ -439,7 +439,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_4687704" value="4687704">
                                     <span class="indicator" aria-hidden="true"></span><span>Midoriya Izuku/Todoroki
-                                        Shouto (22699)</span>
+                                        Shouto (22830)</span>
                                 </label>
                             </li>
                             <li>
@@ -447,7 +447,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_11910691" value="11910691">
                                     <span class="indicator" aria-hidden="true"></span><span>Aizawa Shouta |
-                                        Eraserhead/Yamada Hizashi | Present Mic (19119)</span>
+                                        Eraserhead/Yamada Hizashi | Present Mic (19407)</span>
                                 </label>
                             </li>
                             <li>
@@ -455,7 +455,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_7256141" value="7256141">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki &amp;
-                                        Midoriya Izuku (14703)</span>
+                                        Midoriya Izuku (14902)</span>
                                 </label>
                             </li>
                             <li>
@@ -463,7 +463,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_6404978" value="6404978">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki/Todoroki
-                                        Shouto (10405)</span>
+                                        Shouto (10540)</span>
                                 </label>
                             </li>
                             <li>
@@ -471,7 +471,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_14714195" value="14714195">
                                     <span class="indicator" aria-hidden="true"></span><span>Aizawa Shouta | Eraserhead
-                                        &amp; Midoriya Izuku (10155)</span>
+                                        &amp; Midoriya Izuku (10358)</span>
                                 </label>
                             </li>
                             <li>
@@ -479,7 +479,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_49364710" value="49364710">
                                     <span class="indicator" aria-hidden="true"></span><span>Dabi | Todoroki Touya/Takami
-                                        Keigo | Hawks (9872)</span>
+                                        Keigo | Hawks (10017)</span>
                                 </label>
                             </li>
                             <li>
@@ -487,7 +487,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_17268954" value="17268954">
                                     <span class="indicator" aria-hidden="true"></span><span>Kaminari Denki/Shinsou
-                                        Hitoshi (8226)</span>
+                                        Hitoshi (8315)</span>
                                 </label>
                             </li>
                             <li>
@@ -495,7 +495,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[relationship_ids][]"
                                         id="include_work_search_relationship_ids_5155513" value="5155513">
                                     <span class="indicator" aria-hidden="true"></span><span>Midoriya Izuku/Uraraka
-                                        Ochako (8097)</span>
+                                        Ochako (8212)</span>
                                 </label>
                             </li>
                         </ul>
@@ -510,14 +510,14 @@ export const FILTER_HTML = `
                                 <label for="include_work_search_freeform_ids_110">
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_110" value="110">
-                                    <span class="indicator" aria-hidden="true"></span><span>Fluff (46686)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Fluff (47117)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_freeform_ids_176">
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_176" value="176">
-                                    <span class="indicator" aria-hidden="true"></span><span>Angst (33402)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Angst (33820)</span>
                                 </label>
                             </li>
                             <li>
@@ -525,21 +525,21 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_10216243" value="10216243">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki Swears A Lot
-                                        (22860)</span>
+                                        (23060)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_freeform_ids_2379">
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_2379" value="2379">
-                                    <span class="indicator" aria-hidden="true"></span><span>Hurt/Comfort (20982)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Hurt/Comfort (21333)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="include_work_search_freeform_ids_214055">
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_214055" value="214055">
-                                    <span class="indicator" aria-hidden="true"></span><span>Not Beta Read (17235)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Not Beta Read (17490)</span>
                                 </label>
                             </li>
                             <li>
@@ -547,7 +547,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_16433199" value="16433199">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki is Bad at
-                                        Feelings (16257)</span>
+                                        Feelings (16463)</span>
                                 </label>
                             </li>
                             <li>
@@ -555,15 +555,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_604127" value="604127">
                                     <span class="indicator" aria-hidden="true"></span><span>Other Additional Tags to Be
-                                        Added (16031)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label for="include_work_search_freeform_ids_842172">
-                                    <input type="checkbox" name="include_work_search[freeform_ids][]"
-                                        id="include_work_search_freeform_ids_842172" value="842172">
-                                    <span class="indicator" aria-hidden="true"></span><span>Aged-Up Character(s)
-                                        (15479)</span>
+                                        Added (16276)</span>
                                 </label>
                             </li>
                             <li>
@@ -571,7 +563,15 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_86724730" value="86724730">
                                     <span class="indicator" aria-hidden="true"></span><span>Parental Aizawa Shouta |
-                                        Eraserhead | Dadzawa (15470)</span>
+                                        Eraserhead | Dadzawa (15693)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="include_work_search_freeform_ids_842172">
+                                    <input type="checkbox" name="include_work_search[freeform_ids][]"
+                                        id="include_work_search_freeform_ids_842172" value="842172">
+                                    <span class="indicator" aria-hidden="true"></span><span>Aged-Up Character(s)
+                                        (15660)</span>
                                 </label>
                             </li>
                             <li>
@@ -579,7 +579,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="include_work_search[freeform_ids][]"
                                         id="include_work_search_freeform_ids_143795" value="143795">
                                     <span class="indicator" aria-hidden="true"></span><span>Alternate Universe - Canon
-                                        Divergence (15176)</span>
+                                        Divergence (15406)</span>
                                 </label>
                             </li>
                         </ul>
@@ -592,7 +592,10 @@ export const FILTER_HTML = `
                             <li class="input"><input type="text" class="text" autocomplete="off" role="combobox"
                                     aria-expanded="true" aria-autocomplete="list"
                                     id="work_search_other_tag_names_autocomplete">
-                                <div class="autocomplete dropdown" style="display: none;"></div>
+                                <div class="autocomplete dropdown"
+                                    style="display: none; position: absolute; z-index: 999;">
+                                    <p class="notice">Start typing for suggestions!</p>
+                                </div>
                             </li>
                         </ul><input class="autocomplete" data-autocomplete-method="/autocomplete/tag"
                             data-autocomplete-hint-text="Start typing for suggestions!"
@@ -623,7 +626,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[rating_ids][]"
                                         id="exclude_work_search_rating_ids_11" value="11">
                                     <span class="indicator" aria-hidden="true"></span><span>Teen And Up Audiences
-                                        (92584)</span>
+                                        (93615)</span>
                                 </label>
                             </li>
                             <li>
@@ -631,28 +634,28 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[rating_ids][]"
                                         id="exclude_work_search_rating_ids_10" value="10">
                                     <span class="indicator" aria-hidden="true"></span><span>General Audiences
-                                        (58171)</span>
+                                        (58791)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_rating_ids_13">
                                     <input type="checkbox" name="exclude_work_search[rating_ids][]"
                                         id="exclude_work_search_rating_ids_13" value="13">
-                                    <span class="indicator" aria-hidden="true"></span><span>Explicit (48977)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Explicit (49647)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_rating_ids_12">
                                     <input type="checkbox" name="exclude_work_search[rating_ids][]"
                                         id="exclude_work_search_rating_ids_12" value="12">
-                                    <span class="indicator" aria-hidden="true"></span><span>Mature (35690)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Mature (36146)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_rating_ids_9">
                                     <input type="checkbox" name="exclude_work_search[rating_ids][]"
                                         id="exclude_work_search_rating_ids_9" value="9">
-                                    <span class="indicator" aria-hidden="true"></span><span>Not Rated (29332)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Not Rated (29761)</span>
                                 </label>
                             </li>
                         </ul>
@@ -669,7 +672,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[archive_warning_ids][]"
                                         id="exclude_work_search_archive_warning_ids_16" value="16">
                                     <span class="indicator" aria-hidden="true"></span><span>No Archive Warnings Apply
-                                        (130373)</span>
+                                        (131877)</span>
                                 </label>
                             </li>
                             <li>
@@ -677,7 +680,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[archive_warning_ids][]"
                                         id="exclude_work_search_archive_warning_ids_14" value="14">
                                     <span class="indicator" aria-hidden="true"></span><span>Creator Chose Not To Use
-                                        Archive Warnings (93467)</span>
+                                        Archive Warnings (94527)</span>
                                 </label>
                             </li>
                             <li>
@@ -685,7 +688,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[archive_warning_ids][]"
                                         id="exclude_work_search_archive_warning_ids_17" value="17">
                                     <span class="indicator" aria-hidden="true"></span><span>Graphic Depictions Of
-                                        Violence (33261)</span>
+                                        Violence (33750)</span>
                                 </label>
                             </li>
                             <li>
@@ -693,21 +696,21 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[archive_warning_ids][]"
                                         id="exclude_work_search_archive_warning_ids_18" value="18">
                                     <span class="indicator" aria-hidden="true"></span><span>Major Character Death
-                                        (18147)</span>
+                                        (18381)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_archive_warning_ids_20">
                                     <input type="checkbox" name="exclude_work_search[archive_warning_ids][]"
                                         id="exclude_work_search_archive_warning_ids_20" value="20">
-                                    <span class="indicator" aria-hidden="true"></span><span>Underage (11636)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Underage (11811)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_archive_warning_ids_19">
                                     <input type="checkbox" name="exclude_work_search[archive_warning_ids][]"
                                         id="exclude_work_search_archive_warning_ids_19" value="19">
-                                    <span class="indicator" aria-hidden="true"></span><span>Rape/Non-Con (10269)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Rape/Non-Con (10422)</span>
                                 </label>
                             </li>
                         </ul>
@@ -722,42 +725,42 @@ export const FILTER_HTML = `
                                 <label for="exclude_work_search_category_ids_23">
                                     <input type="checkbox" name="exclude_work_search[category_ids][]"
                                         id="exclude_work_search_category_ids_23" value="23">
-                                    <span class="indicator" aria-hidden="true"></span><span>M/M (140731)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>M/M (142313)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_category_ids_22">
                                     <input type="checkbox" name="exclude_work_search[category_ids][]"
                                         id="exclude_work_search_category_ids_22" value="22">
-                                    <span class="indicator" aria-hidden="true"></span><span>F/M (63151)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>F/M (63848)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_category_ids_21">
                                     <input type="checkbox" name="exclude_work_search[category_ids][]"
                                         id="exclude_work_search_category_ids_21" value="21">
-                                    <span class="indicator" aria-hidden="true"></span><span>Gen (54401)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Gen (55155)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_category_ids_2246">
                                     <input type="checkbox" name="exclude_work_search[category_ids][]"
                                         id="exclude_work_search_category_ids_2246" value="2246">
-                                    <span class="indicator" aria-hidden="true"></span><span>Multi (22634)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Multi (22935)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_category_ids_116">
                                     <input type="checkbox" name="exclude_work_search[category_ids][]"
                                         id="exclude_work_search_category_ids_116" value="116">
-                                    <span class="indicator" aria-hidden="true"></span><span>F/F (18415)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>F/F (18627)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_category_ids_24">
                                     <input type="checkbox" name="exclude_work_search[category_ids][]"
                                         id="exclude_work_search_category_ids_24" value="24">
-                                    <span class="indicator" aria-hidden="true"></span><span>Other (12392)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Other (12561)</span>
                                 </label>
                             </li>
                         </ul>
@@ -769,25 +772,25 @@ export const FILTER_HTML = `
                     <dd id="exclude_fandom_tags" class="expandable fandom tags hidden">
                         <ul>
                             <li>
-                                <label for="exclude_work_search_fandom_ids_3828398">
+                                <label for="exclude_work_search_fandom_ids_87784924">
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
-                                        id="exclude_work_search_fandom_ids_3828398" value="3828398">
+                                        id="exclude_work_search_fandom_ids_87784924" value="87784924">
                                     <span class="indicator" aria-hidden="true"></span><span>僕のヒーローアカデミア | Boku no Hero
-                                        Academia | My Hero Academia (264754)</span>
+                                        Academia | My Hero Academia (Anime &amp; Manga) (267960)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_fandom_ids_13999">
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_13999" value="13999">
-                                    <span class="indicator" aria-hidden="true"></span><span>Naruto (1119)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Naruto (1141)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_fandom_ids_758208">
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_758208" value="758208">
-                                    <span class="indicator" aria-hidden="true"></span><span>Haikyuu!! (685)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Haikyuu!! (687)</span>
                                 </label>
                             </li>
                             <li>
@@ -795,15 +798,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_136512" value="136512">
                                     <span class="indicator" aria-hidden="true"></span><span>Harry Potter - J. K. Rowling
-                                        (624)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label for="exclude_work_search_fandom_ids_721553">
-                                    <input type="checkbox" name="exclude_work_search[fandom_ids][]"
-                                        id="exclude_work_search_fandom_ids_721553" value="721553">
-                                    <span class="indicator" aria-hidden="true"></span><span>Shingeki no Kyojin | Attack
-                                        on Titan (499)</span>
+                                        (631)</span>
                                 </label>
                             </li>
                             <li>
@@ -811,14 +806,22 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_34135873" value="34135873">
                                     <span class="indicator" aria-hidden="true"></span><span>鬼滅の刃 | Demon Slayer: Kimetsu
-                                        no Yaiba (Anime) (497)</span>
+                                        no Yaiba (Anime) (508)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="exclude_work_search_fandom_ids_721553">
+                                    <input type="checkbox" name="exclude_work_search[fandom_ids][]"
+                                        id="exclude_work_search_fandom_ids_721553" value="721553">
+                                    <span class="indicator" aria-hidden="true"></span><span>Shingeki no Kyojin | Attack
+                                        on Titan (503)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_fandom_ids_2692">
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_2692" value="2692">
-                                    <span class="indicator" aria-hidden="true"></span><span>Original Work (446)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Original Work (456)</span>
                                 </label>
                             </li>
                             <li>
@@ -826,7 +829,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_448284" value="448284">
                                     <span class="indicator" aria-hidden="true"></span><span>Pocket Monsters | Pokemon -
-                                        All Media Types (438)</span>
+                                        All Media Types (443)</span>
                                 </label>
                             </li>
                             <li>
@@ -834,7 +837,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_86392389" value="86392389">
                                     <span class="indicator" aria-hidden="true"></span><span>One Piece (Anime &amp;
-                                        Manga) (421)</span>
+                                        Manga) (428)</span>
                                 </label>
                             </li>
                             <li>
@@ -842,7 +845,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[fandom_ids][]"
                                         id="exclude_work_search_fandom_ids_414093" value="414093">
                                     <span class="indicator" aria-hidden="true"></span><span>Marvel Cinematic Universe
-                                        (411)</span>
+                                        (419)</span>
                                 </label>
                             </li>
                         </ul>
@@ -858,7 +861,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_3741113" value="3741113">
                                     <span class="indicator" aria-hidden="true"></span><span>Midoriya Izuku
-                                        (136265)</span>
+                                        (138002)</span>
                                 </label>
                             </li>
                             <li>
@@ -866,7 +869,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_3741110" value="3741110">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki
-                                        (126282)</span>
+                                        (127777)</span>
                                 </label>
                             </li>
                             <li>
@@ -874,7 +877,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_4598837" value="4598837">
                                     <span class="indicator" aria-hidden="true"></span><span>Todoroki Shouto
-                                        (74081)</span>
+                                        (74827)</span>
                                 </label>
                             </li>
                             <li>
@@ -882,7 +885,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_8689774" value="8689774">
                                     <span class="indicator" aria-hidden="true"></span><span>Aizawa Shouta | Eraserhead
-                                        (69200)</span>
+                                        (70137)</span>
                                 </label>
                             </li>
                             <li>
@@ -890,7 +893,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_3958226" value="3958226">
                                     <span class="indicator" aria-hidden="true"></span><span>Kirishima Eijirou
-                                        (66682)</span>
+                                        (67301)</span>
                                 </label>
                             </li>
                             <li>
@@ -898,7 +901,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_3958238" value="3958238">
                                     <span class="indicator" aria-hidden="true"></span><span>Uraraka Ochako
-                                        (48826)</span>
+                                        (49328)</span>
                                 </label>
                             </li>
                             <li>
@@ -906,7 +909,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_3958253" value="3958253">
                                     <span class="indicator" aria-hidden="true"></span><span>Kaminari Denki
-                                        (48400)</span>
+                                        (48863)</span>
                                 </label>
                             </li>
                             <li>
@@ -914,7 +917,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_9866728" value="9866728">
                                     <span class="indicator" aria-hidden="true"></span><span>Yagi Toshinori | All Might
-                                        (40980)</span>
+                                        (41391)</span>
                                 </label>
                             </li>
                             <li>
@@ -922,7 +925,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_5747754" value="5747754">
                                     <span class="indicator" aria-hidden="true"></span><span>Shinsou Hitoshi
-                                        (37354)</span>
+                                        (37826)</span>
                                 </label>
                             </li>
                             <li>
@@ -930,7 +933,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[character_ids][]"
                                         id="exclude_work_search_character_ids_10740979" value="10740979">
                                     <span class="indicator" aria-hidden="true"></span><span>Class 1-A (My Hero Academia)
-                                        (35916)</span>
+                                        (36355)</span>
                                 </label>
                             </li>
                         </ul>
@@ -947,7 +950,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_3741107" value="3741107">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki/Midoriya
-                                        Izuku (36475)</span>
+                                        Izuku (37033)</span>
                                 </label>
                             </li>
                             <li>
@@ -955,7 +958,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_4918711" value="4918711">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki/Kirishima
-                                        Eijirou (29398)</span>
+                                        Eijirou (29579)</span>
                                 </label>
                             </li>
                             <li>
@@ -963,7 +966,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_4687704" value="4687704">
                                     <span class="indicator" aria-hidden="true"></span><span>Midoriya Izuku/Todoroki
-                                        Shouto (22699)</span>
+                                        Shouto (22830)</span>
                                 </label>
                             </li>
                             <li>
@@ -971,7 +974,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_11910691" value="11910691">
                                     <span class="indicator" aria-hidden="true"></span><span>Aizawa Shouta |
-                                        Eraserhead/Yamada Hizashi | Present Mic (19119)</span>
+                                        Eraserhead/Yamada Hizashi | Present Mic (19407)</span>
                                 </label>
                             </li>
                             <li>
@@ -979,7 +982,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_7256141" value="7256141">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki &amp;
-                                        Midoriya Izuku (14703)</span>
+                                        Midoriya Izuku (14902)</span>
                                 </label>
                             </li>
                             <li>
@@ -987,7 +990,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_6404978" value="6404978">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki/Todoroki
-                                        Shouto (10405)</span>
+                                        Shouto (10540)</span>
                                 </label>
                             </li>
                             <li>
@@ -995,7 +998,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_14714195" value="14714195">
                                     <span class="indicator" aria-hidden="true"></span><span>Aizawa Shouta | Eraserhead
-                                        &amp; Midoriya Izuku (10155)</span>
+                                        &amp; Midoriya Izuku (10358)</span>
                                 </label>
                             </li>
                             <li>
@@ -1003,7 +1006,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_49364710" value="49364710">
                                     <span class="indicator" aria-hidden="true"></span><span>Dabi | Todoroki Touya/Takami
-                                        Keigo | Hawks (9872)</span>
+                                        Keigo | Hawks (10017)</span>
                                 </label>
                             </li>
                             <li>
@@ -1011,7 +1014,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_17268954" value="17268954">
                                     <span class="indicator" aria-hidden="true"></span><span>Kaminari Denki/Shinsou
-                                        Hitoshi (8226)</span>
+                                        Hitoshi (8315)</span>
                                 </label>
                             </li>
                             <li>
@@ -1019,7 +1022,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[relationship_ids][]"
                                         id="exclude_work_search_relationship_ids_5155513" value="5155513">
                                     <span class="indicator" aria-hidden="true"></span><span>Midoriya Izuku/Uraraka
-                                        Ochako (8097)</span>
+                                        Ochako (8212)</span>
                                 </label>
                             </li>
                         </ul>
@@ -1034,14 +1037,14 @@ export const FILTER_HTML = `
                                 <label for="exclude_work_search_freeform_ids_110">
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_110" value="110">
-                                    <span class="indicator" aria-hidden="true"></span><span>Fluff (46686)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Fluff (47117)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_freeform_ids_176">
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_176" value="176">
-                                    <span class="indicator" aria-hidden="true"></span><span>Angst (33402)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Angst (33820)</span>
                                 </label>
                             </li>
                             <li>
@@ -1049,21 +1052,21 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_10216243" value="10216243">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki Swears A Lot
-                                        (22860)</span>
+                                        (23060)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_freeform_ids_2379">
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_2379" value="2379">
-                                    <span class="indicator" aria-hidden="true"></span><span>Hurt/Comfort (20982)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Hurt/Comfort (21333)</span>
                                 </label>
                             </li>
                             <li>
                                 <label for="exclude_work_search_freeform_ids_214055">
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_214055" value="214055">
-                                    <span class="indicator" aria-hidden="true"></span><span>Not Beta Read (17235)</span>
+                                    <span class="indicator" aria-hidden="true"></span><span>Not Beta Read (17490)</span>
                                 </label>
                             </li>
                             <li>
@@ -1071,7 +1074,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_16433199" value="16433199">
                                     <span class="indicator" aria-hidden="true"></span><span>Bakugou Katsuki is Bad at
-                                        Feelings (16257)</span>
+                                        Feelings (16463)</span>
                                 </label>
                             </li>
                             <li>
@@ -1079,15 +1082,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_604127" value="604127">
                                     <span class="indicator" aria-hidden="true"></span><span>Other Additional Tags to Be
-                                        Added (16031)</span>
-                                </label>
-                            </li>
-                            <li>
-                                <label for="exclude_work_search_freeform_ids_842172">
-                                    <input type="checkbox" name="exclude_work_search[freeform_ids][]"
-                                        id="exclude_work_search_freeform_ids_842172" value="842172">
-                                    <span class="indicator" aria-hidden="true"></span><span>Aged-Up Character(s)
-                                        (15479)</span>
+                                        Added (16276)</span>
                                 </label>
                             </li>
                             <li>
@@ -1095,7 +1090,15 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_86724730" value="86724730">
                                     <span class="indicator" aria-hidden="true"></span><span>Parental Aizawa Shouta |
-                                        Eraserhead | Dadzawa (15470)</span>
+                                        Eraserhead | Dadzawa (15693)</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label for="exclude_work_search_freeform_ids_842172">
+                                    <input type="checkbox" name="exclude_work_search[freeform_ids][]"
+                                        id="exclude_work_search_freeform_ids_842172" value="842172">
+                                    <span class="indicator" aria-hidden="true"></span><span>Aged-Up Character(s)
+                                        (15660)</span>
                                 </label>
                             </li>
                             <li>
@@ -1103,7 +1106,7 @@ export const FILTER_HTML = `
                                     <input type="checkbox" name="exclude_work_search[freeform_ids][]"
                                         id="exclude_work_search_freeform_ids_143795" value="143795">
                                     <span class="indicator" aria-hidden="true"></span><span>Alternate Universe - Canon
-                                        Divergence (15176)</span>
+                                        Divergence (15406)</span>
                                 </label>
                             </li>
                         </ul>
@@ -1360,14 +1363,14 @@ export const FILTER_HTML = `
 
         <p class="footnote">
             <a
-                href="/tags/%E5%83%95%E3%81%AE%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC%E3%82%A2%E3%82%AB%E3%83%87%E3%83%9F%E3%82%A2%20%7C%20Boku%20no%20Hero%20Academia%20%7C%20My%20Hero%20Academia/works">Clear
+                href="/tags/%E5%83%95%E3%81%AE%E3%83%92%E3%83%BC%E3%83%AD%E3%83%BC%E3%82%A2%E3%82%AB%E3%83%87%E3%83%9F%E3%82%A2%20%7C%20Boku%20no%20Hero%20Academia%20%7C%20My%20Hero%20Academia%20(Anime%20*a*%20Manga)/works">Clear
                 Filters</a>
         </p>
 
         <div>
 
             <input type="hidden" name="tag_id" id="tag_id"
-                value="僕のヒーローアカデミア | Boku no Hero Academia | My Hero Academia" class="text">
+                value="僕のヒーローアカデミア | Boku no Hero Academia | My Hero Academia (Anime *a* Manga)" class="text">
 
 
 

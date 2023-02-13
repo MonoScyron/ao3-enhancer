@@ -18,6 +18,7 @@ export function hideWorks(works: WorkElement[], document: Document, settings: { 
 /**
  * Checks if the given work should be hidden
  * @param work Work to check
+ * @param settings Settings of extension
  * @return Full reason why the work should be hidden, null if work shouldn't be hidden
  */
 function shouldHide(work: WorkElement, settings: { [key: string]: any }): string | null {

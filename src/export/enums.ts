@@ -33,6 +33,7 @@ export enum WARNING {
     nonCon = 19,
     underage = 20
 }
+
 /**
  * Takes rating id of work and converts it to an enum value
  * @param id Id of rating
@@ -113,7 +114,7 @@ export function warningToEnum(warning: string): WARNING {
 
 /**
  * Converts string value of a rating to the corresponding RATING enum
- * @param warning String of rating from page
+ * @param rating Rating of the fic
  * @returns Converted enum value of param
  */
 export function ratingToEnum(rating: string): RATING {
@@ -131,7 +132,7 @@ export function ratingToEnum(rating: string): RATING {
 
 /**
  * Converts string value of a category to the corresponding CATEGORY enum
- * @param warning String of category from page
+ * @param category Category of fic
  * @returns Converted enum value of param
  */
 export function categoryToEnum(category: string): CATEGORY {

@@ -36,6 +36,8 @@ const dateFromInput = document.querySelector(`input[name='from-date']`) as HTMLI
 const dateToInput = document.querySelector(`input[name='to-date']`) as HTMLInputElement;
 // Hide by num fandoms
 const hideByNumFandomInput = document.querySelector(`input[name='hide-by-num-fandom']`) as HTMLInputElement;
+// Hide by kudos to hit ratio
+const hideByRatioInput = document.querySelector(`input[name='hide-by-ratio']`) as HTMLInputElement;
 
 // * Constant elements defined here
 // Options whose visibility depends on if filtering is enabled
@@ -59,6 +61,17 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 
 // * Save settings to local storage when values are changed
 // Hide by num fandoms
+hideByRatioInput.addEventListener('change', () => {
+    // If value = stupid or 0, set value to empty
+    if(Number.isNaN(parseInt(hideByRatioInput.value)) || parseInt(hideByRatioInput.value) == 0)
+        hideByRatioInput.value = '';
+
+    browser.storage.local.set({
+        hideByRatio: parseInt(hideByRatioInput.value)
+    }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
+});
+
+// Hide by num fandoms
 hideByNumFandomInput.addEventListener('change', () => {
     // If value = stupid or 0, set value to empty
     if(Number.isNaN(parseInt(hideByNumFandomInput.value)) || parseInt(hideByNumFandomInput.value) == 0)
@@ -75,6 +88,7 @@ function dateListener() {
         updateDate: [dateFromInput.value, dateToInput.value]
     }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
 }
+
 dateFromInput.addEventListener('input', dateListener);
 dateToInput.addEventListener('input', dateListener);
 
@@ -84,33 +98,34 @@ function wordCountListener() {
         wordCount: [wordCountFromInput.value, wordCountToInput.value]
     }).then(() => browser.runtime.sendMessage(SETTINGS_CHANGED));
 }
+
 wordCountFromInput.addEventListener('input', wordCountListener);
 wordCountToInput.addEventListener('input', wordCountListener);
 
 // Completion
 completionSelect.addEventListener('change', () => {
-    browser.storage.local.set({ completion: completionSelect.value }).then(() =>
+    browser.storage.local.set({completion: completionSelect.value}).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
 });
 
 // Crossover
 crossoverSelect.addEventListener('change', () => {
-    browser.storage.local.set({ crossover: crossoverSelect.value }).then(() =>
+    browser.storage.local.set({crossover: crossoverSelect.value}).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
 });
 
 // Kudos to hit ratio
 kudosHitRatioBtn.addEventListener("change", () => {
-    browser.storage.local.set({ kudosHitRatio: kudosHitRatioBtn.checked }).then(() =>
+    browser.storage.local.set({kudosHitRatio: kudosHitRatioBtn.checked}).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
 });
 
 // Enable filtering
 filterBtn.addEventListener("change", () => {
-    browser.storage.local.set({ filtering: filterBtn.checked }).then(() =>
+    browser.storage.local.set({filtering: filterBtn.checked}).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
     checkFilteringElements(filterBtn.checked);
@@ -118,14 +133,14 @@ filterBtn.addEventListener("change", () => {
 
 // Language
 languageSelect.addEventListener("change", () => {
-    browser.storage.local.set({ language: languageSelect.value }).then(() =>
+    browser.storage.local.set({language: languageSelect.value}).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
 });
 
 // Query
 queryInput.addEventListener("input", () => {
-    browser.storage.local.set({ query: queryInput.value }).then(() =>
+    browser.storage.local.set({query: queryInput.value}).then(() =>
         browser.runtime.sendMessage(SETTINGS_CHANGED)
     );
 });
@@ -142,18 +157,19 @@ removeTagBtn.addEventListener("click", () => removeTagElement(removeTagSelect.va
 // Warnings
 function addExcludeWarningListener(checkbox: HTMLInputElement) {
     checkbox.addEventListener("change", () => {
-        var checked = checkbox.checked;
-        var val = parseInt(checkbox.getAttribute("value")!)
-        var index = warningList.indexOf(idToWarningEnum(val));
+        let checked = checkbox.checked;
+        let val = parseInt(checkbox.getAttribute("value")!);
+        let index = warningList.indexOf(idToWarningEnum(val));
         if(checked && index == -1)
             warningList.push(idToWarningEnum(val));
         else if(!checked)
             warningList.splice(index, 1);
-        browser.storage.local.set({ warnings: warningList }).then(() =>
+        browser.storage.local.set({warnings: warningList}).then(() =>
             browser.runtime.sendMessage(SETTINGS_CHANGED)
         );
     });
 }
+
 addExcludeWarningListener(excludeWarningCheckbox.choseNotToUse)
 addExcludeWarningListener(excludeWarningCheckbox.violence)
 addExcludeWarningListener(excludeWarningCheckbox.mcd)
@@ -179,7 +195,7 @@ function syncSettings(obj: { [key: string]: any }) {
     // Tags/fandoms
     obj.tags.forEach((tag: string) => {
         tagList.push(tag);
-        var tagElement = document.createElement('option');
+        let tagElement = document.createElement('option');
         tagElement.value = tag;
         tagElement.innerText = tag;
         removeTagSelect.appendChild(tagElement);
@@ -206,6 +222,8 @@ function syncSettings(obj: { [key: string]: any }) {
     dateToInput.value = obj.updateDate[1];
     // Hide by num fandoms
     hideByNumFandomInput.value = obj.hideByNumFandom == 0 ? '' : obj.hideByNumFandom;
+    // Hide by ratio
+    hideByRatioInput.value = obj.hideByRatio == 0 ? '' : obj.hideByRatio;
 }
 
 /**
@@ -213,11 +231,10 @@ function syncSettings(obj: { [key: string]: any }) {
  * @param filtering If filtering is enabled
  */
 function checkFilteringElements(filtering: boolean) {
-    if(filtering)
-        for(var i = 0; i < FILTERING_ELEMENTS.length; i++)
+    for(let i = 0; i < FILTERING_ELEMENTS.length; i++)
+        if(filtering)
             FILTERING_ELEMENTS.item(i)?.classList.remove("hidden");
-    else
-        for(var i = 0; i < FILTERING_ELEMENTS.length; i++)
+        else
             FILTERING_ELEMENTS.item(i)?.classList.add("hidden");
 }
 
@@ -231,7 +248,7 @@ function addTagElement(tag: string) {
     removeTagBtn.classList.add("disabled");
 
     if(tagList.indexOf(tag) == -1) {
-        var tagElement = document.createElement('option');
+        let tagElement = document.createElement('option');
         tagElement.value = tag;
         tagElement.innerText = tag;
 
@@ -239,7 +256,7 @@ function addTagElement(tag: string) {
         removeTagSelect.value = tag;
 
         tagList.splice(0, 0, tag);
-        browser.storage.local.set({ tags: tagList }).then(() => {
+        browser.storage.local.set({tags: tagList}).then(() => {
             // Enable all related buttons
             excludeTagBtn.classList.remove("disabled");
             removeTagBtn.classList.remove("disabled");
@@ -260,7 +277,7 @@ function removeTagElement(tag: any) {
 
     removeTagSelect.removeChild(document.querySelector(`option[value='${tag}']`)!);
     tagList.splice(tagList.indexOf(tag), 1);
-    browser.storage.local.set({ tags: tagList }).then(() => {
+    browser.storage.local.set({tags: tagList}).then(() => {
         // Enable all related buttons
         excludeTagBtn.classList.remove("disabled");
         removeTagBtn.classList.remove("disabled");

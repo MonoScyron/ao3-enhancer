@@ -55,12 +55,13 @@
     transition: .15s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
     background-color: var(--blue-background);
     box-shadow: 0 0 2px var(--input-background-dark);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
+    /*noinspection CssUnknownProperty*/
     -webkit-transform: translateX(24px);
     transform: translateX(24px);
 }
@@ -96,11 +97,11 @@ input:checked+.slider:before {
     box-shadow: rgb(0, 0, 0) 0 0 2px inset;
 }
 
-.checkbox-container:hover input~.checkbox {
+.checkbox-container:hover input ~ .checkbox {
     background-color: var(--input-background-dark);
 }
 
-.checkbox-container input:checked~.checkbox {
+.checkbox-container input:checked ~ .checkbox {
     background-color: var(--red-background);
     box-shadow: rgba(255, 0, 0, 0.5) 0 0 3px inset;
 }
@@ -111,7 +112,7 @@ input:checked+.slider:before {
     display: none;
 }
 
-.checkbox-container input:checked~.checkbox:after {
+.checkbox-container input:checked ~ .checkbox:after {
     display: block;
 }
 
@@ -137,6 +138,7 @@ button.submit-button {
 }
 
 input:focus-visible {
+    /*noinspection CssNonIntegerLengthInPixels*/
     outline: 2.5px solid var(--background-color);
 }
 
@@ -302,7 +304,7 @@ summary {
     cursor: pointer;
 }
 
-details>summary {
+details > summary {
     list-style: none;
 }
 
@@ -340,10 +342,6 @@ summary h3 {
 
 .hidden {
     display: none;
-}
-
-.disabled {
-    display: disabled;
 }
 
 /* Background */

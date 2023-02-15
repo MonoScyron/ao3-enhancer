@@ -13,7 +13,7 @@ export function constructWorkList(document: Document): WorkElement[] {
     }
     else {
         let rawWorks = constructRawWorkList(document);
-        for(var i = 0; i < rawWorks.length; i++) {
+        for(let i = 0; i < rawWorks.length; i++) {
             workList.push(constuctWorkElement(rawWorks[i]));
         }
     }

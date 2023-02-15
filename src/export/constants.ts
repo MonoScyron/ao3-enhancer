@@ -1,7 +1,8 @@
 /** All keys in storage */
 export const STORAGE_KEYS = [
     "kudosHitRatio", "filtering", "language", "query", "tags", "warnings",
-    "crossover", "completion", "wordCount", "updateDate", "hideByNumFandom"
+    "crossover", "completion", "wordCount", "updateDate", "hideByNumFandom",
+    "hideByRatio"
 ];
 
 /** Default values of settings */
@@ -16,7 +17,8 @@ export const DEFAULT_VALUES = {
     completion: "",
     wordCount: ["", ""],
     updateDate: ["", ""],
-    hideByNumFandom: NaN
+    hideByNumFandom: NaN,
+    hideByRatio: NaN
 }
 
 // Settings changed message

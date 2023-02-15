@@ -18,9 +18,10 @@ browser.storage.local.get(STORAGE_KEYS).then((value) => {
 /**
  * Executed after all promises are fulfilled
  * @param value Local storage values of all saved settings
+ * @param document Document of the current page
  */
 function onloadPromise(value: { [key: string]: any }, document: Document): void {
-    var works = constructWorkList(document);
+    let works = constructWorkList(document);
 
     // Add kudos to hit ratio if enabled
     if(value.kudosHitRatio)
@@ -30,5 +31,3 @@ function onloadPromise(value: { [key: string]: any }, document: Document): void 
     if(document.URL.split('/')[3] != "works")
         hideWorks(works, document, value);
 }
-
-// TODO: On load to user marked-for-later page, filter it (https://www.npmjs.com/package/ao3api for how to POST requests)

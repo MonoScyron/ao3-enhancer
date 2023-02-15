@@ -4,11 +4,12 @@ import { WorkElement } from "../export/objects";
  * Checks each work on page and hides them if necessary
  * @param works Works on page
  * @param document Document the works belong to
+ * @param settings Settings of extension
  */
 export function hideWorks(works: WorkElement[], document: Document, settings: { [key: string]: any }) {
     let parser = new DOMParser();
     works.forEach(w => {
-        var reason = shouldHide(w, settings);
+        let reason = shouldHide(w, settings);
         if(reason != null)
             hideWork(w, reason, document, parser);
     });
@@ -23,10 +24,18 @@ export function hideWorks(works: WorkElement[], document: Document, settings: { 
  */
 function shouldHide(work: WorkElement, settings: { [key: string]: any }): string | null {
     // ! When returning string, should be in form of `([Reason why work is hidden]: ${Value of reason})`
+
+    // Hide by num fandoms
     if(!Number.isNaN(settings.hideByNumFandom) && work.fandoms.length > settings.hideByNumFandom) {
         return `(Too many fandoms: ${work.fandoms.length})`
     }
-
+    // Hide by ratio
+    else if(work.hits == 0) {
+        return `(Ratio too small: 0 hits)`
+    }
+    else if(work.kudos == 0 || work.kudos / work.hits < settings.hideByRatio / 100.0) {
+        return `(Ratio too small: ${Math.round((work.kudos / work.hits) * 1000) / 10}%)`
+    }
     return null;
 }
 

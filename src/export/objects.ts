@@ -25,4 +25,4 @@ export interface WorkElement {
     kudos: number,
     bookmarks: number,
     hits: number
-};
+}

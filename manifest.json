@@ -1,49 +1,49 @@
 {
-    "manifest_version": 2,
-    "name": "AO3 Enhancer",
-    "version": "0.0.5",
-    "description": "Enhancement extension for Archive of Our Own.",
-    "author": "MonoScyron",
-    "icons": {
-        "48": "/build/icons/logo-48.png",
-        "96": "/build/icons/logo-96.png"
-    },
-    "permissions": [
-        "storage",
-        "webRequest",
-        "webRequestBlocking",
+  "manifest_version": 2,
+  "name": "AO3 Enhancer",
+  "version": "0.0.6",
+  "description": "Enhancement extension for Archive of Our Own.",
+  "author": "MonoScyron",
+  "icons": {
+    "48": "/build/icons/logo-48.png",
+    "96": "/build/icons/logo-96.png"
+  },
+  "permissions": [
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "https://archiveofourown.org/*"
+  ],
+  "browser_action": {
+    "default_icon": "/build/icons/logo-32.png",
+    "default_title": "AO3 Enhancer"
+  },
+  "options_ui": {
+    "page": "build/options/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "scripts": [
+      "build/background/bg_bundle.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
         "https://archiveofourown.org/*"
-    ],
-    "browser_action": {
-        "default_icon": "/build/icons/logo-32.png",
-        "default_title": "AO3 Enhancer"
-    },
-    "options_ui": {
-        "page": "build/options/options.html",
-        "open_in_tab": true
-    },
-    "background": {
-        "scripts": [
-            "build/background/bg_bundle.js"
-        ]
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "https://archiveofourown.org/*"
-            ],
-            "js": [
-                "build/content_scripts/cs_bundle.js"
-            ],
-            "css": [
-                "build/css/enhancer.css"
-            ]
-        }
-    ],
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "ao3-enhancer@MonoScyron",
-            "strict_min_version": "57.0"
-        }
+      ],
+      "js": [
+        "build/content_scripts/cs_bundle.js"
+      ],
+      "css": [
+        "build/css/enhancer.css"
+      ]
     }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ao3-enhancer@MonoScyron",
+      "strict_min_version": "57.0"
+    }
+  }
 }

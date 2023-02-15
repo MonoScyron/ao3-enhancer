@@ -11,17 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="87b609f8-47bc-4083-8c5e-451459a37da2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content_scripts/hide-works.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content_scripts/hide-works.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content_scripts/onload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content_scripts/onload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content_scripts/ratio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content_scripts/ratio.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content_scripts/works.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content_scripts/works.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/export/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/export/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/export/enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/export/enums.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/export/objects.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/export/objects.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/options/options.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/options/options.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/options/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/options/options.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/options/options.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/options/options.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,31 +27,31 @@
     <scope name="src" pattern="file[ao3-enhancer]:src/**/*" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LgvfQR5g8Luo51l4UOYrP60NAS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "Only changes uncommitted to VCS in all files",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/cs/MonoScyron/_Extensions/ao3-enhancer/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.sourceCode.JavaScript",
-    "ts.external.directory.path": "C:\\cs\\MonoScyron\\_Extensions\\ao3-enhancer\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;Only changes uncommitted to VCS in all files&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/cs/MonoScyron/_Extensions/ao3-enhancer/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.JavaScript&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\cs\\MonoScyron\\_Extensions\\ao3-enhancer\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="npm.dev">
     <configuration name="build-cs:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />

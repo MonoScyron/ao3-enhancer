@@ -10,7 +10,8 @@ Firefox extension for the fanfiction website [ArchiveOfOurOwn](http://archiveofo
 
 This guide details how to install any add-on in general on Firefox Nightly browsers on mobile.
 
-Note: This extension should work on mobile, but it has not been extensively tested there. Please report any bugs you find in the issues tab!
+Note: This extension should work on mobile, but it has not been extensively tested there. Please report any bugs you
+find in the issues tab!
 
 1. Create a collection on the [Firefox Add-ons collections page](https://addons.mozilla.org/en-US/firefox/collections/)
 2. Add "AO3 Enhancer" (Or any other add-on) to that collection
@@ -27,6 +28,7 @@ Most features are disabled by default. Please click on the extension icon to ena
 ### Enhancer Additions
 
 - **Kudos to Hit Ratio**: Adds a kudos to hit percentage to the stats list of a work.
+- **Hide Fics by Ratio**: Automatically hides works with too low kudos to hit ratio.
 - **Hide Fics With Too Many Fandoms**: Automatically hides works with too many fandoms.
 
 ### Built-in Filtering Settings
@@ -47,7 +49,6 @@ These are features I currently plan on adding. Please suggest additional feature
 - [ ] Filter & sort your marked-for-later fics
 - [ ] Filter fics by if already read
 - [ ] Filter fics by individual fic ID
-- [ ] Filter fics by ratio of kudos to hits
 - [ ] Add ability to get notified when fics are completed
 
 #### TODO Lower Priority
@@ -80,6 +81,7 @@ This will cause webpack to optimize for production. To build for production, run
 `npm run build:prod`
 
 #### Add-on Compilation
+
 Latest version of the add-on was built using these software versions:
 
 ```
@@ -93,11 +95,10 @@ Node: v18.12.1
 
 This addon was inspired by the extensions I use to browse AO3:
 
--   [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`
--   [AO3 Tag Blocker](https://github.com/ao3-tag-blocker/tag-blocker)
+- [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`
+- [AO3 Tag Blocker](https://github.com/ao3-tag-blocker/tag-blocker)
 
-The icon is a modified version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements) by `jsmnbom`.
+The icon is a modified version of the icon for [AO3 Enhancements](https://github.com/jsmnbom/ao3-enhancements)
+by `jsmnbom`.
 
 The options page background is CC-BY-4.0 by [Hero Patterns](http://www.heropatterns.com/).
-
-The eye and arrow icons used are MIT license by [Heroicons](https://heroicons.com/).

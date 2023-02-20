@@ -2,3 +2,8 @@ node_modules/
 dist/
 build/
 testing*
+
+# JetBrains
+*.iws
+workspace.xml
+tasks.xml

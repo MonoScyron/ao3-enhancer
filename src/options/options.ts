@@ -38,6 +38,11 @@ const dateToInput = document.querySelector(`input[name='to-date']`) as HTMLInput
 const hideByNumFandomInput = document.querySelector(`input[name='hide-by-num-fandom']`) as HTMLInputElement;
 // Hide by kudos to hit ratio
 const hideByRatioInput = document.querySelector(`input[name='hide-by-ratio']`) as HTMLInputElement;
+// Export/import settings
+const exportBtn = document.getElementById("export-settings-button") as HTMLInputElement;
+const exportLink = document.getElementById("export-settings-link") as HTMLLinkElement;
+const importBtn = document.getElementById("import-settings-button") as HTMLInputElement;
+const importInput = document.querySelector(`input[name='import-settings']`) as HTMLInputElement;
 
 // * Constant elements defined here
 // Options whose visibility depends on if filtering is enabled
@@ -46,12 +51,20 @@ const FILTERING_ELEMENTS = document.getElementsByClassName("filtering");
 // * Global vars
 let tagList: string[] = [];
 let warningList: WARNING[] = [];
+let settingsFile: string | null = null;
+
+// * Link inputs together
+// Export/import settings
+importBtn.onclick = (e) => {
+    e.preventDefault();
+    importInput.click();
+}
 
 // * Sync inputs to values saved in storage
 browser.storage.local.get(STORAGE_KEYS).then((store) => {
     //If no settings values are in storage, set default setting values in storage
     if(Object.keys(store).length == 0) {
-        browser.storage.local.set(DEFAULT_VALUES);
+        browser.storage.local.set(DEFAULT_VALUES).then();
         syncSettings(DEFAULT_VALUES);
     }
     else {
@@ -177,6 +190,32 @@ addExcludeWarningListener(excludeWarningCheckbox.nonCon)
 addExcludeWarningListener(excludeWarningCheckbox.underage)
 addExcludeWarningListener(excludeWarningCheckbox.noWarningsApply)
 
+// * Export/import settings
+function exportSettings() {
+    browser.storage.local.get(STORAGE_KEYS).then(r => {
+        let settingsJsonString = JSON.stringify(r);
+        let settingsData = new Blob([settingsJsonString], {type: "application/json"});
+
+        if(settingsFile != null) {
+            window.URL.revokeObjectURL(settingsFile);
+        }
+        settingsFile = window.URL.createObjectURL(settingsData);
+
+        let date = new Date();
+        let fileName = `ao3_enhancer_${date.getDate()}-${date.getMonth()}-${date.getFullYear()}.json`;
+        browser.downloads.download({
+            url: settingsFile,
+            filename: fileName,
+            saveAs: true
+        }).then();
+    });
+}
+
+exportBtn.addEventListener("click", () => exportSettings());
+
+// TODO: Import json settings file when btn pressed
+//  Use [syncSettings] to import settings object
+
 // * Private functions
 /**
  * Changes current settings according to passed object
@@ -261,7 +300,7 @@ function addTagElement(tag: string) {
             excludeTagBtn.classList.remove("disabled");
             removeTagBtn.classList.remove("disabled");
 
-            browser.runtime.sendMessage(SETTINGS_CHANGED);
+            browser.runtime.sendMessage(SETTINGS_CHANGED).then();
         });
     }
 }
@@ -282,6 +321,6 @@ function removeTagElement(tag: any) {
         excludeTagBtn.classList.remove("disabled");
         removeTagBtn.classList.remove("disabled");
 
-        browser.runtime.sendMessage(SETTINGS_CHANGED);
+        browser.runtime.sendMessage(SETTINGS_CHANGED).then();
     });
 }

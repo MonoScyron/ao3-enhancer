@@ -344,6 +344,10 @@ summary h3 {
     display: none;
 }
 
+input[type='file'] {
+    display: none;
+}
+
 /* Background */
 body {
     background-color: #585371;

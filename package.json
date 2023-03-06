@@ -13,7 +13,7 @@
     "zip": "@powershell IF(!(Test-Path dist)) { mkdir dist }; tar.exe -a -c -f ./dist/ao3-enhancer-firefox.zip build manifest.json"
   },
   "dependencies": {
-    "@types/firefox-webext-browser": "^109.0.0",
+    "@types/firefox-webext-browser": "^111.0.0",
     "@types/node": "^18.13.0"
   },
   "devDependencies": {

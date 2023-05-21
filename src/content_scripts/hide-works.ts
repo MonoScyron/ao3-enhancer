@@ -30,13 +30,14 @@ function shouldHide(work: WorkElement, settings: { [key: string]: any }): string
         return `(Too many fandoms: ${work.fandoms.length})`
     }
     // Hide by ratio
-    else if(!Number.isNaN(settings.hideByNumFandom)) {
-        if(work.hits == 0) {
-            return `(Ratio too small: 0 hits)`
-        }
-        else if(work.kudos == 0 || work.kudos / work.hits < settings.hideByRatio / 100.0) {
-            return `(Ratio too small: ${Math.round((work.kudos / work.hits) * 1000) / 10}%)`
-        }
+    else if(!Number.isNaN(settings.hideByRatio) {
+        return null;
+    }
+    else if(work.hits == 0) {
+        return `(Ratio too small: 0 hits)`
+    }
+    else if(work.kudos == 0 || work.kudos / work.hits < settings.hideByRatio / 100.0) {
+        return `(Ratio too small: ${Math.round((work.kudos / work.hits) * 1000) / 10}%)`
     }
     return null;
 }

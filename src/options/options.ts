@@ -1,5 +1,7 @@
 import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED } from '../export/constants';
 import { WARNING, idToWarningEnum } from '../export/enums';
+import sync = browser.storage.sync;
+import { json } from "stream/consumers";
 
 // * Select input from document
 // Kudos to hit ratio
@@ -38,6 +40,11 @@ const dateToInput = document.querySelector(`input[name='to-date']`) as HTMLInput
 const hideByNumFandomInput = document.querySelector(`input[name='hide-by-num-fandom']`) as HTMLInputElement;
 // Hide by kudos to hit ratio
 const hideByRatioInput = document.querySelector(`input[name='hide-by-ratio']`) as HTMLInputElement;
+// Export/import settings
+const exportBtn = document.getElementById("export-settings-button") as HTMLInputElement;
+const exportLink = document.getElementById("export-settings-link") as HTMLLinkElement;
+const importBtn = document.getElementById("import-settings-button") as HTMLInputElement;
+const importInput = document.querySelector(`input[name='import-settings']`) as HTMLInputElement;
 
 // * Constant elements defined here
 // Options whose visibility depends on if filtering is enabled
@@ -46,16 +53,18 @@ const FILTERING_ELEMENTS = document.getElementsByClassName("filtering");
 // * Global vars
 let tagList: string[] = [];
 let warningList: WARNING[] = [];
+let settingsFile: string | null = null;
+
 
 // * Sync inputs to values saved in storage
 browser.storage.local.get(STORAGE_KEYS).then((store) => {
     //If no settings values are in storage, set default setting values in storage
     if(Object.keys(store).length == 0) {
-        browser.storage.local.set(DEFAULT_VALUES);
-        syncSettings(DEFAULT_VALUES);
+        browser.storage.local.set(DEFAULT_VALUES).then();
+        syncHTMLSettings(DEFAULT_VALUES);
     }
     else {
-        syncSettings(store);
+        syncHTMLSettings(store);
     }
 });
 
@@ -177,12 +186,59 @@ addExcludeWarningListener(excludeWarningCheckbox.nonCon)
 addExcludeWarningListener(excludeWarningCheckbox.underage)
 addExcludeWarningListener(excludeWarningCheckbox.noWarningsApply)
 
+// * Export/import settings
+function exportSettings() {
+    browser.storage.local.get(STORAGE_KEYS).then(r => {
+        let settingsJsonString = JSON.stringify(r);
+        let settingsData = new Blob([settingsJsonString], {type: "application/json"});
+
+        if(settingsFile != null) {
+            window.URL.revokeObjectURL(settingsFile);
+        }
+        settingsFile = window.URL.createObjectURL(settingsData);
+
+        let date = new Date();
+        let fileName = `ao3_enhancer_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.json`;
+        browser.downloads.download({
+            url: settingsFile,
+            filename: fileName,
+            saveAs: true
+        }).then();
+    });
+}
+
+function importSettings() {
+    let fileList = importInput.files;
+    if(fileList != null && fileList.length > 0) {
+        // console.log("AO3Extension: Import settings") // DEBUGGING
+        let file = fileList[0];
+        file.text().then(r => {
+            // console.log("AO3Extention: " + r); // DEBUGGING
+            let settings = JSON.parse(r).valueOf();
+            browser.storage.local.set(settings).then(() => {
+                    browser.runtime.sendMessage(SETTINGS_CHANGED).then();
+                    syncHTMLSettings(settings);
+                }
+            );
+        });
+    }
+}
+
+// Export/import settings
+exportBtn.addEventListener("click", () => exportSettings());
+importBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    importInput.click();
+});
+importInput.addEventListener("change", () => importSettings());
+
+
 // * Private functions
 /**
- * Changes current settings according to passed object
+ * Changes current settings' HTML objects according to passed object
  * @param {string[]} obj Object to get settings from
  */
-function syncSettings(obj: { [key: string]: any }) {
+function syncHTMLSettings(obj: { [key: string]: any }) {
     // Kudos to hit ratio
     kudosHitRatioBtn.checked = obj.kudosHitRatio;
     // Enable filtering
@@ -261,7 +317,7 @@ function addTagElement(tag: string) {
             excludeTagBtn.classList.remove("disabled");
             removeTagBtn.classList.remove("disabled");
 
-            browser.runtime.sendMessage(SETTINGS_CHANGED);
+            browser.runtime.sendMessage(SETTINGS_CHANGED).then();
         });
     }
 }
@@ -282,6 +338,6 @@ function removeTagElement(tag: any) {
         excludeTagBtn.classList.remove("disabled");
         removeTagBtn.classList.remove("disabled");
 
-        browser.runtime.sendMessage(SETTINGS_CHANGED);
+        browser.runtime.sendMessage(SETTINGS_CHANGED).then();
     });
 }

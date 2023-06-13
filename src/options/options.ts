@@ -1,5 +1,7 @@
 import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED } from '../export/constants';
 import { WARNING, idToWarningEnum } from '../export/enums';
+import sync = browser.storage.sync;
+import { json } from "stream/consumers";
 
 // * Select input from document
 // Kudos to hit ratio
@@ -53,22 +55,16 @@ let tagList: string[] = [];
 let warningList: WARNING[] = [];
 let settingsFile: string | null = null;
 
-// * Link inputs together
-// Export/import settings
-importBtn.onclick = (e) => {
-    e.preventDefault();
-    importInput.click();
-}
 
 // * Sync inputs to values saved in storage
 browser.storage.local.get(STORAGE_KEYS).then((store) => {
     //If no settings values are in storage, set default setting values in storage
     if(Object.keys(store).length == 0) {
         browser.storage.local.set(DEFAULT_VALUES).then();
-        syncSettings(DEFAULT_VALUES);
+        syncHTMLSettings(DEFAULT_VALUES);
     }
     else {
-        syncSettings(store);
+        syncHTMLSettings(store);
     }
 });
 
@@ -202,7 +198,7 @@ function exportSettings() {
         settingsFile = window.URL.createObjectURL(settingsData);
 
         let date = new Date();
-        let fileName = `ao3_enhancer_${date.getDate()}-${date.getMonth()}-${date.getFullYear()}.json`;
+        let fileName = `ao3_enhancer_${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}.json`;
         browser.downloads.download({
             url: settingsFile,
             filename: fileName,
@@ -211,17 +207,38 @@ function exportSettings() {
     });
 }
 
-exportBtn.addEventListener("click", () => exportSettings());
+function importSettings() {
+    let fileList = importInput.files;
+    if(fileList != null && fileList.length > 0) {
+        // console.log("AO3Extension: Import settings") // DEBUGGING
+        let file = fileList[0];
+        file.text().then(r => {
+            // console.log("AO3Extention: " + r); // DEBUGGING
+            let settings = JSON.parse(r).valueOf();
+            browser.storage.local.set(settings).then(() => {
+                    browser.runtime.sendMessage(SETTINGS_CHANGED).then();
+                    syncHTMLSettings(settings);
+                }
+            );
+        });
+    }
+}
 
-// TODO: Import json settings file when btn pressed
-//  Use [syncSettings] to import settings object
+// Export/import settings
+exportBtn.addEventListener("click", () => exportSettings());
+importBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    importInput.click();
+});
+importInput.addEventListener("change", () => importSettings());
+
 
 // * Private functions
 /**
- * Changes current settings according to passed object
+ * Changes current settings' HTML objects according to passed object
  * @param {string[]} obj Object to get settings from
  */
-function syncSettings(obj: { [key: string]: any }) {
+function syncHTMLSettings(obj: { [key: string]: any }) {
     // Kudos to hit ratio
     kudosHitRatioBtn.checked = obj.kudosHitRatio;
     // Enable filtering

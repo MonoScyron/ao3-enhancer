@@ -239,6 +239,7 @@ importInput.addEventListener("change", () => importSettings());
  * @param {string[]} obj Object to get settings from
  */
 function syncHTMLSettings(obj: { [key: string]: any }) {
+    // TODO: Check for obj.value == null
     // Kudos to hit ratio
     kudosHitRatioBtn.checked = obj.kudosHitRatio;
     // Enable filtering

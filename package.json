@@ -20,7 +20,7 @@
     "@tsconfig/recommended": "^1.0.2",
     "copy-webpack-plugin": "^11.0.0",
     "ts-loader": "^9.4.2",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.6",
     "webpack": "^5.82.1",
     "webpack-cli": "^5.1.1"
   },

@@ -68,27 +68,32 @@ This section will walk you through how to build the add-on yourself.
 
 Begin by installing required packages with `npm install`, then build the add-on with provided scripts using webpack.
 
-#### Development build
+To build for development, run:
 
-This will cause webpack to optimize for development. To build for development, run:
+```bash
+npm run build:dev
+npm run zip
+```
 
-`npm run build:dev`
+To build for production, run:
 
-#### Production build
+```bash
+npm run build:prod
+npm run zip
+```
 
-This will cause webpack to optimize for production. To build for production, run:
+Then simply install the zip file in `./zip` as an add-on. You may need to go to
+the Firefox add-on debug page (`about:debugging#/runtime/this-firefox`) to add it.
 
-`npm run build:prod`
+### Compilation
 
-#### Add-on Compilation
-
-Latest version of the add-on was built using these software versions:
+Latest version of the add-on was built with these:
 
 ```
-Windows 10
-Version: 21H2
-Npm: 8.19.2
-Node: v18.12.1
+Linux Mint
+Version: 22.2
+Npm: 10.8.2
+Node: v20.19.5
 ```
 
 ## Acknowledgements

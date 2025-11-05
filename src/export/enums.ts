@@ -40,13 +40,13 @@ export enum WARNING {
  * @returns RATING enum converted from id
  */
 export function idToRatingEnum(id: number): RATING {
-    if(id == 9)
+    if (id == 9)
         return RATING.notRated;
-    else if(id == 10)
+    else if (id == 10)
         return RATING.gen;
-    else if(id == 11)
+    else if (id == 11)
         return RATING.teen;
-    else if(id == 12)
+    else if (id == 12)
         return RATING.mature;
     else
         return RATING.explicit;
@@ -58,15 +58,15 @@ export function idToRatingEnum(id: number): RATING {
  * @returns CATEGORY enum converted from id
  */
 export function idToCatetoryEnum(id: number): CATEGORY {
-    if(id == 21)
+    if (id == 21)
         return CATEGORY.gen;
-    else if(id == 22)
+    else if (id == 22)
         return CATEGORY.fm;
-    else if(id == 23)
+    else if (id == 23)
         return CATEGORY.mm;
-    else if(id == 24)
+    else if (id == 24)
         return CATEGORY.other;
-    else if(id == 116)
+    else if (id == 116)
         return CATEGORY.ff;
     else
         return CATEGORY.multi;
@@ -78,15 +78,15 @@ export function idToCatetoryEnum(id: number): CATEGORY {
  * @returns WARNING enum converted from id
  */
 export function idToWarningEnum(id: number): WARNING {
-    if(id == 14)
+    if (id == 14)
         return WARNING.choseNotToUse;
-    else if(id == 16)
+    else if (id == 16)
         return WARNING.noWarningsApply;
-    else if(id == 17)
+    else if (id == 17)
         return WARNING.violence;
-    else if(id == 18)
+    else if (id == 18)
         return WARNING.mcd;
-    else if(id == 19)
+    else if (id == 19)
         return WARNING.nonCon;
     else
         return WARNING.underage;
@@ -98,15 +98,15 @@ export function idToWarningEnum(id: number): WARNING {
  * @returns Converted enum value of param
  */
 export function warningToEnum(warning: string): WARNING {
-    if(warning == "Choose Not To Use Archive Warnings")
+    if (warning == "Choose Not To Use Archive Warnings")
         return WARNING.choseNotToUse;
-    else if(warning == "Graphic Depictions Of Violence")
+    else if (warning == "Graphic Depictions Of Violence")
         return WARNING.violence;
-    else if(warning == "Major Character Death")
+    else if (warning == "Major Character Death")
         return WARNING.mcd;
-    else if(warning == "No Archive Warnings Apply")
+    else if (warning == "No Archive Warnings Apply")
         return WARNING.noWarningsApply;
-    else if(warning == "Rape/Non-Con")
+    else if (warning == "Rape/Non-Con")
         return WARNING.nonCon;
     else
         return WARNING.underage
@@ -118,13 +118,13 @@ export function warningToEnum(warning: string): WARNING {
  * @returns Converted enum value of param
  */
 export function ratingToEnum(rating: string): RATING {
-    if(rating == "Not Rated")
+    if (rating == "Not Rated")
         return RATING.notRated;
-    else if(rating == "General Audiences")
+    else if (rating == "General Audiences")
         return RATING.gen;
-    else if(rating == "Teen And Up Audiences")
+    else if (rating == "Teen And Up Audiences")
         return RATING.teen;
-    else if(rating == "Mature")
+    else if (rating == "Mature")
         return RATING.mature;
     else
         return RATING.explicit;
@@ -136,15 +136,15 @@ export function ratingToEnum(rating: string): RATING {
  * @returns Converted enum value of param
  */
 export function categoryToEnum(category: string): CATEGORY {
-    if(category == "F/F")
+    if (category == "F/F")
         return CATEGORY.ff;
-    else if(category == "F/M")
+    else if (category == "F/M")
         return CATEGORY.fm;
-    else if(category == "Gen")
+    else if (category == "Gen")
         return CATEGORY.gen;
-    else if(category == "M/M")
+    else if (category == "M/M")
         return CATEGORY.mm;
-    else if(category == "Multi")
+    else if (category == "Multi")
         return CATEGORY.multi;
     else
         return CATEGORY.other;

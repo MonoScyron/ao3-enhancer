@@ -1,25 +1,25 @@
 {
-    "extends": "@tsconfig/recommended/tsconfig.json",
-    "compilerOptions": {
-        "module": "commonjs",
-        "allowJs": true,
-        "outDir": "./dist",
-        "typeRoots": [
-            "node_modules/@types/"
-        ]
-    },
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "allowJs": true,
+    "outDir": "./dist",
+    "typeRoots": [
+      "node_modules/@types/"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "build",
+    ".vscode"
+  ],
+  "typeAcquisition": {
     "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "lib",
-        "build",
-        ".vscode"
-    ],
-    "typeAcquisition": {
-        "include": [
-            "firefox-webext-browser"
-        ]
-    }
+      "firefox-webext-browser"
+    ]
+  }
 }

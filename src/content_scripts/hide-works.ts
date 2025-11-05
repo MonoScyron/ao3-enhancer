@@ -10,7 +10,7 @@ export function hideWorks(works: WorkElement[], document: Document, settings: { 
     let parser = new DOMParser();
     works.forEach(w => {
         let reason = shouldHide(w, settings);
-        if(reason != null)
+        if (reason != null)
             hideWork(w, reason, document, parser);
     });
 }
@@ -26,15 +26,15 @@ function shouldHide(work: WorkElement, settings: { [key: string]: any }): string
     // ! When returning string, should be in form of `([Reason why work is hidden]: ${Value of reason})`
 
     // Hide by num fandoms
-    if(!Number.isNaN(settings.hideByNumFandom) && work.fandoms.length > settings.hideByNumFandom) {
+    if (!Number.isNaN(settings.hideByNumFandom) && work.fandoms.length > settings.hideByNumFandom) {
         return `(Too many fandoms: ${work.fandoms.length})`
     }
     // Hide by ratio
-    if(!Number.isNaN(settings.hideByRatio)) {
-        if(work.hits == 0) {
+    if (!Number.isNaN(settings.hideByRatio)) {
+        if (work.hits == 0) {
             return `(Ratio too small: 0 hits)`
         }
-        else if(work.kudos == 0 || work.kudos / work.hits < settings.hideByRatio / 100.0) {
+        else if (work.kudos == 0 || work.kudos / work.hits < settings.hideByRatio / 100.0) {
             return `(Ratio too small: ${Math.round((work.kudos / work.hits) * 1000) / 10}%)`
         }
     }

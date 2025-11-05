@@ -2,26 +2,20 @@
   "scripts": {
     "prod": "npm run build:prod && npm run zip",
     "dev": "npm run build:dev && npm run zip",
-    "build-cs:dev": "webpack --mode=development --config cs-webpack.config.js",
-    "build-bg:dev": "webpack --mode=development --config bg-webpack.config.js",
-    "build-op:dev": "webpack --mode=development --config op-webpack.config.js",
-    "build-cs:prod": "webpack --mode=production --config cs-webpack.config.js",
-    "build-bg:prod": "webpack --mode=production --config bg-webpack.config.js",
-    "build-op:prod": "webpack --mode=production --config op-webpack.config.js",
-    "build:dev": "npm run build-cs:dev && npm run build-bg:dev && npm run build-op:dev",
-    "build:prod": "npm run build-cs:prod && npm run build-bg:prod && npm run build-op:prod",
-    "zip": "@powershell IF(!(Test-Path dist)) { mkdir dist }; tar.exe -a -c -f ./dist/ao3-enhancer-firefox.zip build manifest.json"
+    "build:dev": "webpack --mode=development --config webpack.config.js",
+    "build:prod": "webpack --mode=production --config webpack.config.js",
+    "zip": "[ ! -d dist ] && mkdir dist; zip -FSr ./dist/ao3-enhancer-firefox.zip build manifest.json"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^111.0.1",
-    "@types/node": "^20.1.4"
+    "@types/node": "^20.19.5"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
     "copy-webpack-plugin": "^11.0.0",
-    "ts-loader": "^9.4.2",
+    "ts-loader": "^9.5.4",
     "typescript": "^5.0.4",
-    "webpack": "^5.82.1",
+    "webpack": "5.94.0",
     "webpack-cli": "^5.1.1"
   },
   "private": true

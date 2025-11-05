@@ -2,15 +2,14 @@ const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/content_scripts/onload.ts',
+    entry: './src/background/background.ts',
     devtool: 'inline-source-map',
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
-                exclude: /src\/background/
+                exclude: /node_modules/
             },
         ],
     },
@@ -18,13 +17,16 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     output: {
-        filename: './content_scripts/cs_bundle.js',
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'build'),
     },
     plugins: [
         new CopyPlugin({
             patterns: [
-                { from: "src/css/enhancer.css", to: "css/enhancer.css" }
+                {from: "src/css/enhancer.css", to: "css/enhancer.css"},
+                {from: "src/options/options.css", to: "options/options.css"},
+                {from: "src/options/options.html", to: "options/options.html"},
+                {from: "src/icons", to: "icons"}
             ],
         }),
     ],

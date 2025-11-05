@@ -27,7 +27,7 @@ browser.webRequest.onBeforeRequest.addListener(
 
 // Synch settings on settings change
 browser.runtime.onMessage.addListener((message: string) => {
-    if(message == SETTINGS_CHANGED) {
+    if (message == SETTINGS_CHANGED) {
         // Get settings from storage
         browser.storage.local.get(STORAGE_KEYS).then((value) => {
             settings = value;
@@ -45,7 +45,7 @@ function redirect(details: browser.webRequest._OnBeforeRequestDetails): browser.
     // console.log(`AO3Extension: details.url=${details.url}`); // DEBUGGING
     let url = getRedirectURL(details.url, settings);
     // console.log(`AO3Extension: url=${url}`); // DEBUGGING
-    if(url != null)
+    if (url != null)
         return {
             redirectUrl: url
         };

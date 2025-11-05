@@ -105,10 +105,10 @@ function constructWorkElementMeta(document: Document): WorkElement {
         comments: stats.querySelector('dd.comments') == null ? 0
             : parseInt((stats.querySelector('dd.comments') as HTMLElement).innerText),
         kudos: stats.querySelector('dd.kudos') == null ? 0
-            : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText.replace(/D/g, "")),
+            : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText.replace(/\D/g, '')),
         bookmarks: stats.querySelector('dd.bookmarks') == null ? 0
             : parseInt((stats.querySelector('dd.bookmarks') as HTMLElement).innerText),
-        hits: parseInt(stats.querySelector('dd.hits')?.innerHTML.replace(/D/g, "")!)
+        hits: parseInt(stats.querySelector('dd.hits')?.innerHTML.replace(/\D/g, '')!)
     }
     return ret;
 }

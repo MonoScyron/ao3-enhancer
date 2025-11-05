@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "AO3 Enhancer",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Enhancement extension for Archive of Our Own.",
   "author": "MonoScyron",
   "icons": {

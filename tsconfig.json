@@ -14,7 +14,9 @@
   "exclude": [
     "node_modules",
     "lib",
+    "dist",
     "build",
+    ".idea",
     ".vscode"
   ],
   "typeAcquisition": {

@@ -1,8 +1,13 @@
 const path = require('path');
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/background/background.ts',
+    entry: {
+        background: './src/background/background.ts',
+        options: './src/options/options.ts',
+        contentscripts: './src/content_scripts/onload.ts'
+    },
     devtool: 'inline-source-map',
     module: {
         rules: [
@@ -11,22 +16,28 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: ['.tsx', '.ts', '.js', '.css'],
     },
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build'),
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [
-                {from: "src/css/enhancer.css", to: "css/enhancer.css"},
-                {from: "src/options/options.css", to: "options/options.css"},
-                {from: "src/options/options.html", to: "options/options.html"},
-                {from: "src/icons", to: "icons"}
+                {from: 'static', to: '.'},
+                {
+                    from: 'src/options/options.html',
+                    to: path.resolve(__dirname, 'dist/options.html')
+                },
             ],
         }),
     ],

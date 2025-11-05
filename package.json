@@ -4,15 +4,18 @@
     "dev": "npm run build:dev && npm run zip",
     "build:dev": "webpack --mode=development --config webpack.config.js",
     "build:prod": "webpack --mode=production --config webpack.config.js",
-    "zip": "[ ! -d dist ] && mkdir dist; zip -FSr ./dist/ao3-enhancer-firefox.zip build manifest.json"
+    "zip": "[ ! -d zip ] && mkdir zip; cd dist; zip -r tmp.zip *; mv tmp.zip ../zip/ao3-enhancer-firefox.zip"
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^111.0.1",
-    "@types/node": "^20.19.5"
+    "@types/node": "^20.19.5",
+    "clean-webpack-plugin": "^4.0.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",
     "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.4",
     "typescript": "^5.0.4",
     "webpack": "5.94.0",

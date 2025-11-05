@@ -5,8 +5,8 @@
   "description": "Enhancement extension for Archive of Our Own.",
   "author": "MonoScyron",
   "icons": {
-    "48": "/build/icons/logo-48.png",
-    "96": "/build/icons/logo-96.png"
+    "48": "/icons/logo-48.png",
+    "96": "/icons/logo-96.png"
   },
   "permissions": [
     "storage",
@@ -16,16 +16,16 @@
     "https://archiveofourown.org/*"
   ],
   "browser_action": {
-    "default_icon": "/build/icons/logo-32.png",
+    "default_icon": "/icons/logo-32.png",
     "default_title": "AO3 Enhancer"
   },
   "options_ui": {
-    "page": "build/options/options.html",
+    "page": "options.html",
     "open_in_tab": true
   },
   "background": {
     "scripts": [
-      "build/background/bg_bundle.js"
+      "background.bundle.js"
     ]
   },
   "content_scripts": [
@@ -34,10 +34,10 @@
         "https://archiveofourown.org/*"
       ],
       "js": [
-        "build/content_scripts/cs_bundle.js"
+        "contentscripts.bundle.js"
       ],
       "css": [
-        "build/css/enhancer.css"
+        "/css/enhancer.css"
       ]
     }
   ],

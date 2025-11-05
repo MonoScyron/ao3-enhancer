@@ -1,4 +1,4 @@
-import { WARNING, CATEGORY, categoryToEnum, ratingToEnum, warningToEnum } from '../export/enums';
+import { CATEGORY, categoryToEnum, ratingToEnum, WARNING, warningToEnum } from '../export/enums';
 import { WorkElement } from '../export/objects';
 
 /**
@@ -8,12 +8,12 @@ import { WorkElement } from '../export/objects';
  */
 export function constructWorkList(document: Document): WorkElement[] {
     let workList: WorkElement[] = [];
-    if(document.URL.split('/')[3] == "works") {
+    if (document.URL.split('/')[3] == "works") {
         workList = [constructWorkElementMeta(document)]
     }
     else {
         let rawWorks = constructRawWorkList(document);
-        for(let i = 0; i < rawWorks.length; i++) {
+        for (let i = 0; i < rawWorks.length; i++) {
             workList.push(constuctWorkElement(rawWorks[i]));
         }
     }
@@ -41,7 +41,7 @@ function constructWorkElementMeta(document: Document): WorkElement {
     workskin.querySelectorAll("a[href$='/gifts']").forEach((e) => {
         gList?.push(e.innerHTML);
     });
-    if(gList.length == 0)
+    if (gList.length == 0)
         gList = null;
     // Fandom list
     let fList: string[] = [];
@@ -65,7 +65,7 @@ function constructWorkElementMeta(document: Document): WorkElement {
     workMeta.querySelector('dd.series')?.querySelectorAll('.position a').forEach((e) => {
         sList!.push(e.innerHTML);
     });
-    if(sList.length == 0)
+    if (sList.length == 0)
         sList = null;
 
     let stats = workMeta.querySelector('dd.stats')!;
@@ -77,7 +77,7 @@ function constructWorkElementMeta(document: Document): WorkElement {
     workMeta.querySelectorAll('dd.category .tag').forEach(e => {
         cList!.push(categoryToEnum(e.innerHTML));
     });
-    if(cList.length == 0)
+    if (cList.length == 0)
         cList = null;
 
     ret = {
@@ -97,18 +97,18 @@ function constructWorkElementMeta(document: Document): WorkElement {
         complete: stats.querySelector(".status") != null &&
             stats.querySelector(".status")!.innerHTML.indexOf("Completed") >= 0,
         language: (workMeta.querySelector('dd.language') as HTMLElement).innerText,
-        wordCount: parseInt(stats.querySelector('dd.words')?.innerHTML!),
-        chapterCount: parseInt(chapters[0]),
-        finalChapterCount: chapters[1] == '?' ? null : parseInt(chapters[1]),
+        wordCount: parseInt(stats.querySelector('dd.words')?.innerHTML.replace(/\D/g, '')!),
+        chapterCount: parseInt(chapters[0].replace(/\D/g, '')),
+        finalChapterCount: chapters[1] == '?' ? null : parseInt(chapters[1].replace(/\D/g, '')),
         collections: workMeta.querySelector('dd.collections') == null ? 0
             : workMeta.querySelector('dd.collections')!.querySelectorAll('a').length,
         comments: stats.querySelector('dd.comments') == null ? 0
-            : parseInt((stats.querySelector('dd.comments') as HTMLElement).innerText),
+            : parseInt((stats.querySelector('dd.comments') as HTMLElement).innerText.replace(/\D/g, '')),
         kudos: stats.querySelector('dd.kudos') == null ? 0
-            : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText),
+            : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText.replace(/\D/g, '')),
         bookmarks: stats.querySelector('dd.bookmarks') == null ? 0
-            : parseInt((stats.querySelector('dd.bookmarks') as HTMLElement).innerText),
-        hits: parseInt(stats.querySelector('dd.hits')?.innerHTML!)
+            : parseInt((stats.querySelector('dd.bookmarks') as HTMLElement).innerText.replace(/\D/g, '')),
+        hits: parseInt(stats.querySelector('dd.hits')?.innerHTML.replace(/\D/g, '')!)
     }
     return ret;
 }
@@ -131,7 +131,7 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
     work.querySelectorAll("a[href$='/gifts']").forEach((e) => {
         gList?.push(e.innerHTML);
     });
-    if(gList.length == 0)
+    if (gList.length == 0)
         gList = null;
     // Fandom list
     let fList: string[] = [];
@@ -150,7 +150,7 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
     tags.querySelectorAll('li:not(.warnings)').forEach((e) => {
         tList!.push(e.querySelector('.tag')!.innerHTML);
     });
-    if(tList.length == 0)
+    if (tList.length == 0)
         tList = null;
 
     // Series list
@@ -158,7 +158,7 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
     work.querySelector('.series')?.querySelectorAll('a').forEach((e) => {
         sList!.push(e.innerHTML);
     });
-    if(sList.length == 0)
+    if (sList.length == 0)
         sList = null;
 
     let stats = work.querySelector('.stats:not(dt)')!;
@@ -170,7 +170,7 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
     work.querySelector('span.category')?.getAttribute('title')?.split(', ').forEach(e => {
         cList!.push(categoryToEnum(e));
     });
-    if(cList.length == 0)
+    if (cList.length == 0)
         cList = null;
 
     ret = {
@@ -189,18 +189,18 @@ function constuctWorkElement(work: HTMLElement): WorkElement {
         categories: cList,
         complete: work.querySelector('span.iswip')?.getAttribute('title') == 'Complete Work',
         language: stats.querySelector('dd.language')?.innerHTML!,
-        wordCount: parseInt(stats.querySelector('dd.words')?.innerHTML!),
-        chapterCount: parseInt(chapters[0]),
-        finalChapterCount: chapters[1] == '?' ? null : parseInt(chapters[1]),
+        wordCount: parseInt(stats.querySelector('dd.words')?.innerHTML.replace(/\D/g, '')!),
+        chapterCount: parseInt(chapters[0].replace(/\D/g, '')),
+        finalChapterCount: chapters[1] == '?' ? null : parseInt(chapters[1].replace(/\D/g, '')),
         collections: stats.querySelector('dd.collections') == null ? 0
-            : parseInt((stats.querySelector('dd.collections') as HTMLElement).innerText),
+            : parseInt((stats.querySelector('dd.collections') as HTMLElement).innerText.replace(/\D/g, '')),
         comments: stats.querySelector('dd.comments') == null ? 0
-            : parseInt((stats.querySelector('dd.comments') as HTMLElement).innerText),
+            : parseInt((stats.querySelector('dd.comments') as HTMLElement).innerText.replace(/\D/g, '')),
         kudos: stats.querySelector('dd.kudos') == null ? 0
-            : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText),
+            : parseInt((stats.querySelector('dd.kudos') as HTMLElement).innerText.replace(/\D/g, '')),
         bookmarks: stats.querySelector('dd.bookmarks') == null ? 0
-            : parseInt((stats.querySelector('dd.bookmarks') as HTMLElement).innerText),
-        hits: parseInt(stats.querySelector('dd.hits')?.innerHTML!)
+            : parseInt((stats.querySelector('dd.bookmarks') as HTMLElement).innerText.replace(/\D/g, '')),
+        hits: parseInt(stats.querySelector('dd.hits')?.innerHTML.replace(/\D/g, '')!)
     }
     return ret;
 }
@@ -214,7 +214,7 @@ function constructRawWorkList(document: Document): HTMLElement[] {
     let ret: HTMLElement[] = [];
     document.querySelectorAll('.index.group .group[role="article"]:not([class*=series])').forEach((w) => {
         // Check if work is deleted
-        if(w.querySelector('p.message') == null)
+        if (w.querySelector('p.message') == null)
             ret.push(w as HTMLElement);
     });
     return ret;

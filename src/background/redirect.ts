@@ -8,7 +8,7 @@ import { ORIGIN } from "../export/enums";
  */
 export function getRedirectURL(url: string, value: { [key: string]: any }): string | null {
     // If filtering is off, return null
-    if(!value.filtering)
+    if (!value.filtering)
         return null;
 
     let parsed = parseURL(url);
@@ -16,9 +16,9 @@ export function getRedirectURL(url: string, value: { [key: string]: any }): stri
     let type = parsed[1];
 
     let origin: ORIGIN;
-    if(parsed[0] == 'tags')
+    if (parsed[0] == 'tags')
         origin = ORIGIN.TAGS;
-    else if(parsed[0] == 'users')
+    else if (parsed[0] == 'users')
         origin = ORIGIN.USERS;
     else
         origin = ORIGIN.COLLECTIONS;
@@ -37,35 +37,35 @@ export function getRedirectURL(url: string, value: { [key: string]: any }): stri
     let language = "";
 
     // Get exclude data from local storage
-    if(value.language != undefined && value.language.length > 0)
+    if (value.language != undefined && value.language.length > 0)
         language = value.language;
-    if(value.query != undefined && value.query.length > 0)
+    if (value.query != undefined && value.query.length > 0)
         query = value.query;
-    if(value.tags != undefined)
+    if (value.tags != undefined)
         tag = value.tags;
-    if(value.warnings != undefined)
+    if (value.warnings != undefined)
         warning = value.warnings;
-    if(type == 'work') {
-        if(value.crossover != undefined && value.crossover.length > 0)
+    if (type == 'work') {
+        if (value.crossover != undefined && value.crossover.length > 0)
             crossover = value.crossover;
-        if(value.completion != undefined && value.completion.length > 0)
+        if (value.completion != undefined && value.completion.length > 0)
             complete = value.completion;
-        if(value.wordCount != undefined) {
-            if(value.wordCount[0].length > 0)
+        if (value.wordCount != undefined) {
+            if (value.wordCount[0].length > 0)
                 wordCount[0] = parseInt(value.wordCount[0]);
-            if(value.wordCount[1].length > 0)
+            if (value.wordCount[1].length > 0)
                 wordCount[1] = parseInt(value.wordCount[1]);
         }
-        if(value.updateDate != undefined) {
-            if(value.updateDate[0].length > 0)
+        if (value.updateDate != undefined) {
+            if (value.updateDate[0].length > 0)
                 date[0] = value.updateDate[0];
-            if(value.updateDate[1].length > 0)
+            if (value.updateDate[1].length > 0)
                 date[1] = value.updateDate[1];
         }
     }
 
     let redirectUrl = constructRedirectURLHelper(origin, type, id, rating, warning, category, tag, crossover, complete, wordCount, date, query, language);
-    if(redirectUrl != null) {
+    if (redirectUrl != null) {
         redirectUrl += parsed[3].length == 0 ? "" : "&" + parsed[3];
         return redirectUrl;
     }
@@ -110,42 +110,42 @@ function constructRedirectURLHelper(origin: ORIGIN, type: string, id: string, ex
     excludeTags?.forEach((t) =>
         tags += `${t.valueOf()},`
     );
-    if(excludeTags.length > 0)
+    if (excludeTags.length > 0)
         tags = tags.substring(0, tags.length - 1) + "&";
     else
         tags = "";
 
     let crossover = "";
-    if(crossoverBool != "") {
+    if (crossoverBool != "") {
         crossover = `${type}_search[crossover]=${crossoverBool}&`;
     }
     let complete = "";
-    if(completeBool != "") {
+    if (completeBool != "") {
         complete = `${type}_search[complete]=${completeBool}&`;
     }
     let wordCount = "";
-    if(wordCountNums.length > 0) {
-        if(wordCountNums[0] != null)
+    if (wordCountNums.length > 0) {
+        if (wordCountNums[0] != null)
             wordCount += `${type}_search[words_from]=${wordCountNums[0]}&`;
-        if(wordCountNums[1] != null)
+        if (wordCountNums[1] != null)
             wordCount += `${type}_search[words_to]=${wordCountNums[1]}&`;
     }
     let date = "";
-    if(dateArr.length > 0) {
-        if(dateArr[0] != null)
+    if (dateArr.length > 0) {
+        if (dateArr[0] != null)
             date += `${type}_search[date_from]=${dateArr[0]}&`;
-        if(dateArr[1] != null)
+        if (dateArr[1] != null)
             date += `${type}_search[date_to]=${dateArr[1]}&`;
     }
     let searchWithinResults = query == "" ? "" : `${type}_search[${type == 'bookmark' ? 'bookmarkable_' : ""}query]=${query}&`;
     let language = languageId == "" ? "" : `${type}_search[language_id]=${languageId}&`;
 
     // Construct full url
-    if(ratings.length == 0 && archiveWarnings.length == 0 && categories.length == 0 && tags.length == 0 && crossover.length == 0 && wordCount.length == 0 && date.length == 0 && searchWithinResults.length == 0 && language.length == 0)
+    if (ratings.length == 0 && archiveWarnings.length == 0 && categories.length == 0 && tags.length == 0 && crossover.length == 0 && wordCount.length == 0 && date.length == 0 && searchWithinResults.length == 0 && language.length == 0)
         return null;
 
     let redirect = `${type}s?${ratings}${archiveWarnings}${categories}${tags}${crossover}${complete}${wordCount}${date}${searchWithinResults}${language}commit=Sort+and+Filter&${origin.valueOf()}${id}`;
-    if(origin == ORIGIN.COLLECTIONS)
+    if (origin == ORIGIN.COLLECTIONS)
         redirect = `https://archiveofourown.org/collections/${id}/` + redirect;
     else
         redirect = `https://archiveofourown.org/` + redirect;
@@ -164,10 +164,10 @@ function constructRedirectURLHelper(origin: ORIGIN, type: string, id: string, ex
 function parseURL(baseURL: string): [origin: string, searchType: string, id: string, extraId: string] {
     let split = baseURL.split('/');
     let end = split[split.length - 1].split("?");
-    if(split.length > 6) {
-        if(split[5] == "pseuds" && split[4] != split[6])
+    if (split.length > 6) {
+        if (split[5] == "pseuds" && split[4] != split[6])
             return [split[3], end[0].substring(0, end[0].length - 1), split[4], `pseud_id=${split[6]}` + (end.length > 1 ? `&${end[1]}` : "")];
-        else if(split[3] == 'collections')
+        else if (split[3] == 'collections')
             return [split[3], end[0].substring(0, end[0].length - 1), split[4], `tag_id=${split[6]}` + (end.length > 1 ? `&${end[1]}` : "")];
     }
 

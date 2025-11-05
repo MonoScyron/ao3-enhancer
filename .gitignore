@@ -1,9 +1,8 @@
 node_modules/
 dist/
 build/
+zip/
 testing*
 
 # JetBrains
-*.iws
-workspace.xml
-tasks.xml
+.idea

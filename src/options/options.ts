@@ -1,7 +1,5 @@
-import { STORAGE_KEYS, DEFAULT_VALUES, SETTINGS_CHANGED } from '../export/constants';
-import { WARNING, idToWarningEnum } from '../export/enums';
-import sync = browser.storage.sync;
-import { json } from "stream/consumers";
+import { DEFAULT_VALUES, SETTINGS_CHANGED, STORAGE_KEYS } from '../export/constants';
+import { idToWarningEnum, WARNING } from '../export/enums';
 
 // * Select input from document
 // Kudos to hit ratio
@@ -59,7 +57,7 @@ let settingsFile: string | null = null;
 // * Sync inputs to values saved in storage
 browser.storage.local.get(STORAGE_KEYS).then((store) => {
     //If no settings values are in storage, set default setting values in storage
-    if(Object.keys(store).length == 0) {
+    if (Object.keys(store).length == 0) {
         browser.storage.local.set(DEFAULT_VALUES).then();
         syncHTMLSettings(DEFAULT_VALUES);
     }
@@ -72,7 +70,7 @@ browser.storage.local.get(STORAGE_KEYS).then((store) => {
 // Hide by num fandoms
 hideByRatioInput.addEventListener('change', () => {
     // If value = stupid or 0, set value to empty
-    if(Number.isNaN(parseInt(hideByRatioInput.value)) || parseInt(hideByRatioInput.value) == 0)
+    if (Number.isNaN(parseInt(hideByRatioInput.value)) || parseInt(hideByRatioInput.value) == 0)
         hideByRatioInput.value = '';
 
     browser.storage.local.set({
@@ -83,7 +81,7 @@ hideByRatioInput.addEventListener('change', () => {
 // Hide by num fandoms
 hideByNumFandomInput.addEventListener('change', () => {
     // If value = stupid or 0, set value to empty
-    if(Number.isNaN(parseInt(hideByNumFandomInput.value)) || parseInt(hideByNumFandomInput.value) == 0)
+    if (Number.isNaN(parseInt(hideByNumFandomInput.value)) || parseInt(hideByNumFandomInput.value) == 0)
         hideByNumFandomInput.value = '';
 
     browser.storage.local.set({
@@ -156,7 +154,7 @@ queryInput.addEventListener("input", () => {
 
 // Tags/fandoms
 excludeTagBtn.addEventListener("click", () => {
-    if(excludeTagInput.value.length > 0) {
+    if (excludeTagInput.value.length > 0) {
         addTagElement(excludeTagInput.value);
         excludeTagInput.value = "";
     }
@@ -169,9 +167,9 @@ function addExcludeWarningListener(checkbox: HTMLInputElement) {
         let checked = checkbox.checked;
         let val = parseInt(checkbox.getAttribute("value")!);
         let index = warningList.indexOf(idToWarningEnum(val));
-        if(checked && index == -1)
+        if (checked && index == -1)
             warningList.push(idToWarningEnum(val));
-        else if(!checked)
+        else if (!checked)
             warningList.splice(index, 1);
         browser.storage.local.set({warnings: warningList}).then(() =>
             browser.runtime.sendMessage(SETTINGS_CHANGED)
@@ -192,7 +190,7 @@ function exportSettings() {
         let settingsJsonString = JSON.stringify(r);
         let settingsData = new Blob([settingsJsonString], {type: "application/json"});
 
-        if(settingsFile != null) {
+        if (settingsFile != null) {
             window.URL.revokeObjectURL(settingsFile);
         }
         settingsFile = window.URL.createObjectURL(settingsData);
@@ -209,7 +207,7 @@ function exportSettings() {
 
 function importSettings() {
     let fileList = importInput.files;
-    if(fileList != null && fileList.length > 0) {
+    if (fileList != null && fileList.length > 0) {
         // console.log("AO3Extension: Import settings") // DEBUGGING
         let file = fileList[0];
         file.text().then(r => {
@@ -287,8 +285,8 @@ function syncHTMLSettings(obj: { [key: string]: any }) {
  * @param filtering If filtering is enabled
  */
 function checkFilteringElements(filtering: boolean) {
-    for(let i = 0; i < FILTERING_ELEMENTS.length; i++)
-        if(filtering)
+    for (let i = 0; i < FILTERING_ELEMENTS.length; i++)
+        if (filtering)
             FILTERING_ELEMENTS.item(i)?.classList.remove("hidden");
         else
             FILTERING_ELEMENTS.item(i)?.classList.add("hidden");
@@ -303,7 +301,7 @@ function addTagElement(tag: string) {
     excludeTagBtn.classList.add("disabled");
     removeTagBtn.classList.add("disabled");
 
-    if(tagList.indexOf(tag) == -1) {
+    if (tagList.indexOf(tag) == -1) {
         let tagElement = document.createElement('option');
         tagElement.value = tag;
         tagElement.innerText = tag;

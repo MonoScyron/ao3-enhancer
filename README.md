@@ -85,6 +85,17 @@ npm run zip
 Then simply install the zip file in `./zip` as an add-on. You may need to go to
 the Firefox add-on debug page (`about:debugging#/runtime/this-firefox`) to add it.
 
+### Compilation
+
+Latest version of the add-on was built with these:
+
+```
+Linux Mint
+Version: 22.2
+Npm: 10.8.2
+Node: v20.19.5
+```
+
 ## Acknowledgements
 
 This addon was inspired by the extensions I use to browse AO3:

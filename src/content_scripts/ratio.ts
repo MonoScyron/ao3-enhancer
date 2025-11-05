@@ -10,7 +10,7 @@ export function addKudosToHitRatios(workList: WorkElement[]): void {
     let ratio_ddList: (HTMLElement | null)[] = [];
 
     workList.forEach((work, i) => {
-        if(work.kudos != 0 && work.hits != 0) {
+        if (work.kudos != 0 && work.hits != 0) {
             let ratio_dt = document.createElement("dt");
             ratio_dt.className = `kudos-to-hit-ratio`;
             ratio_dt.innerText = "Ratio:";
@@ -29,8 +29,8 @@ export function addKudosToHitRatios(workList: WorkElement[]): void {
     });
 
     // Add list of ratio elements to works
-    for(let i = 0; i < workList.length; i++) {
-        if(ratio_dtList[i] != null && ratio_ddList[i] != null) {
+    for (let i = 0; i < workList.length; i++) {
+        if (ratio_dtList[i] != null && ratio_ddList[i] != null) {
             workList[i].element?.querySelector('dl.stats')?.append(ratio_dtList[i]!, ratio_ddList[i]!);
         }
     }

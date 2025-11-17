@@ -12,7 +12,7 @@
     "clean-webpack-plugin": "^4.0.0"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.2",
+    "@tsconfig/recommended": "^1.0.13",
     "copy-webpack-plugin": "^13.0.1",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
